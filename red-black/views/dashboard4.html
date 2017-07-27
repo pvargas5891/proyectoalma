@@ -1,0 +1,216 @@
+<div class="page-container" >
+
+
+
+	<!-- Start page content wrapper -->
+       <div class="page-content-wrapper animated fadeInRight  ">
+            <div class="page-content">
+                <div class="row  border-bottom white-bg dashboard-header">
+                    <div class="col-sm-4">
+                        <h2>Welcome Susan</h2>
+                        <div class="list-widget">
+                            <ul class="list-unstyled clearfix">
+                                <li> <i class="fa fa-file-o"></i> <span class="text">File List</span> <span class="label btn badge-primary right">100</span>                                    </li>
+                                <li> <i class="fa fa-comments-o"></i> <span class="text">Messages</span> <span class="label btn badge-info right">40+</span>                                    </li>
+                                <li> <i class="fa fa-bullhorn"></i> <span class="text">Notifications</span> <span class="label btn badge-success right">22</span>                                   </li>
+                                <li> <i class="fa fa-hdd-o"></i> <span class="text">Bandwidth usage</span> <span class="label btn badge-danger right">80%</span>                                    </li>
+                                <li> <i class="fa fa-microphone"></i> <span class="text">Calls Attended</span> <span class="label btn badge-info circle right">55</span>                                    </li>
+                                <li> <i class="fa fa-bookmark-o"></i> <span class="text">Bookmarks Today</span> <span class="label btn circle badge-warning right">23</span>                                    </li>
+                                <li> <i class="fa fa-bug"></i> <span class="text">Bug Fix Today</span> <span class="label btn circle badge-danger right">88</span>                                  </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="demo-container statistic-box">
+                            <div ng-controller="chartJsCtrl as chart">
+                               
+                                 <canvas id="lineChart" linechart options="chart.lineOptions" data="chart.lineDataDashboard4" height="114" responsive="true"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- wrapper content start -->
+                <div class="wrapper-content ">
+                    <div class="row">
+                        <!-- tabs -->
+                        <div class="col-lg-8" ng-controller="sparklineChartCtrl as spark">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Monthly Stats </h5>
+                                    <!-- ibox-tools -->
+<div ibox-tools></div>
+                                </div>
+                                <div id="demo3" class="ibox-content collapse in">
+                                    <div class="widgets-container text-center">
+                                        <div class="row">
+                                            <div class="col-md-4 sparkline-chart "> <div sparkline spark-data="spark.pieCustomData" spark-options="spark.pieCustomOptions"></div><span class="btn "> Last Month</span> </div>
+                                            <div class="col-md-4 sparkline-chart "> <div sparkline spark-data="spark.barCustomData" spark-options="spark.barCustomOptions"></div> 
+                                            <span class="btn ">Next Month</span></div>
+                                            <div class="col-md-4 sparkline-chart "> <div sparkline spark-data="spark.lineCustomData" spark-options="spark.lineCustomOptions"></div>
+                                            <span class="btn ">Update</span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                
+                        <!-- tabs -->
+                        <div class="col-lg-4">
+                            <div class="social-feed-box">
+                                <div class="pull-right social-action dropdown">
+                                    <button data-toggle="dropdown" class="dropdown-toggle btn-white"> <i class="fa fa-angle-down"></i> </button>
+                                    <ul class="dropdown-menu m-t-xs">
+                                        <li><a href="#">Config</a></li>
+                                    </ul>
+                                </div>
+                                <div class="social-avatar">
+                                    <a href="#/profile" class="pull-left"> <img alt="image" src="images/teem/placeholders.jpg"> </a>
+                                    <div class="media-body"> <a href="#/profile">Jordan Belfort</a> <small class="text-muted">Today 9:00 pm - 11.06.20117</small> </div>
+                                </div>
+                                <div class="social-body">
+                                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque
+                                        mi felis, aliquam at iaculis eu, mi felis, aliquam at iaculis mi felis, aliquam at iaculis finibus eu ex. Integer
+                                        efficitur tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. </p>
+                                    <div class="btn-group">
+                                        <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
+                                        <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i> Comment</button>
+                                        <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Share</button>
+                                    </div>
+                                </div>
+                                <div class="social-footer">
+                                    <div class="social-comment">
+                                        <a href="#/profile" class="pull-left"> <img alt="image" src="images/teem/placeholders.jpg"> </a>
+                                        <div class="media-body"> <a href="#/profile">Susan Wenscombe</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod
+                                            eleifend ipsum, at posuere augue. <br>
+                                            <a href="#" class="small"><i class="fa fa-thumbs-up"></i> 80 Like this!</a> - <small class="text-muted">2.01.2017</small>                                           </div>
+                                    </div>
+                                    <div class="social-comment">
+                                        <a href="" class="pull-left"> <img alt="image" src="images/teem/placeholders.jpg"> </a>
+                                        <div class="media-body">
+                                            <textarea class="form-control" placeholder="Write comment..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                     
+                        
+                    </div>
+                    <div class="row bottom30">
+                     <!-- start calendar box -->
+                    <div class="col-lg-8">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Striped Table </h5>
+                                <!-- ibox-tools -->
+<div ibox-tools></div>
+                            </div>
+                            <div id="demo18" class="ibox-content collapse in">
+                            <div ng-controller="CalendarCtrl">                  
+                    
+    
+                            <div class="ibox-content collapse in">
+                                <div class="widgets-container">
+                                    <div class="widgets-container">
+                                          <div id='external-events'>
+                        <strong>Click, Drop or Resize event on calendar!</strong>
+                        <p>Message from functions:
+                        <br/>
+                            <div class="alert alert-warning" ng-show="alertMessage">
+                                {{alertMessage}}
+                            </div>
+                        </p>
+                    </div>
+                                                          
+                  <!-- Drag a event list-->
+  
+                                    </div>
+
+                                     <div ui-calendar="uiConfig.calendar" calendar="myCalendar1" class="calendar" ng-model="eventSources"></div>
+               
+                                        <div style='clear:both'></div>
+                                </div>
+                                
+                                
+        
+                   
+                                
+                     </div> 
+                            
+                        
+                    </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- End calendar box -->
+                        <div class="col-lg-4">
+                            <!-- Start feed -->
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Your daily feed </h5>
+                                    <!-- ibox-tools -->
+<div ibox-tools></div>
+                                </div>
+                                <div class="ibox-content collapse in" id="demo6">
+                                    <div class="widgets-container ">
+                                        <div class="feed-activity-list">
+                                            <div class="feed-element">
+                                                <a href="#/profile" class="pull-left"> <img alt="image" class="img-circle" src="images/teem/placeholders.jpg"> </a>
+                                                <div class="media-body "> <small class="pull-right">5m ago</small> <strong>Olivia Wenscombe</strong> posted a new blog. <br>
+                                                    <small class="text-muted">Today 5:60 pm - 12.06.2014</small> </div>
+                                            </div>
+                                            <div class="feed-element">
+                                                <a href="#/profile" class="pull-left"> <img alt="image" class="img-circle" src="images/teem/placeholders.jpg"> </a>
+                                                <div class="media-body "> <small class="pull-right">2h ago</small> <strong>Robert Angier</strong> posted message on <strong>Olivia Wenscombe</strong>                                                   site. <br>
+                                                    <small class="text-muted">Today 2:10 pm - 12.06.2014</small> </div>
+                                            </div>
+                                            <div class="feed-element">
+                                                <a href="#/profile" class="pull-left"> <img alt="image" class="img-circle" src="images/teem/placeholders.jpg"> </a>
+                                                <div class="media-body "> <small class="pull-right">2h ago</small> <strong>Ariadne</strong> add 1 photo on <strong>Olivia Wenscombe</strong>.
+                                                    <br>
+                                                    <small class="text-muted">2 days ago at 8:30am</small> </div>
+                                            </div>
+                                            <div class="feed-element">
+                                                <a href="#/profile" class="pull-left"> <img alt="image" class="img-circle" src="images/teem/placeholders.jpg"> </a>
+                                                <div class="media-body "> <small class="pull-right text-navy">5h ago</small> <strong>Alex Smith </strong> started following <strong>Olivia Wenscombe</strong>.
+                                                    <br>
+                                                    <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                                    <div class="actions"> <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                                        <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="feed-element">
+                                                <a class="pull-left" href="#/profile"> <img src="images/teem/placeholders.jpg" class="img-circle" alt="image"> </a>
+                                                <div class="media-body "> <small class="pull-right">2h ago</small> <strong>Sophie </strong> posted message on <strong>Olivia Wenscombe</strong>                                                 site. <br>
+                                                    <small class="text-muted">Yesterday 5:20 pm - 12.06.2014</small>
+                                                    <div class="well"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                                        standard dummy text ever since the 1500s. Over the years, sometimes by accident, sometimes on purpose (injected
+                                                        humour and the like). </div>
+                                                    <div class="pull-right"> <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a> </div>
+                                                </div>
+                                            </div>
+                                            <div class="feed-element">
+                                                <a href="#/profile" class="pull-left"> <img alt="image" class="img-circle" src="images/teem/placeholders.jpg"> </a>
+                                                <div class="media-body "> <small class="pull-right">23h ago</small> <strong>Olivia Wenscombe</strong> love <strong>Sophie </strong>. <br>
+                                                    <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small> </div>
+                                            </div>
+                                            <div class="feed-element">
+                                                <a href="#/profile" class="pull-left"> <img alt="image" class="img-circle" src="images/teem/placeholders.jpg"> </a>
+                                                <div class="media-body "> <small class="pull-right">46h ago</small> <strong>Mike Loreipsum</strong> started following <strong>Olivia Wenscombe</strong>.
+                                                    <br>
+                                                    <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End feed -->
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,362 @@
+
+<div class="page-container" >
+	<!-- Start page content wrapper -->
+		<div class="page-content-wrapper animated fadeInRight" ng-controller="dashboardTwo as chart">
+			<div class="page-content">
+				<div class=" row  border-bottom white-bg dashboard-header">
+					<div>
+						<div class="col-md-3">
+							<div class="row">
+								<!-- begin col-12 -->
+								<div class="col-md-12 col-sm-6">
+									<div class="widget widget-stats red-bg">
+										<div class="stats-icon stats-icon-lg"><i class="fa fa-globe fa-fw"></i></div>
+										<div class="stats-title">TODAY'S VISITS</div>
+										<div class="stats-number">7,842,900</div>
+										<div class="stats-progress progress">
+											<div style="width: 70.1%;" class="progress-bar"></div>
+										</div>
+										<div class="stats-desc">Better than last week (70.1%)</div>
+									</div>
+								</div>
+								<!-- end col-12 -->
+								<!-- begin col-12 -->
+								<div class="col-md-12 col-sm-6 top15 ">
+									<div class="widget widget-stats aqua-bg ">
+										<div class="stats-icon stats-icon-lg"><i class="fa fa-tags fa-fw"></i></div>
+										<div class="stats-title">TODAY'S PROFIT</div>
+										<div class="stats-number">180,200</div>
+										<div class="stats-progress progress">
+											<div style="width: 40.5%;" class="progress-bar"></div>
+										</div>
+										<div class="stats-desc">Better than last week (40.5%)</div>
+									</div>
+								</div>
+								<!-- end col-12 -->
+							</div>
+						</div>
+						<div class="col-sm-9 mtop15">
+							<div class="small pull-right col-md-3  text-right"> <strong>There are many</strong> variations of passages of Lorem Ipsum available, but the majority have suffered. </div>
+							<div class="small pull-right col-md-3  "> <strong>Sales char</strong> have evolved over the years sometimes. </div>
+							<div class="borderNone flot-chart-box-d2" ng-controller="amChartsCtrl">
+                    <!-- graf -->
+                        <div id="chartdiv3"><am-chart id="myFirstChart17" options="dashBoard2"></am-chart></div>
+                    <!-- graf --> 					
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="wrapper-content ">
+					<div class="row">
+						<div class="col-md-6 mtop15">
+							<div class="profile-image"> <img alt="profile" class="img-circle circle-border m-b-md" src="images/teem/placeholders.jpg"> </div>
+							<div class="profile-info">
+								<div>
+									<div>
+										<h2 class="no-margins"> Susan Wenscombe </h2>
+										<h4>Graphics designer</h4>
+										<small> There are many variations of passages of Lorem Ipsum available, but the majority
+                  have suffered alteration in some form Ipsum available. </small> </div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 mtop15">
+							<table class="table small m-b-xs">
+								<tbody>
+									<tr>
+										<td><strong>15</strong> Projects </td>
+										<td><strong>22 </strong>All Open Issues </td>
+									</tr>
+									<tr>
+										<td><strong>61</strong> Comments </td>
+										<td><strong>54</strong> Articles </td>
+									</tr>
+									<tr>
+										<td><strong>154</strong> Tags </td>
+										<td><strong>32</strong> Friends </td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-md-3"> <small>Status of Projects</small>
+							<h2 class="no-margins">206 480</h2>
+							<div sparkline spark-data="chart.sparkline1" spark-options="chart.sparkline1Options"></div>
+						</div>
+					</div>
+					<div class="row">
+						<!-- tabs -->
+						<div class="col-lg-12 margin-bottom-20 tabs-container dashboard-tab-data-box" ng-controller="datatablesCtrl">
+						 <uib-tabset>
+                    <uib-tab heading="Open Issues">
+                          <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12"> <strong>Lorem ipsum dolor sit amet, consectetuer adipiscing</strong> <a href="" class="btn green btn-xs right"> Search Open Issues</a>                                                   </div>
+                                            </div>
+                                            <div>
+                                                <div class="table table-hover top15">
+                                                    <table datatable="" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Position</th>
+                                                                <th>Label</th>
+                                                                <th>Author</th>
+                                                                <th>Status </th>
+                                                                <th>date</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td> #24312</td>
+                                                                <td><strong>Establishing our approach to icons </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UI</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24311</td>
+                                                                <td><strong>Establishing our color perspective </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UX</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24310</td>
+                                                                <td><strong>On mobile, can't add a member to a project </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-primary ">customer</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24309</td>
+                                                                <td><strong>Improve protected branches summary </strong> <br> opened about 2 hours ago by Drew Blessing</td>
+                                                                <td><span class="label btn badge-danger ">Frontend</span> <span class="label btn badge-danger ">UX</span>
+                                                                    <span
+                                                                        class="label btn badge-primary ">customer</span>
+                                                                </td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24312</td>
+                                                                <td><strong>Establishing our approach to icons </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UI</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24371</td>
+                                                                <td><strong>Establishing our color perspective </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UX</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>40%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24380</td>
+                                                                <td><strong>On mobile, can't add a member to a project </strong> <br> opened 3 minutes ago</td>
+                                                                <td></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>3%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24709</td>
+                                                                <td><strong>Improve protected branches summary </strong> <br> opened about 2 hours ago by Drew Blessing</td>
+                                                                <td><span class="label btn badge-danger  ">customer</span> </td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>10%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                          
+                                           
+ 
+                    </uib-tab>
+                    <uib-tab heading="Closed Issues">
+                         
+    <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12"> <strong>Lorem ipsum dolor sit amet, consectetuer adipiscing</strong> <a href="" class="btn green btn-xs right"> Search Closed Issues </a>                                                    </div>
+                                            </div>
+                                            <div>
+                                                <div class="table table-hover top15">
+                                                     <table datatable="" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Position</th>
+                                                                <th>Label</th>
+                                                                <th>Author</th>
+                                                                <th>Status </th>
+                                                                <th>date</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td> #24312</td>
+                                                                <td><strong>Establishing our approach to icons </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UI</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24311</td>
+                                                                <td><strong>Establishing our color perspective </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UX</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24310</td>
+                                                                <td><strong>On mobile, can't add a member to a project </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-primary ">customer</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                  
+                    </uib-tab>
+                     <uib-tab heading="All Issues">                         
+
+ <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12"> <strong>Lorem ipsum dolor sit amet, consectetuer adipiscing</strong> <a href="" class="btn green btn-xs right"> Search Issues </a>                                                   </div>
+                                            </div>
+                                            <div class="table table-hover top15">
+                                                     <table datatable="" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Position</th>
+                                                                <th>Label</th>
+                                                                <th>Author</th>
+                                                                <th>Status </th>
+                                                                <th>date</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td> #24312</td>
+                                                                <td><strong>Establishing our approach to icons </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UI</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24311</td>
+                                                                <td><strong>Establishing our color perspective </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UX</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24310</td>
+                                                                <td><strong>On mobile, can't add a member to a project </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-primary ">customer</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24309</td>
+                                                                <td><strong>Improve protected branches summary </strong> <br> opened about 2 hours ago by Drew Blessing</td>
+                                                                <td><span class="label btn badge-danger ">Frontend</span> <span class="label btn badge-danger ">UX</span>
+                                                                    <span
+                                                                        class="label btn badge-primary ">customer</span>
+                                                                </td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24312</td>
+                                                                <td><strong>Establishing our approach to icons </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UI</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>20%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24371</td>
+                                                                <td><strong>Establishing our color perspective </strong> <br> opened 3 minutes ago</td>
+                                                                <td><span class="label btn badge-danger ">UX</span></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>40%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24380</td>
+                                                                <td><strong>On mobile, can't add a member to a project </strong> <br> opened 3 minutes ago</td>
+                                                                <td></td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>3%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> #24709</td>
+                                                                <td><strong>Improve protected branches summary </strong> <br> opened about 2 hours ago by Drew Blessing</td>
+                                                                <td><span class="label btn badge-danger  ">customer</span> </td>
+                                                                <td> by Allison Whilden </td>
+                                                                <td><strong>10%</strong></td>
+                                                                <td>Jul 14, 2015</td>
+                                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  
+                    </uib-tab>
+                </uib-tabset>
+
+							
+						</div>
+						<!-- tabs -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

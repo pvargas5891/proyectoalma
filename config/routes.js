@@ -17,7 +17,7 @@ app.constant('USER_ROLES', {
                 controller: "loginCtrl",
                 templateUrl: "views/login.html"
             })
-            .otherwise({redirectTo:'/login'});
+            .otherwise({redirectTo:'/home'});
 
     }).run(function ($rootScope, $location, $http, AuthSharedService, Session, USER_ROLES, $q, $timeout,LayouHomeService) {
 
