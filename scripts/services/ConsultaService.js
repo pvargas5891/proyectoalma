@@ -54,11 +54,30 @@ app.service('Session', function (LayouHomeService) {
 });
 
 
-app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session, store, jwtHelper) {
+app.service('AuthSharedService', AuthSharedService);
+
+
+    function AuthSharedService ($rootScope, $http, $resource, authService, Session, store, jwtHelper) {
     // $http.defaults.useXDomain = true;
-    return {
-        login: function (userName, password, rememberMe, tipoLogin) {
-            var config = {
+    
+        this.login = function (data,successCallback, errorCallback) {
+
+            var path = REST_SERVICE_URI + '/authenticate';
+            var encodedString = btoa("bill:abc123");
+            // config.headers.Authorization = 'Basic '+encodedString;
+            var req = {
+                method: 'POST',
+                url: path,
+                ignoreAuthModule: 'ignoreAuthModule',
+                headers: {
+                    'Content-Type': "application/x-www-form-urlencoded",
+                    'Authorization': 'Basic '+encodedString
+                },
+                data: $.param(data)
+            };
+            return $http(req).then(successCallback, errorCallback);
+
+            /*var config = {
                 ignoreAuthModule: 'ignoreAuthModule',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 // headers: {'Content-Type': 'application/json'}
@@ -69,12 +88,7 @@ app.service('AuthSharedService', function ($rootScope, $http, $resource, authSer
             // config.headers.Authorization = 'Basic '+encodedString;
             store.set('jwt', null);
 
-            $http.post(REST_SERVICE_URI + '/authenticate', $.param({
-                username: userName,
-                password: password,
-                rememberme: rememberMe,
-                tipoLogin: tipoLogin
-            }), config)
+            $http.post(REST_SERVICE_URI + '/authenticate', $.param(data), config)
                 .success(function (data, status, headers, config, response) {
                     console.log('autenticacion OK config');
                     console.log(config);
@@ -95,9 +109,10 @@ app.service('AuthSharedService', function ($rootScope, $http, $resource, authSer
                     console.log('dta');
                     $rootScope.authenticationError = true;
                     Session.invalidate();
-                });
-        },
-        getAccount: function () {
+                });*/
+        };
+
+        this.getAccount = function (data, successCallback, errorCallback) {
             $rootScope.loadingAccount = true;
             console.log('obteniendo del store');
             console.log(store.get('jwt'));
@@ -114,8 +129,9 @@ app.service('AuthSharedService', function ($rootScope, $http, $resource, authSer
                         console.log(response.data);
                         authService.loginConfirmed(response.data);
                     });
-        },
-        isAuthorized: function (authorizedRoles) {
+        };
+
+        this.isAuthorized = function (authorizedRoles) {
             if (!angular.isArray(authorizedRoles)) {
                 if (authorizedRoles == '*') {
                     return true;
@@ -131,17 +147,18 @@ app.service('AuthSharedService', function ($rootScope, $http, $resource, authSer
                 }
             });
             return isAuthorized;
-        },
-        logout: function () {
+        };
+
+        this.logout = function () {
             $rootScope.authenticationError = false;
             $rootScope.authenticated = false;
             $rootScope.account = null;
             $http.get(REST_SERVICE_URI + '/logout');
             Session.invalidate();
             authService.loginCancelled();
-        }
-    };
-});
+        };
+
+ }
 
 app.service('HomeService', function ($rootScope, $log, $resource, store, jwtHelper, $http) {
 

@@ -8,5 +8,6 @@ var app = angular.module('Alma',
 	'angular-spinkit', 
 	'angular-md5', 
 	'angular-storage', 
-	'angular-jwt'
+	'angular-jwt',
+	'ngCookies'
 	]);
