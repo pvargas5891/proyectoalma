@@ -1,7 +1,7 @@
 var app = angular.module('Alma', 
 	[
 	'ngResource', 
-	'ngRoute', 
+	'ui.router', 
 	'swaggerUi', 
 	'http-auth-interceptor', 
 	'ngAnimate', 

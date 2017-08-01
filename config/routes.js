@@ -2,9 +2,10 @@ app.constant('USER_ROLES', {
     all: '*',
     admin: 'admin',
     user: 'user'
-}).config(function($routeProvider, USER_ROLES){
-        $routeProvider
-            .when("/home", {
+}).config(function($stateProvider, $urlRouterProvider, USER_ROLES){
+   $urlRouterProvider.otherwise('/login');
+        $stateProvider
+            .state("home", {
                 url: "/home",
                 controller: "homeCtrl",
                 templateUrl: "views/home.html",
@@ -12,14 +13,15 @@ app.constant('USER_ROLES', {
 		            loginRequired: true,
 		            authorizedRoles: [USER_ROLES.all]
 		        }
-            }).when("/login", {
+            }).state("login", {
                 url: "/login",
                 controller: "loginCtrl",
                 templateUrl: "views/login.html"
-            })
-            .otherwise({redirectTo:'/home'});
+            });
 
-    }).run(function ($rootScope, $location,$cookies, $http, AuthSharedService, Session, USER_ROLES, $q, $timeout,LayouHomeService) {
+            
+
+    }).run(function ($rootScope,$state, $location,$cookies, $http, AuthSharedService, Session, USER_ROLES, $q, $timeout,LayouHomeService) {
 
     // $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
     // $httpProvider.defaults.useXDomain = true;
@@ -27,7 +29,7 @@ app.constant('USER_ROLES', {
 
         console.log('Iniciando:');
         // keep user logged in after page refresh
-        $rootScope.globals = $cookies.getObject('globals') || {};
+      /*  $rootScope.globals = $cookies.getObject('globals') || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
         }
@@ -37,8 +39,8 @@ app.constant('USER_ROLES', {
             var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
-                $location.path('/login');
+                $state.go('login');
             }
-        });
+        });*/
         
     });

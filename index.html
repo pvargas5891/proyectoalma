@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Alma" ng-controller="loginCtrl">
+<html ng-app="Alma">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,10 +18,21 @@
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
 
+        
+    </head>
+
+
+    <body class="fixed-left">
+        
+        <!-- Loader -->
+        <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+        <div ui-view></div>
+
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="bower_components/angular-swagger-ui/dist/scripts/swagger-ui.js"></script>
         <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
         <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -43,131 +54,6 @@
         <script type="text/javascript" src="scripts/controller/principalCtrl.js"></script>
         <script type="text/javascript" src="scripts/controller/homeCtrl.js"></script>
         <script type="text/javascript" src="scripts/controller/loginCtrl.js"></script>
-    </head>
-
-
-    <body class="fixed-left">
-        
-        <!-- Loader -->
-        <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
-
-        <!-- Begin page -->
-        <div id="wrapper">
-
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="left side-menu" ng-show="nomostrar">
-                <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
-                    <i class="ion-close"></i>
-                </button>
-
-                <!-- LOGO -->
-                <div class="topbar-left">
-                    <div class="text-center">
-                        <!--<a href="index.html" class="logo">Admiry</a>-->
-                        <!-- <a href="index.html" class="logo"><img src="assets/images/logo.png" height="42" alt="logo"></a> -->
-                        <a href="index.html" class="logo"><img src="assets/images/users/avatar-1.jpg" alt="" class="rounded-circle"></a>
-                    </div>
-                </div>
-
-                <div class="sidebar-inner slimscrollleft">
-
-                    <div class="user-details">
-                        <!-- div class="text-center">
-                            <img src="assets/images/users/avatar-1.jpg" alt="" class="rounded-circle">
-                        </div> -->
-                        <div class="user-info">
-                            <h4 class="font-16">{{firstName}} {{lastName}}</h4>
-                            <span class="text-muted user-status"><i class="fa fa-dot-circle-o text-success"></i> Online</span>
-                        </div>
-                    </div>
-
-                    <div id="sidebar-menu">
-                        <ul>
-                           <!-- <li>
-                                <a href="index.html" class="waves-effect">
-                                    <i class="mdi mdi-view-dashboard"></i>
-                                    <span> Dashboard <span class="badge badge-primary pull-right">8</span></span>
-                                </a>
-                            </li>
- -->
-                            <li ng-repeat="menu in listadoMenu" class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-buffer"></i> <span> {{menu.nomMenu}} </span> </a>
-                            </li>
-                           
-
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                </div> <!-- end sidebarinner -->
-            </div>
-            <!-- Left Sidebar End -->
-
-            <!-- Start right Content here -->
-
-            <div ng-class="content">
-                <!-- Start content -->
-                <div class="content">
-
-                    <!-- Top Bar Start -->
-                    <div class="topbar" ng-show="nomostrar">
-
-                        <nav class="navbar-custom">
-
-                            <ul class="list-inline float-right mb-0">
-                               
-                                <li class="list-inline-item dropdown notification-list">
-                                    <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
-                                       aria-haspopup="false" aria-expanded="false">
-                                        <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right profile-dropdown ">                                       
-                                        <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Cerrar Sesión</a>
-                                    </div>
-                                </li>
-
-                            </ul>
-
-                            <ul class="list-inline menu-left mb-0">
-                                <li class="list-inline-item">
-                                    <button type="button" class="button-menu-mobile open-left waves-effect">
-                                        <i class="ion-navicon"></i>
-                                    </button>
-                                </li>
-                                <li class="hide-phone list-inline-item app-search">
-                                    <h3 class="page-title">Dashboard</h3>
-                                </li>
-                            </ul>
-
-                            <div class="clearfix"></div>
-
-                        </nav>
-
-                    </div>
-                    <!-- Top Bar End -->
-
-                    <div class="page-content-wrapper ">
-
-                        <div class="container">
-
-                                <div ng-view></div>
-
-                        </div><!-- container -->
-
-
-                    </div> <!-- Page content Wrapper -->
-
-                </div> <!-- content -->
-
-                <footer class="footer">
-                    © 2017 Alma.
-                </footer>
-
-            </div>
-            <!-- End Right content here -->
-
-        </div>
-        <!-- END wrapper -->
-
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
@@ -182,11 +68,12 @@
         <script src="assets/js/jquery.nicescroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
 
-        <!--Morris Chart-->
+        <!--Morris Chart
         <script src="assets/plugins/morris/morris.min.js"></script>
         <script src="assets/plugins/raphael/raphael-min.js"></script>
-
         <script src="assets/pages/dashborad.js"></script>
+-->
+        
 
         <!-- App js -->
         <script src="assets/js/app.js"></script>
