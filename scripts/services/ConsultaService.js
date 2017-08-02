@@ -21,6 +21,26 @@ app.service('LayouHomeService', function ($rootScope, $log, $resource, $http, st
     }
 
 });
+app.service('LayouHomeService2', function  (){
+    this.getLayout = function (){
+        var objeto = {
+                "texto1":"Fono Línea de ayuda",
+                "texto2":"Sucursal Online",
+                "texto3":"Cerrar Sesión",
+                "texto4":"Bienvenido",
+                "texto5":"Rut",
+                "texto6":"Email",
+                "texto7":"Resumen de tu cuenta",
+                "texto8":"Centros de costos",
+                "texto9":"Mi Cuenta",
+                "menus": ["Mis Datos","Facturación","Mi Trafico","Mis Pagos"],
+                "iconosMenu": ["Mis Datos","Facturación","Mi Trafico","Mis Pagos"],
+                
+             };
+        return objeto;
+    }
+    return this;
+});
 app.service('Session', function (LayouHomeService) {
     this.create = function (data) {
 

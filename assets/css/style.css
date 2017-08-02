@@ -21,7 +21,7 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
-  font-weight: 600; }
+}
 
 h1 {
   line-height: 43px; }
@@ -35,7 +35,7 @@ h3 {
     color: #444444; }
 
 h4 {
-  line-height: 22px; }
+  line-height: 0px; }
   h4 small {
     color: #444444; }
 
@@ -650,7 +650,11 @@ b {
 .font-14 {
   font-size: 14px; }
 
-.font-16 {
+.font-16-bold {
+  font-size: 16px;
+  font-weight: bold;
+   }
+  .font-16 {
   font-size: 16px; }
 
 .font-18 {
@@ -2283,7 +2287,6 @@ body.fixed-left .side-menu.left {
 #sidebar-menu > ul > li > a {
   color: #707070;
   display: block;
-  padding: 17px 25px;
   background-color: #f0f1f4; }
   #sidebar-menu > ul > li > a:hover {
     color: #1d1e3a;
@@ -2340,7 +2343,7 @@ body.fixed-left .side-menu.left {
     height: 64px;
     width: 64px; }
   .user-details .user-info {
-    text-align: center; }
+    text-align: left; }
     .user-details .user-info .user-status {
       display: inline-block;
       padding: 3px 10px;

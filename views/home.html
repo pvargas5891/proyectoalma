@@ -23,9 +23,20 @@
                             <img src="assets/images/users/avatar-1.jpg" alt="" class="rounded-circle">
                         </div> -->
                         <div class="user-info">
-                            <h4 class="font-16">{{firstName}} {{lastName}}</h4>
-                            <span class="text-muted user-status"><i class="fa fa-dot-circle-o text-success"></i> Online</span>
-                        </div>
+
+							<div class="row">
+							  <div class="col-xs-6 col-sm-6"><h4 class="font-16-bold">{{bienvenido}}</h4></div>
+							  <div class="col-xs-6 col-sm-6"><h4 class="font-16">{{firstName}}</h4></div>	  
+							</div>     
+							<div class="row">
+							  <div class="col-xs-6 col-sm-6"><h4 class="font-16-bold">{{rut}}</h4></div>
+							  <div class="col-xs-6 col-sm-6"><h4 class="font-16">{{firstName}}</h4></div>	  
+							</div> 
+							<div class="row">
+							  <div class="col-xs-6 col-sm-6"><h4 class="font-16-bold">{{email}}</h4></div>
+							  <div class="col-xs-6 col-sm-6"><h4 class="font-16">{{firstName}}</h4></div>	  
+							</div>                       
+	                     </div>
                     </div>
 
                     <div id="sidebar-menu">
@@ -36,9 +47,13 @@
                                     <span> Dashboard <span class="badge badge-primary pull-right">8</span></span>
                                 </a>
                             </li>
- -->
-                            <li ng-repeat="menu in listadoMenu" class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-buffer"></i> <span> {{menu.nomMenu}} </span> </a>
+ -->						<li style="margin: 20px">
+ 								<span> <h4 class="font-16">{{micuenta}}</h4></span>		
+ 							</li>
+ 							<hr>
+                            <li ng-repeat="menu in listadoMenu">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-buffer"></i> <span> {{menu}} </span> </a>
+                                <hr>
                             </li>
                            
 
@@ -58,21 +73,7 @@
                     <!-- Top Bar Start -->
                     <div class="topbar">
 
-                        <nav class="navbar-custom">
-
-                            <ul class="list-inline float-right mb-0">
-                               
-                                <li class="list-inline-item dropdown notification-list">
-                                    <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
-                                       aria-haspopup="false" aria-expanded="false">
-                                        <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right profile-dropdown ">                                       
-                                        <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Cerrar Sesión</a>
-                                    </div>
-                                </li>
-
-                            </ul>
+                        <nav class="navbar-custom">                            
 
                             <ul class="list-inline menu-left mb-0">
                                 <li class="list-inline-item">
