@@ -1,18 +1,20 @@
 
 app.controller('homeCtrl', homeCtrl);
 
-function homeCtrl($scope,factoryTest,LayouHomeService2,Session){
+function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session){
 
 	$scope.firstName = factoryTest.devuelveNombre();
 	$scope.lastName = factoryTest.devuelveApellido();
     $scope.rutCliente = "15794539-4";
     $scope.emailCliente = "pvargas.figueroa@gmail.com";
-	/*LayouHomeService.getLayout().$promise.then(function(data) {
+	LayouHomeService.getLayout().$promise.then(function(data) {
 		console.debug(data);
-       $scope.listadoMenu=data.menues;
-    });*/
+       //$scope.listadoMenu=data.menues;
+    });
     var layout = LayouHomeService2.getLayout();
     console.debug(layout);
+    $scope.sucursalonlineImagen=layout.imagenSucursalOnline;
+    $scope.logoOficial=layout.logoOficial;
     $scope.listadoMenu = layout.menus;
     $scope.fonolineaayuda = layout.texto1;
     $scope.sucursalonline = layout.texto2;
@@ -46,5 +48,6 @@ function homeCtrl($scope,factoryTest,LayouHomeService2,Session){
     $scope.saldo= layout.texto30;
     $scope.saldoanterior= layout.texto31;
     $scope.total= layout.texto32;
+    $scope.vermas= layout.texto33;
 
 }
