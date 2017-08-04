@@ -2423,7 +2423,7 @@ File: Responsive
     display: block; }
 
   .page-title {
-    display: none; } }
+    font-size: 15px; } }
 @media (max-width: 420px) {
   .hide-phone, .notify-icon {
     display: none; }

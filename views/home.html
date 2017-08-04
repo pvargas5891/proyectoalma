@@ -47,37 +47,17 @@
             <div class="card-block">           
 
                 <ul class="list-inline widget-chart text-center">
-                    <li>
-                        <div class="user-info">   
-                        <div class="row">
-                              <div class="col-xs-3 col-sm-3"><h4 class="font-16-bold">{{bienvenido}} </h4></div>
-                              <div class="col-xs-9 col-sm-9"><h4 class="font-16-bold">{{firstName}} {{lastName}}</h4></div>     
-                            </div>  
-                            <div class="row">
-                              <div class="col-xs-2 col-sm-2"><h4 class="font-16-bold">{{rut}}</h4></div>
-                              <div class="col-xs-6 col-sm-6"><h4 class="font-16-bold">{{rutCliente}}</h4></div>     
-                            </div> 
-                            <div class="row">
-                              <div class="col-xs-2 col-sm-2"><h4 class="font-16-bold">{{email}}</h4></div>
-                              <div class="col-xs-6 col-sm-6"><h4 class="font-16-bold">{{emailCliente}}</h4></div>     
-                            </div>                       
-                         </div>
-                    </li>
-                    <li>
-                       &nbsp;
-                    </li>
-                    <li>
-                        <img src="assets/images/sucursalOnline.jpg">
-                        <!--div class="user-info">    
-                            <div class="row">                              
-                              <div class="col-xs-6 col-sm-6"><h4 class="font-16-bold">{{cerrarSesion}}</h4></div>     
-                            </div> 
-                            <div class="row">
-                              <div class="col-xs-2 col-sm-2"><h4 class="font-16-bold">{{email}}</h4></div>
-                              <div class="col-xs-6 col-sm-6"><h4 class="font-16-bold">{{emailCliente}}</h4></div>     
-                            </div>                       
-                         </div-->
-                    </li>
+                <div class="row">
+                      <div class="col-md-6" style="text-align: left;">
+                          <h4 class="font-16">{{bienvenido}} {{firstName}} {{lastName}}</h4>
+                          <h4 class="font-16">{{rut}} {{rutCliente}}</h4>
+                          <h4 class="font-16">{{email}} {{emailCliente}}</h4>
+                      </div>
+                      <div class="col-md-6" style="margin-top: 40px;">
+                        <img src="assets/images/sucursalOnline.jpg" class="img-responsive">
+                      </div>
+                    </div>
+                    
                 </ul>
 
             </div>
