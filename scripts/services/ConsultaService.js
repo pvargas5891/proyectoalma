@@ -33,6 +33,8 @@ app.service('LayouHomeService2', function  (){
                 "texto7":"Resumen de tu cuenta",
                 "texto8":"Centros de costos",
                 "texto9":"Mi Cuenta",
+                "texto10":"Cerrar Sesion",
+                "texto11":"NOTIFICACIONES",
                 "menus": ["Mis Datos","Facturación","Mi Trafico","Mis Pagos"],
                 "iconosMenu": ["Mis Datos","Facturación","Mi Trafico","Mis Pagos"],
                 

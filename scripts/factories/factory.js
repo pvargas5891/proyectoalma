@@ -7,7 +7,7 @@ function funcionInterna(){
 		return 'Pablo';
 	};
 	this.devuelveApellido = function(){
-		return 'Vargas';
+		return 'Vargas Figueroa';
 	};
 	return this;
 }

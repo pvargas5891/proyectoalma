@@ -21,7 +21,7 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
-}
+  font-weight: 600; }
 
 h1 {
   line-height: 43px; }
@@ -35,7 +35,7 @@ h3 {
     color: #444444; }
 
 h4 {
-  line-height: 0px; }
+  line-height: 22px; }
   h4 small {
     color: #444444; }
 
@@ -650,13 +650,13 @@ b {
 .font-14 {
   font-size: 14px; }
 
+.font-16 {
+  font-size: 16px; }
 .font-16-bold {
   font-size: 16px;
-  font-weight: bold;
-   }
-  .font-16 {
-  font-size: 16px; }
-
+    text-align: left;
+    line-height: 4px;
+  }
 .font-18 {
   font-size: 18px; }
 
@@ -2189,7 +2189,7 @@ File: Menu
 .side-menu {
   bottom: 0;
   top: 0;
-  width: 240px;
+  width: 350px;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -2207,11 +2207,12 @@ body.fixed-left .side-menu.left {
   position: fixed; }
 
 .content-page {
-  margin-left: 240px;
+  margin-left: 350px;
   overflow: hidden; }
 
 .content-page > .content {
   margin-bottom: 60px;
+  padding: 20px 40px;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -2287,6 +2288,7 @@ body.fixed-left .side-menu.left {
 #sidebar-menu > ul > li > a {
   color: #707070;
   display: block;
+  padding: 17px 25px;
   background-color: #f0f1f4; }
   #sidebar-menu > ul > li > a:hover {
     color: #1d1e3a;
@@ -2380,7 +2382,7 @@ File: Responsive
     padding-left: 10px; }
 
   .content-page > .content {
-    padding: 0px; } }
+    padding: 20px; } }
 @media (max-width: 767px) {
   body {
     overflow-x: hidden; }
