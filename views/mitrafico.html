@@ -28,13 +28,119 @@
                                 <option value="0">975687660</option>
                             </select>
                       </div>
-                    </div>    
+                    </div> 
+                     <div class="alert alert-success" ng-show="sindeuda" role="alert" style="margin-top: 10px;">
+                        <strong>{{sindeudatext}}</strong>
+                  </div> 
+                  <div class="alert alert-warning" ng-show="apunto" role="alert">
+                      <strong>{{apuntovencer}}!</strong> {{apuntovencer2}}
+                  </div>
+                  <div class="alert alert-danger" ng-show="condeuda" role="alert">
+                      <strong>{{presentadeuda}}</strong> {{presentadeuda2}}
+                  </div>      
                 </ul>
 
             </div>
         </div>
     </div>
-mi trafico
+
+    <div class="col-md-12" style="text-align: left;">
+        <div class="card m-b-20">
+            <div class="card-block" >  
+               <ul class="list-inline widget-chart">
+                          <div class="row">
+                            <div class="col-md-12"><h4 class="font-16">Resumen Tráfico</h4></div>
+                          </div>                      
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="row text-center">
+                                  <div class="col-lg-4 text-center">
+                                      <h5 class="font-16 m-b-20">Display previous value</h5>
+                                      <input class="knob" data-width="150" data-min="-100" data-fgcolor="#eb7475" data-displayprevious="true" value="44">
+                                  </div>
+                                  <div class="col-lg-4 text-center">
+                                      <h5 class="font-16 m-b-20">Display previous value</h5>
+                                      <input class="knob" data-width="150" data-min="-100" data-fgcolor="#eb7475" data-displayprevious="true" value="44">
+                                  </div>
+                                  <div class="col-lg-4 text-center">
+                                      <h5 class="font-16 m-b-20">Display previous value</h5>
+                                      <input class="knob" data-width="150" data-min="-100" data-fgcolor="#eb7475" data-displayprevious="true" value="44">
+                                  </div>
+                              </div>
+                            </div>
+                          </div> 
+                        </ul>
+                         <hr>
+                        <ul class="list-inline widget-chart">
+                  <div class="row">
+                    <div class="col-md-12"><h4 class="font-16">Descarga detalle de tráfico</h4></div>
+                  </div> 
+                                     
+                  <div class="row">
+                    <div class="col-md-2"><select class="form-control">
+                        <option>Descargar Por</option>
+                    </select></div>
+                    <div class="col-md-2" style="text-align: right;padding-top: 5px;">Fecha Inicio:</div>
+                    <div class="col-md-2"><select class="form-control">
+                        <option>Mes</option>
+                    </select></div>
+                    <div class="col-md-2" style="text-align: right;padding-top: 5px;">Fecha Fin:</div>
+                    <div class="col-md-2"><select class="form-control">
+                        <option>Mes</option>
+                    </select></div>
+                    <div class="col-md-2"><button type="button" class="btn btn-info">Descargar</button></div>
+                  </div> 
+                  <div class="row">
+                    <div class="col-md-12">
+                      Puedes descargar tu detalle tráfico de los últimos 3 meses, por Rut, Centro de costo, o bien por número de celular. En las próximas horas, te enviaremos un correo a tu email registrado con el link de descarga, el que estará disponible por seguridad durante 12 horas, si necesitas más ayuda visita Yo tengo en nuestro centro de ayuda.
+                    </div>                   
+                  </div>                    
+                </ul>
+                <hr>
+                <ul class="list-inline widget-chart">
+                  <div class="row">
+                    <div class="col-md-12"><h4 class="font-16">Detalle del período</h4></div>
+                  </div> 
+                  <div class="row">
+                    <div class="col-md-12" style="text-align: right;"><button type="button" class="btn btn-info">Bajar Excel</button></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-hover m-b-0">
+                                  <thead>
+                                  <tr style="background-color: #f0f1f4;">
+                                      <th>Fecha</th>
+                                      <th>Hora</th>
+                                      <th>Destino</th>                                                    
+                                      <th>Duración</th>
+                                      <th>Tipo</th>
+                                      
+                                  </tr>
+
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td>folio</td>
+                                      <td>emision</td>
+                                      <td>vencimiento</td>
+                                      <td>monto</td>
+                                      <td>estado</td>                                      
+                                  </tr>                                       
+
+                                  </tbody>
+                              </table>
+                            </div>
+                          </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      Las llamadas aquí expuestas pueden incluir llamadas a números gratuitos, los cuales no se facturan. La información entregada en esta página, esta sujeta a validación al momento de la facturación. El tiempo de actualización esta con un desfase de 24 horas.
+                    </div>                   
+                  </div>                    
+                </ul>
+                  </div>
+                </div>
+              </div>
         
     </div>
     <!-- end row -->
@@ -43,3 +149,4 @@ mi trafico
 
 
                     </div> <!-- Page content Wrapper -->
+                     

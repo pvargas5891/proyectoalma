@@ -186,7 +186,6 @@
 
         <script type="text/javascript" src="scripts/services/ConsultaService.js"></script>    
 
-        <script type="text/javascript" src="scripts/controller/principalCtrl.js"></script>
         <script type="text/javascript" src="scripts/controller/homeCtrl.js"></script>
         <script type="text/javascript" src="scripts/controller/loginCtrl.js"></script>
         <script type="text/javascript" src="scripts/controller/misDatosCtrl.js"></script>
@@ -210,14 +209,22 @@
         <script src="assets/js/jquery.scrollTo.min.js"></script>
 
         <!--Morris Chart-->
-        <script src="assets/plugins/morris/morris.min.js"></script>
+        <!--<script src="assets/plugins/morris/morris.min.js"></script>
         <script src="assets/plugins/raphael/raphael-min.js"></script>
         
 
-        <script src="assets/pages/dashborad.js"></script>
+        <script src="assets/pages/dashborad.js"></script>-->
 
         <!-- App js -->
         <script src="assets/js/app.js"></script>
+        <!-- KNOB JS -->
+        <script src="assets/plugins/jquery-knob/excanvas.js"></script>
+        <script src="assets/plugins/jquery-knob/jquery.knob.js"></script>
 
+        <script>
+            $(function() {
+                $(".knob").knob();
+            });
+        </script>
     </body>
 </html>

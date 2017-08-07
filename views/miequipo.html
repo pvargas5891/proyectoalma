@@ -28,7 +28,16 @@
                                 <option value="0">975687660</option>
                             </select>
                       </div>
-                    </div>    
+                    </div> 
+                     <div class="alert alert-success" ng-show="sindeuda" role="alert" style="margin-top: 10px;">
+                        <strong>{{sindeudatext}}</strong>
+                  </div> 
+                  <div class="alert alert-warning" ng-show="apunto" role="alert">
+                      <strong>{{apuntovencer}}!</strong> {{apuntovencer2}}
+                  </div>
+                  <div class="alert alert-danger" ng-show="condeuda" role="alert">
+                      <strong>{{presentadeuda}}</strong> {{presentadeuda2}}
+                  </div>      
                 </ul>
 
             </div>

@@ -7,6 +7,10 @@ function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session,
 	$scope.lastName = factoryTest.devuelveApellido();
     $scope.rutCliente = "15794539-4";
     $scope.emailCliente = "pvargas.figueroa@gmail.com";
+    $scope.sindeuda = true;
+    $scope.apunto = false;
+    $scope.condeuda = false;
+
 	LayouHomeService.getLayout().$promise.then(function(data) {
 		console.debug(data);
        //$scope.listadoMenu=data.menues;
@@ -49,7 +53,11 @@ function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session,
     $scope.saldoanterior= layout.texto31;
     $scope.total= layout.texto32;
     $scope.vermas= layout.texto33;
-
+    $scope.sindeudatext = layout.texto34;
+    $scope.apuntovencer = layout.texto35;
+    $scope.apuntovencer2 = layout.texto36;
+    $scope.presentadeuda = layout.texto37;
+    $scope.presentadeuda2 = layout.texto38;
 
     $scope.redirect = function (go,name){
 
