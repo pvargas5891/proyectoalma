@@ -2189,7 +2189,7 @@ File: Menu
 .side-menu {
   bottom: 0;
   top: 0;
-  width: 350px;
+  width: 250px;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -2207,7 +2207,7 @@ body.fixed-left .side-menu.left {
   position: fixed; }
 
 .content-page {
-  margin-left: 350px;
+  margin-left: 250px;
   overflow: hidden; }
 
 .content-page > .content {

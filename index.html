@@ -39,7 +39,7 @@
                 <div class="topbar-left">
                     <div class="text-center">
                         <!--<a href="index.html" class="logo">Admiry</a>-->
-                        <a href="javascript:void(0);" class="logo"><img src="{{logoOficial}}" height="42" alt="logo"></a>
+                        <a href="javascript:void(0);" class="logo"><img src="{{logoOficial}}" height="160" alt="logo"></a>
                     </div>
                 </div>
 
@@ -48,15 +48,14 @@
                     <div id="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect">
+                                <a href="javascript:void(0);" ng-click="redirect('home','')" class="waves-effect">
                                     <i class="mdi mdi-view-dashboard"></i>
                                     <span> {{micuenta}} <span class="badge badge-primary pull-right">{{listadoMenu.length}}</span></span>
                                 </a>
                             </li>
 
                             <li ng-repeat="menu in listadoMenu">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-buffer"></i> <span> {{menu}} </span> </a>
-                                <hr>
+                                <a href="javascript:void(0);" ng-click="redirect(menu.ir,menu.name)" class="waves-effect"><i class="{{menu.icono}}"></i> <span> {{menu.name}} </span> </a>                                
                             </li>
 
                         </ul>
@@ -117,15 +116,15 @@
                                 </li>
 
                                 <li class="list-inline-item dropdown notification-list">
-                                    <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="javascript:void(0);" role="button"
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="javascript:void(0);" role="button"
                                        aria-haspopup="false" aria-expanded="false">
-                                        <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
-                                    </a>
+                                        <i class="ion-android-settings noti-icon"></i>
+                                    </a>                                    
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                        <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> {{micuenta}}</a>
+                                        <a class="dropdown-item" href="javascript:void(0);" ng-click="redirect('home','')"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> {{micuenta}}</a>
                                         <!--a class="dropdown-item" href="#"><span class="badge badge-success pull-right">5</span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a-->
                                         <!--a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a-->
-                                        <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> {{cerrarSesion}}</a>
+                                        <a class="dropdown-item" href="javascript:void(0);" ng-click="cerrarSession()"><i class="mdi mdi-logout m-r-5 text-muted"></i> {{cerrarSesion}}</a>
                                     </div>
                                 </li>
 
@@ -190,6 +189,12 @@
         <script type="text/javascript" src="scripts/controller/principalCtrl.js"></script>
         <script type="text/javascript" src="scripts/controller/homeCtrl.js"></script>
         <script type="text/javascript" src="scripts/controller/loginCtrl.js"></script>
+        <script type="text/javascript" src="scripts/controller/misDatosCtrl.js"></script>
+        <script type="text/javascript" src="scripts/controller/facturacionCtrl.js"></script>
+        <script type="text/javascript" src="scripts/controller/miTraficoCtrl.js"></script>
+        <script type="text/javascript" src="scripts/controller/misServiciosCtrl.js"></script>
+        <script type="text/javascript" src="scripts/controller/misEquipoCtrl.js"></script>
+        <script type="text/javascript" src="scripts/controller/cCorrienteCtrl.js"></script>
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>

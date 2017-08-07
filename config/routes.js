@@ -17,6 +17,30 @@ app.constant('USER_ROLES', {
                 url: "/login",
                 controller: "loginCtrl",
                 templateUrl: "views/login.html"
+            }).state("misdatos", {
+                url: "/misdatos",
+                controller: "misDatosCtrl",
+                templateUrl: "views/misdatos.html"
+            }).state("facturacion", {
+                url: "/facturacion",
+                controller: "facturacionCtrl",
+                templateUrl: "views/mifacturacion.html"
+            }).state("mitrafico", {
+                url: "/mitrafico",
+                controller: "miTraficoCtrl",
+                templateUrl: "views/mitrafico.html"
+            }).state("misservicios", {
+                url: "/misservicios",
+                controller: "misServiciosCtrl",
+                templateUrl: "views/misservicios.html"
+            }).state("miequipo", {
+                url: "/miequipo",
+                controller: "misEquipoCtrl",
+                templateUrl: "views/miequipo.html"
+            }).state("ccorriente", {
+                url: "/ccorriente",
+                controller: "cCorrienteCtrl",
+                templateUrl: "views/ccorriente.html"
             });
 
             

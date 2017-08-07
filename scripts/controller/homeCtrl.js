@@ -1,7 +1,7 @@
 
 app.controller('homeCtrl', homeCtrl);
 
-function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session){
+function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session,$state){
 
 	$scope.firstName = factoryTest.devuelveNombre();
 	$scope.lastName = factoryTest.devuelveApellido();
@@ -22,7 +22,7 @@ function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session)
     $scope.bienvenido = layout.texto4;
     $scope.rut = layout.texto5;
     $scope.email = layout.texto6;
-    $scope.titulo = layout.texto7;
+    $scope.titulo = layout.texto7;//resumen cuenta
     $scope.centrodecostos = layout.texto8;
     $scope.micuenta = layout.texto9;
     $scope.cerrarSesion = layout.texto10;
@@ -50,4 +50,11 @@ function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session)
     $scope.total= layout.texto32;
     $scope.vermas= layout.texto33;
 
+
+    $scope.redirect = function (go,name){
+
+    	$scope.titulo = (name != "")?name:layout.texto7;
+    	$state.go(go);    	
+    }
+    
 }
