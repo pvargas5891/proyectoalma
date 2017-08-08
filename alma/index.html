@@ -1,0 +1,403 @@
+<html ng-app="myApp">
+
+<head>
+
+            <meta charset="utf-8">
+            <title>Alma Cel</title>
+            <link rel="icon" type="image/jpg" href="imagenes/home/logo almacel.jpg" />
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-swagger-ui/dist/scripts/swagger-ui.js"></script>
+    <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-spinkit/src/angular-spinkit.js"></script>
+    <script src="bower_components/angular-md5/angular-md5.js"></script>
+    <script src="extern_modules/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="extern_modules/a0-angular-storage/dist/angular-storage.js"></script>
+
+
+            <link rel="stylesheet" href="resources/css/home.css">
+            <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+            <script src="bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+
+
+    <!--link rel="stylesheet" href="resources/css/css_deme/font-awesome.min.css">-->
+    <link rel="stylesheet" href="resources/css/css_deme/prettyPhoto.css">
+    <link rel="stylesheet" href="resources/css/css_deme/colpick.css">
+    <link rel="stylesheet" href="resources/css/css_deme/sequence-slider.css">
+    <link rel="stylesheet" href="resources/css/css_deme/owl.carousel.css">
+    <link rel="stylesheet" href="resources/css/css_deme/style.css">
+    <link rel="stylesheet" href="resources/css/css_deme/responsive.css">
+
+
+    <link rel="stylesheet" href="flex_comp/flexslider.css" type="text/css">
+    <script src="flex_comp/jquery.flexslider.js"></script>
+
+
+
+    <script src="resources/js/app.js"></script>
+    <script src="resources/js/authInterceptor.js"></script>
+    <script src="resources/js/controllers.js"></script>
+    <script src="resources/js/Home_ctl.js"></script>
+    <script src="resources/js/directives.js"></script>
+    <script src="resources/js/services.js"></script>
+    <script src="resources/js/Home_service.js"></script>
+
+
+    <script type="text/javascript" charset="utf-8">
+        $(window).load(function() {
+            $('.flexslider').flexslider();
+        });
+    </script>
+
+    <style>
+        #heading1 { color: #0000ff; }
+    </style>
+
+    <style>
+        #Letraslide { color: #000000; }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<div id="option-panel">
+</div><!-- End #option panel -->
+
+<div id="wrapper">
+    <header id="header">
+
+        <div id="inner-header">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-2 col-sm-3 col-xs-12 logo-container">
+                        <h1 class="logo clearfix">
+
+                            <a title="ALMA"><img src="imagenes/home/logo almacel.jpg" alt="ALMA" width="120" height="120"></a>
+
+                         </h1>
+                    </div><!-- End .col-md-5 -->
+
+
+                     <div class="col-md-10 col-sm-3 col-xs-12 header-inner-right" ng-controller="titulo_ctl" >
+
+                         <div class="row linneg" >
+
+                            <div class="header-box Personas pull-left">
+                                    <ul>
+                                        <li>
+                                        <a title="Personas pull-left" id="heading1" ng-repeat="tit in rs_tit.titulos">
+                                            <span><img src="{{tit.icnStrPersona}}" height="20" width="20"/>{{tit.personas}}</span>
+                                        </a>
+                                        </li>
+                                    </ul>
+                            </div>
+
+                             <div class="header-box Empresas pull-left">
+                                 <ul>
+                                     <li>
+                                         <a title="Empresa" ng-repeat="tit in rs_tit.titulos" >
+                                             <span ><img src="{{tit.icnStrEmpresa}}" height="20" width="20"/>{{tit.empresas}}</span>
+                                         </a>
+                                     </li>
+                                 </ul>
+                             </div>
+
+                             <div class="header-box Corporaciones pull-left">
+                                 <ul>
+                                     <li>
+                                         <a title="Corporaciones" ng-repeat="tit in rs_tit.titulos">
+                                             <span><img src="{{tit.icnStrCorporacion}}" height="20" width="20"/>{{tit.corporaciones}}</span>
+                                         </a>
+                                 </li>
+                                 </ul>
+                             </div>
+
+                             <div class="header-box Ingreso pull-right" >
+                                 <ul>
+                                     <li>
+                                         <a  title="Ingreso" ng-repeat="tit in rs_tit.titulos" href="login.html">
+                                             <span >{{tit.ingreso}} <img src="{{tit.imgStrIngreso}}" height="20" width="20"/>
+                                            </span>
+                                         </a>
+                                     </li>
+                                 </ul>
+                             </div>
+
+                         </div>
+
+                         <!--div class="row" >
+
+                            <div class="header-box barra_separador"  >
+                                    <ul>
+                                    <li>
+                                        <a>
+                                    <img class= "img-responsive" src="imagenes/home/Barra_gris.jpg" height="1" width="500"/>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                         </div>-->
+
+                         <div class="row">
+
+                             <nav class="Menu_Alma navbar-default">
+                                 <div class="container">
+                                     <div class="navbar-header">
+
+                                         <button type="button" class="navbar-toggle collapsing " data-toggle="collapse" data-target="#nvbar_btn" d>
+                                         <span clase="icon_bar"></span>
+                                         <span clase="icon_bar"></span>
+                                         <span clase="icon_bar"></span>
+                                         </button>
+                                           <a href="" class="navbar-brand"></a>
+
+                                         <div class="navbar-header collapse navbar-collapse" id ="nvbar_btn">
+
+                                         <ul class="nav navbar-nav">
+                                             <li class="dropdown">
+                                                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Productos y Servicios
+                                                 <span class="caret"></span>
+                                                 </a>
+                                                 <ul class="dropdown-menu" >
+                                                     <li><a></a>Planes Fijos</li>
+                                                     <li><a></a>Cotizador de Plan</li>
+                                                     <li><a></a>Contrata un Plan</li>
+                                                     <li><a></a>Compra un Chip-Prepago</li>
+
+                                                 </ul>
+                                             <li/>
+                                             <li><a href="">Recargas</a> </li>
+                                             <li><a href="">Tienda</a> </li>
+                                         </ul>
+                                     </div>
+                                     </div>
+                                 </div>
+
+
+
+                             </nav>
+
+
+
+
+                         </div>
+
+
+
+                    </div><!-- End .col-md-7 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+
+
+        </div><!-- End #inner-header -->
+    </header><!-- End #header -->
+
+
+<div  ng-controller="titulo_ctl">
+    <div class="row" >
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="flexslider"   >
+                <ul class="slides">
+                    <li>
+                        <img src="{{rs_tit.slides[0].imgStrSlide}}"  height="420" width="900" />
+                        <section class="flex-caption cap1">  {{rs_tit.slides[0].txtSuperior}} </section>
+                        <!--section class="flex-caption cap2">  {{rs_tit.slides[0].txtInferior}} </section>-->
+                        <button  class="supbtn btn-lg btn-primary btn-block" ng-click="login()"> {{rs_tit.slides[0].txtInferior}} </button>
+                    </li>
+                    <li>
+                        <img src="{{rs_tit.slides[1].imgStrSlide}}"  height="420" width="900" />
+                        <section class="flex-caption cap1">  {{rs_tit.slides[1].txtSuperior}} </section>
+                        <!--section class="flex-caption cap2">  {{rs_tit.slides[1].txtInferior}} </section>-->
+                        <button  class="supbtn btn-lg btn-primary btn-block" ng-click="login()"> {{rs_tit.slides[1].txtInferior}} </button>
+                    </li>
+
+                    <li>
+                        <img src="{{rs_tit.slides[2].imgStrSlide}}"  height="420" width="900" />
+                        <section class="flex-caption cap1">  {{rs_tit.slides[2].txtSuperior}} </section>
+                        <!--section class="flex-caption cap2">  {{rs_tit.slides[2].txtInferior}} </section>-->
+                        <button  class="supbtn btn-lg btn-primary btn-block" ng-click="login()"> {{rs_tit.slides[2].txtInferior}} </button>
+                    </li>
+
+                    <li>
+                        <img src="{{rs_tit.slides[3].imgStrSlide}}"  height="420" width="900" />
+                        <section class="flex-caption cap1">  {{rs_tit.slides[3].txtSuperior}} </section>
+                        <button  class="supbtn btn-lg btn-primary btn-block" ng-click="login()"> {{rs_tit.slides[3].txtInferior}} </button>
+
+
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+    <div class="sep_serv">
+              <span> Servicios Especiales </span>
+
+        <div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                <span> . </span>
+                <img src="images/PUBLICIDAD_ALMA.jpg" height="420" width="640"/></div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6 container">
+
+                <div  ng-controller="titulo_ctl">
+                    <div class="row" >
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <span class="TIT_tienda" > Recomendamos de la Tienda </span>
+                            <div class="flexslider"   >
+                                <ul class="slides">
+                                    <li>
+                                        <img src="images/telefono.jpg" />
+                                        <!--section class="flex-caption cap2">  {{rs_tit.slides[0].txtInferior}} </section>-->
+                                        <button  class="supbtn2 btn-lg btn-primary btn-block" ng-click="login()"> Ver </button>
+                                    </li>
+                                    <li>
+                                        <img src="images/telefono_2.jpg" />
+                                        <!--section class="flex-caption cap2">  {{rs_tit.slides[1].txtInferior}} </section>-->
+                                        <button  class="supbtn2 btn-lg btn-primary btn-block" ng-click="login()"> Ver </button>
+                                    </li>
+
+                                    <li>
+                                        <img src="images/telefono_2.jpg" />
+                                        <!--section class="flex-caption cap2">  {{rs_tit.slides[2].txtInferior}} </section>-->
+                                        <button  class="supbtn2 btn-lg btn-primary btn-block" ng-click="login()"> Ver </button>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+        <span>.</span>
+
+    </div>
+
+
+
+<div class="sep_acce">
+
+
+<span>  Contizador de Plan </span>
+    <br>
+    <div class="line line-dashed b-b line-lg pull-in"></div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Slider</label>
+        <div class="col-sm-10">
+            <input id="slider" ui-jq="slider" ui-options="{
+              min: 0,
+              max: 20,
+              step: 1,
+              value: 5
+            }" class="slider slider-horizontal form-control" type="text"> 5
+        </div>
+    </div>
+
+
+    <span>.</span>
+</div>
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br><br><br>
+    <br>
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--div></div> aqui esta la barra de botones laterales-->
+<div class ="accesos"  >
+
+    <ul>
+        <div class="col-sm-3 col-md-3" >
+            <li> <a href="" class="ac1"><img src="imagenes/home/QUIERO_CONTRATAR.jpg" height="80" width="350" /> </a> </li>
+        </div>
+
+
+        <div class="col-xs-3 col-sm-3 col-md-3">
+        <li> <a href="" class="ac2"> <img src="imagenes/home/PAGAR_MI_CUENTA.jpg" height="80" width="350"/></a> </li>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+        <li> <a href="" class="ac3"> <img src="imagenes/home/RECARGA_PREPAGO.jpg" height="80" width="350" /></a> </li>
+        </div>
+        <div class="col-xs-3 col-sm-1 col-md-3">
+        <li> <a href="" class="ac4"> <img src="imagenes/home/TIENDA_VIRTUAL.jpg" height="80" width="330"/></a> </li>
+        </div>
+    </ul>
+
+</div>
+<!--div></div> aqui esta la barra de botones laterales FIN-->
+
+
+
+
+
+
+
+</body>
+
+
+</html>

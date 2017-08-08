@@ -1,0 +1,187 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing:border-box ;
+    -moz-box-sizing:border-box ;
+    box-sizing:border-box ;
+}
+
+
+/* Acceesos directos INICIO */
+.accesos
+{
+    position: fixed;
+    left: 0;
+    top: 87%;
+    z-index: 2000;
+    padding: 0;
+    margin: 0;
+}
+
+.accesos ul {
+list-style: none;
+background: #0f0f0f;
+    padding: 0;
+    margin: 0;
+
+}
+
+.accesos ul div {
+    padding: 0;
+    margin: 0;
+}
+
+.accesos ul li a {
+    display: inline-table;
+    color: #b9def0;
+    background: #000000;
+    padding: 1px 1px;
+    text-decoration: none;
+    -webkit-transition:all 500ms;
+    -o-transition:all 500ms ;
+    transition:all 500ms ;
+
+}
+
+.accesos ul li .ac1 {
+    background: #cef2f7;
+    margin-left: 0%;
+}
+
+.accesos ul li .ac2 {
+    background: #b9def0;
+    margin-left: 2%;
+}
+
+.accesos ul li .ac3 {
+    background: #cef2f7 ;
+    margin-left: 5%;
+}
+
+.accesos ul li .ac4 {
+    background:#b9def0 ;
+    margin-left: 5%;
+}
+
+.accesos ul li a:hover {
+    padding: 1px 1px;
+    background:#0000ff;
+}
+
+
+
+/* Acceesos directos fin */
+
+/* slice inicio */
+
+
+
+
+
+
+
+
+
+/* slice inicio */
+
+
+/*  lineas de servicio inicio  */
+
+.sep_serv {
+
+    border: groove;
+    background: #bababa;
+    color: #ffffff;
+    font-family: "Futura BdCn BT" ;
+}
+
+
+.sep_acce {
+    border: groove;
+    background: #ffffff ;
+    color: #bababa ;
+    font-family: "Futura BdCn BT" ;
+
+}
+
+
+/*  lineas de servicio fin */
+
+
+/* Lineas de Negocio INICIO */
+
+
+.header-box {
+    background:#ffffff;
+    padding:1px 0px;
+    border:0px solid #e7e7e7;
+    font-size:13px;
+    line-height:0px;
+    margin-left:1px;
+    color:#7f7d74;
+}
+
+.header-box ul li {
+    display:block;
+    position: relative;
+    padding-left:30px;
+}
+.header-box ul li:first-child {
+    margin-bottom:2px;
+}
+
+.header-box a {
+    color:#7f7d74;
+}
+
+.header-box a:hover {
+    color:#7bae23;
+}
+
+
+.linneg {
+    border-bottom-style: solid;
+}
+
+
+/* Lineas de Negocio INICIO */
+
+
+.menu_alma {
+    background: #ffffff;
+}
+
+
+
+/* inicio footer     cambio por victor*/
+
+#footer {
+    background: #607e8c;
+    font:15px/2em 'Gudea', Arial, sans-serif !important;
+    color:#ccc;
+}
+
+#footer a {
+    color:#ccc;
+}
+
+#footer a:hover {
+    color:#84bb26;
+}
+
+
+#footer h3 {
+    font:19px/38px 'Oswald', Arial, sans-serif;
+    margin:8px 0 20px;
+    color:#e3e3e3;
+    text-transform:uppercase;
+}
+
+
+.footer-text-container {
+    text-align:right;
+}
+
+
+/* fin footer     cambio por victor*/

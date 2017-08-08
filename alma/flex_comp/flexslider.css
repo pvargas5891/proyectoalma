@@ -1,0 +1,126 @@
+@font-face {
+  font-family: 'flexslider-icon';
+  src: url('fonts/flexslider-icon.eot');
+  src: url('fonts/flexslider-icon.eot?#iefix')
+  format('embedded-opentype'),
+  url('fonts/flexslider-icon.woff') format('woff'),
+  url('fonts/flexslider-icon.ttf') format('truetype'),
+  url('fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.flexslider {
+  margin: 0 0 0px;
+  background: #fff;
+  border: 0px solid #fff;
+  position: relative;
+  zoom: 1;
+  border-radius: 4px;
+
+}
+.flexslider .slides {
+  zoom: 1;
+}
+.flexslider .slides img {
+  height: 64%;
+  width: 100%;
+  -moz-user-select: none;
+}
+.flex-direction-nav {
+  *height: 0;
+}
+.flex-direction-nav a {
+  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  overflow: hidden;
+  opacity: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+}
+.flex-direction-nav a.flex-next:before {
+  content: '\f002';
+}
+.flex-direction-nav .flex-prev {
+  left: -50px;
+}
+.flex-direction-nav .flex-next {
+  right: -50px;
+  text-align: right;
+}
+
+.flex-control-nav {
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+}
+.flex-control-nav li {
+  margin: 0 0px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+.flex-caption {
+  font-family: "Futura BdCn BT" ;
+  position: absolute;
+  top: 50%;
+  text-align: justify;
+  width: 30%;
+  font-size: 27px;
+  color: #ffffff;
+
+}
+
+
+.supbtn {
+  font-family: "Futura BdCn BT" ;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 190px;
+  font-size: 27px;
+  color: #ffffff;
+  margin-left: 10px;
+background: transparent;
+}
+.cap1 {
+  top: 10%;
+}
+
+.cap2 {
+  top: 60%;
+}
+
+.supbtn2 {
+  font-family: "Futura BdCn BT" ;
+  position: absolute;
+  top: 80%;
+  right: 10%;
+  text-align: center;
+  width: 190px;
+  font-size: 27px;
+  color: #ffffff;
+  margin-left: 10px;
+  background: #00a9bb;
+}
+
+
+.TIT_tienda {
+  font-size: 27px;
+  text-align: center;
+}
