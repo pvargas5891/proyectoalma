@@ -80,37 +80,63 @@ app.service('LayouHomeService2', function  (){
 app.service('LayoutDatosService', function  (){
     this.getLayout = function (){
         var objeto = {
-                "texto1":"Fono Línea de ayuda",
-                "texto2":"Sucursal Online",
-                "texto3":"Cerrar Sesión",
-                "texto4":"Bienvenido",
-                "texto5":"Rut",
-                "texto6":"Email",
-                "texto7":"Resumen de tu cuenta",
-                "texto8":"Centros de costos",
-                "texto9":"Resumen",
-                "texto10":"Cerrar Sesion",
-                "texto11":"NOTIFICACIONES",
-                "texto12":"Centros de costos y líneas consultadas",
-                "texto13":"Mis Datos",
-                "texto14":"Facturación",
-                "texto15":"Mi Tráfico",
-                "texto16":"Mis Pagos",
-                "texto17":"N° Celular",
-                "texto18":"N° Prip",
-                "texto19":"Mi Plan",
-                "texto20":"Ciclo",
-                "texto21":"Estado",
-                "texto22":"Vencimiento",
-                "texto23":"Total a Pagar",
-                "texto24":"Período",
-                "texto25":"Prip",
-                "texto26":"Voz",
-                "texto27":"SMS",
-                "texto28":"Internet",
-                "texto29":"Período",
-                "texto30":"Saldo"
+                "titulo1":"Datos Personales",
+                "nombres":"Nombres",
+                "apellidos":"Apellidos",
+                "rut":"Rut",
+                "celular":"N° Celular",
+                "email":"Email",
+                "guardar":"Guardar",
+                "titulo2":"Dirección",
+                "calle":"Calle",
+                "numero":"Número",
+                "region":"Región",
+                "comuna":"Comuna",
+                "editar":"Editar",
+                "clave":"Clave",
+                "enviarclave":"Enviar Clave por Email",
+                "cambiarclave":"Cambiar Clave",
+                "contratos":"Contratos",
+                "fehacreacion":"Fecha Creación",
+                "nombredocumento":"Nombre Documento",
+                "folio":"Folio",
+                "archivo":"Archivo",
+                "descargar":"Descargar"
             };
+
+
+        return objeto;
+    }
+    return this;
+});
+app.service('LayoutTraficoService', function  (){
+    this.getLayout = function (){
+        var objeto = {
+            "titulo1":"Resumen Tráfico",
+            "voz":"voz",
+            "minutos":"minutos",
+            "datos":"datos",
+            "cantidad":"GB",
+            "eventos":"Eventos",
+            "sms":"SMS",
+            "titulo2":"Descarga detalle de tráfico",
+            "fechainicio":"Fecha Inicio",
+            "fechafin":"Fecha Fin",
+            "descargar":"Descargar",
+            "explicativo1":"Puedes descargar tu detalle tráfico de los últimos 3 meses, por Rut, Centro de costo, o bien por número de celular. En las próximas horas, te enviaremos un correo a tu email registrado con el link de descarga, el que estará disponible por seguridad durante 12 horas, si necesitas más ayuda visita Yo tengo en nuestro centro de ayuda.",
+            "titulo3":"Detalle del período",
+            "bajarexcel":"Bajar Excel",
+            "fecha":"Fecha",
+            "hora":"Hora",
+            "destino":"Destino",
+            "duracion":"Duración",
+            "tipo":"Tipo",
+            "explicativo2":"Las llamadas aquí expuestas pueden incluir llamadas a números gratuitos, los cuales no se facturan. La información entregada en esta página, esta sujeta a validación al momento de la facturación. El tiempo de actualización esta con un desfase de 24 horas."
+
+            };
+
+
+
         return objeto;
     }
     return this;

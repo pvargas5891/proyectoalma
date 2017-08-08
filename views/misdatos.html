@@ -50,77 +50,79 @@
 
                 <ul class="list-inline widget-chart">
                   <div class="row">
-                    <div class="col-md-12"><h4 class="font-16">Datos Personales</h4></div>
+                    <div class="col-md-12"><h4 class="font-16">{{titulo1}}</h4></div>
                   </div>                      
                   <div class="row">
-                    <div class="col-md-2">Nombres:</div>
+                    <div class="col-md-2">{{nombres}}:</div>
                     <div class="col-md-10">{{firstName}}</div>
                   </div>
                   <div class="row">
-                    <div class="col-md-2">Apellidos:</div>
+                    <div class="col-md-2">{{apellidos}}:</div>
                     <div class="col-md-10">{{lastName}}</div>
                   </div>
                   <div class="row">
-                    <div class="col-md-2">Rut:</div>
+                    <div class="col-md-2">{{rut}}:</div>
                     <div class="col-md-10">{{rutCliente}}</div>
                   </div> 
                   <div class="row">
-                    <div class="col-md-2">N° Celular:</div>
+                    <div class="col-md-2">{{celular}}:</div>
                     <div class="col-md-10">{{rutCliente}}</div>
                   </div> 
                   <div class="row">
-                    <div class="col-md-2">Email:</div>
+                    <div class="col-md-2">{{email}}:</div>
                     <div class="col-md-5"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="emailCliente" placeholder="Email"></div>
-                    <div class="col-md-5"><button type="button" class="btn btn-info">Guardar</button></div>
+                    <div class="col-md-5"><button type="button" class="btn btn-info">{{guardar}}</button></div>
                   </div> 
                 </ul>
                 <hr>
                 <ul class="list-inline widget-chart">
                   <div class="row">
-                    <div class="col-md-12"><h4 class="font-16">Dirección</h4></div>
+                    <div class="col-md-12"><h4 class="font-16">{{titulo2}}</h4></div>
                   </div>                      
                   <div class="row">
-                    <div class="col-md-2">Calle:</div>
+                    <div class="col-md-2">{{calle}}:</div>
                     <div class="col-md-10">{{firstName}}</div>
                   </div>
                   <div class="row">
-                    <div class="col-md-2">Número:</div>
+                    <div class="col-md-2">{{numero}}:</div>
                     <div class="col-md-10">{{lastName}}</div>
                   </div>
                   <div class="row">
-                    <div class="col-md-2">Región:</div>
+                    <div class="col-md-2">{{region}}:</div>
                     <div class="col-md-10">{{rutCliente}}</div>
                   </div>                   
                   <div class="row">
-                    <div class="col-md-2">Comuna:</div>
+                    <div class="col-md-2">{{comuna}}:</div>
                     <div class="col-md-5">{{emailCliente}}</div>
-                    <div class="col-md-5"><button type="button" class="btn btn-info">Editar</button></div>
+                    <div class="col-md-5"><button type="button" class="btn btn-info">{{editar}}</button></div>
                   </div>
                 </ul>                
                  <hr>
+
+
                 <ul class="list-inline widget-chart">
                   <div class="row">
-                    <div class="col-md-12"><h4 class="font-16">Clave</h4></div>
+                    <div class="col-md-12"><h4 class="font-16">{{clave}}</h4></div>
                   </div>           
                   <div class="row">
-                    <div class="col-md-7">Enviar Clave por Email</div>                    
-                    <div class="col-md-5"><button type="button" class="btn btn-info">Cambiar Clave</button></div>
+                    <div class="col-md-7">{{enviarclave}}</div>                    
+                    <div class="col-md-5"><button type="button" class="btn btn-info">{{cambiarclave}}</button></div>
                   </div>
                 </ul>
                  <hr>                
                 <ul class="list-inline widget-chart">
                   <div class="row">
-                    <div class="col-md-12"><h4 class="font-16">Contratos</h4></div>
+                    <div class="col-md-12"><h4 class="font-16">{{contratos}}</h4></div>
                   </div>                      
                   <div class="row">
                     <div class="col-md-12">
                       <table class="table table-hover m-b-0">
                           <thead>
                           <tr style="background-color: #f0f1f4;">
-                              <th>Fecha Creación</th>
-                              <th>Nombre Documento</th>
-                              <th>Folio</th>                                                    
-                              <th>Archivo</th>
+                              <th>{{fehacreacion}}</th>
+                              <th>{{nombredocumento}}</th>
+                              <th>{{folio}}</th>                                                    
+                              <th>{{archivo}}</th>
                           </tr>
 
                           </thead>
@@ -129,7 +131,7 @@
                               <td>fecha</td>
                               <td>nombre</td>
                               <td>folio1</td>
-                              <td><button type="button" class="btn btn-link">Descargar</button></td>
+                              <td><button type="button" class="btn btn-link">{{descargar}}</button></td>
                           </tr>                                       
 
                           </tbody>
