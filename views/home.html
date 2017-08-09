@@ -1,46 +1,6 @@
 <div class="page-content-wrapper ">
 
                         <div class="container">
-
-                            <!--div class="row">
-                                <div class="col-md-6 col-lg-6 col-xl-3">
-                                    <div class="mini-stat clearfix bg-primary">
-                                        <span class="mini-stat-icon"><i class="mdi mdi-cart-outline"></i></span>
-                                        <div class="mini-stat-info text-right text-white">
-                                            <span class="counter">15852</span>
-                                            Total Sales
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-3">
-                                    <div class="mini-stat clearfix bg-primary">
-                                        <span class="mini-stat-icon"><i class="mdi mdi-currency-usd"></i></span>
-                                        <div class="mini-stat-info text-right text-white">
-                                            <span class="counter">956</span>
-                                            New Orders
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-3">
-                                    <div class="mini-stat clearfix bg-primary">
-                                        <span class="mini-stat-icon"><i class="mdi mdi-cube-outline"></i></span>
-                                        <div class="mini-stat-info text-right text-white">
-                                            <span class="counter">5210</span>
-                                            New Users
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-3">
-                                    <div class="mini-stat clearfix bg-primary">
-                                        <span class="mini-stat-icon"><i class="mdi mdi-currency-btc"></i></span>
-                                        <div class="mini-stat-info text-right text-white">
-                                            <span class="counter">20544</span>
-                                            Unique Visitors
-                                        </div>
-                                    </div>
-                                </div>
-                            </div-->
-
 <div class="row">
     <div class="col-md-12">
         <div class="card m-b-20">
@@ -96,7 +56,7 @@
                           <h4 class="font-16">{{celular}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{celularvalue}}
                       </div>
                     </div>  
                     <div class="row">
@@ -104,7 +64,7 @@
                           <h4 class="font-16">{{prip1}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{prip1value}}
                       </div>
                     </div> 
                     <div class="row">
@@ -112,12 +72,12 @@
                           <h4 class="font-16">{{miplan}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{miplanvlue}}
                       </div>
                     </div> 
                     <div class="row">
                        <div class="col-md-12" style="text-align: center; margin-top: 10px;">
-                           <button type="button" class="btn btn-secondary waves-effect">{{vermas}}</button>           
+                           <button type="button" ng-click="redirect('misdatos',resumenMisDatos)" class="btn btn-secondary waves-effect">{{vermas}}</button>           
                       </div>
                    </div>
                 </div>
@@ -138,7 +98,7 @@
                           <h4 class="font-16">{{ciclo}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{ciclovalue}}
                       </div>
                     </div>  
                     <div class="row">
@@ -146,7 +106,7 @@
                           <h4 class="font-16">{{estado}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{estadovalue}}
                       </div>
                     </div> 
                     <div class="row">
@@ -154,20 +114,20 @@
                           <h4 class="font-16">{{vencimiento}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{vencimientovalue}}
                       </div>
-                    </div> 
+                    </div>
                     <div class="row">
                       <div class="col-md-6" style="text-align: left;">
                           <h4 class="font-16">{{totalapagar}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{totalapagar}}
                       </div>
                     </div>
                      <div class="row">
                        <div class="col-md-12" style="text-align: center; margin-top: 10px;">
-                           <button type="button" class="btn btn-secondary waves-effect">{{vermas}}</button>           
+                           <button type="button" ng-click="redirect('facturacion',resumenFacturacion)" class="btn btn-secondary waves-effect">{{vermas}}</button>           
                       </div>
                    </div>
                 </div>
@@ -188,7 +148,7 @@
                           <h4 class="font-16">{{periodo1}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{periodovalue}}
                       </div>
                     </div>  
                     <div class="row">
@@ -196,7 +156,7 @@
                           <h4 class="font-16">{{prip1}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{pripvalue}}
                       </div>
                     </div> 
                     <div class="row">
@@ -204,7 +164,7 @@
                           <h4 class="font-16">{{voz}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{vozvalue}}
                       </div>
                     </div> 
                     <div class="row">
@@ -212,25 +172,25 @@
                           <h4 class="font-16">{{sms}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{smsvalue}}
                       </div>
-                    </div>
+                    </div> 
                     <div class="row">
                       <div class="col-md-6" style="text-align: left;">
                           <h4 class="font-16">{{internet}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{internetvalue}}
                       </div>
                     </div>
                      <div class="row">
                        <div class="col-md-12" style="text-align: center; margin-top: 10px;">
-                           <button type="button" class="btn btn-secondary waves-effect">{{vermas}}</button>           
+                           <button type="button" ng-click="redirect('mitrafico',resumenTrafico)" class="btn btn-secondary waves-effect">{{vermas}}</button>           
                       </div>
                    </div>
                 </div>
             </div>
-        </div>
+        </div> 
         <div class="col-xl-6">
             <div class="card m-b-20" style="height: 331px;">                
                 <div class="card-block">
@@ -244,7 +204,7 @@
                           <h4 class="font-16">{{periodo2}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{periodo2value}}
                       </div>
                     </div>  
                     <div class="row">
@@ -252,7 +212,7 @@
                           <h4 class="font-16">{{saldo}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{saldovalue}}
                       </div>
                     </div> 
                     <div class="row">
@@ -260,20 +220,20 @@
                           <h4 class="font-16">{{saldoanterior}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{saldoanteriorvalue}}
                       </div>
-                    </div> 
+                    </div>
                     <div class="row">
                       <div class="col-md-6" style="text-align: left;">
                           <h4 class="font-16">{{total}}:</h4>                          
                       </div>
                       <div class="col-md-6" style="margin-top: 10px">
-                            56975687660
+                            {{total2value}}
                       </div>
                     </div>  
                      <div class="row">
                        <div class="col-md-12" style="text-align: center; margin-top: 10px;">
-                           <button type="button" class="btn btn-secondary waves-effect">{{vermas}}</button>           
+                           <button type="button" ng-click="redirect('facturacion',resumenFacturacion)" class="btn btn-secondary waves-effect">{{vermas}}</button>           
                       </div>
                    </div>                  
                 </div>

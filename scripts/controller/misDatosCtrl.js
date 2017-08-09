@@ -1,7 +1,7 @@
 'use strict';
 app.controller('misDatosCtrl', misDatosCtrl);
 
-function misDatosCtrl($rootScope,$scope,factoryTest,LayouHomeService,LayoutDatosService,Session){
+function misDatosCtrl($rootScope,$scope,factoryTest,LayouHomeService,LayoutDatosService,Session,MisDatosService){
 
 	var layout = LayoutDatosService.getLayout();
     //console.debug(layout);
@@ -28,4 +28,18 @@ function misDatosCtrl($rootScope,$scope,factoryTest,LayouHomeService,LayoutDatos
 		$scope.folio=layout.folio;
 		$scope.archivo=layout.archivo;
 		$scope.descargar=layout.descargar;
-}
+
+		var datos=MisDatosService.getDatos('sdsd');
+		$scope.nombresvalue = datos.nombresvalue;
+		$scope.apellidosvalue = datos.apellidosvalue;
+		$scope.rutvalue = datos.rutvalue;
+		$scope.celularvalue = datos.celularvalue;
+		$scope.emailvalue= datos.emailvalue;
+
+		$scope.callevalue=datos.callevalue;
+		$scope.numerovalue=datos.numerovalue;
+		$scope.regionvalue=datos.regionvalue;
+		$scope.comunavalue=datos.comunavalue;
+
+		$scope.contratosactivos=datos.contratos;
+}		

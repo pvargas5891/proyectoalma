@@ -54,23 +54,23 @@
                   </div>                      
                   <div class="row">
                     <div class="col-md-2">{{nombres}}:</div>
-                    <div class="col-md-10">{{firstName}}</div>
+                    <div class="col-md-10">{{nombresvalue}}</div>
                   </div>
                   <div class="row">
                     <div class="col-md-2">{{apellidos}}:</div>
-                    <div class="col-md-10">{{lastName}}</div>
+                    <div class="col-md-10">{{apellidosvalue}}</div>
                   </div>
                   <div class="row">
                     <div class="col-md-2">{{rut}}:</div>
-                    <div class="col-md-10">{{rutCliente}}</div>
+                    <div class="col-md-10">{{rutvalue}}</div>
                   </div> 
                   <div class="row">
                     <div class="col-md-2">{{celular}}:</div>
-                    <div class="col-md-10">{{rutCliente}}</div>
+                    <div class="col-md-10">{{celularvalue}}</div>
                   </div> 
                   <div class="row">
                     <div class="col-md-2">{{email}}:</div>
-                    <div class="col-md-5"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="emailCliente" placeholder="Email"></div>
+                    <div class="col-md-5"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="emailvalue" placeholder="Email"></div>
                     <div class="col-md-5"><button type="button" class="btn btn-info">{{guardar}}</button></div>
                   </div> 
                 </ul>
@@ -81,19 +81,19 @@
                   </div>                      
                   <div class="row">
                     <div class="col-md-2">{{calle}}:</div>
-                    <div class="col-md-10">{{firstName}}</div>
+                    <div class="col-md-10">{{callevalue}}</div>
                   </div>
                   <div class="row">
                     <div class="col-md-2">{{numero}}:</div>
-                    <div class="col-md-10">{{lastName}}</div>
+                    <div class="col-md-10">{{numerovalue}}</div>
                   </div>
                   <div class="row">
                     <div class="col-md-2">{{region}}:</div>
-                    <div class="col-md-10">{{rutCliente}}</div>
+                    <div class="col-md-10">{{regionvalue}}</div>
                   </div>                   
                   <div class="row">
                     <div class="col-md-2">{{comuna}}:</div>
-                    <div class="col-md-5">{{emailCliente}}</div>
+                    <div class="col-md-5">{{comunavalue}}</div>
                     <div class="col-md-5"><button type="button" class="btn btn-info">{{editar}}</button></div>
                   </div>
                 </ul>                
@@ -127,10 +127,10 @@
 
                           </thead>
                           <tbody>
-                          <tr>
-                              <td>fecha</td>
-                              <td>nombre</td>
-                              <td>folio1</td>
+                          <tr ng-repeat="contrato in contratosactivos">
+                              <td>{{contrato.fecha}}</td>
+                              <td>{{contrato.nombre}}</td>
+                              <td>{{contrato.folio}}</td>
                               <td><button type="button" class="btn btn-link">{{descargar}}</button></td>
                           </tr>                                       
 

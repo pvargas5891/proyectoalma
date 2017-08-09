@@ -1,7 +1,7 @@
 
 app.controller('homeCtrl', homeCtrl);
 
-function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session,$state){
+function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,ResumenService,Session,$state){
 
 	$scope.firstName = factoryTest.devuelveNombre();
 	$scope.lastName = factoryTest.devuelveApellido();
@@ -59,8 +59,31 @@ function homeCtrl($scope,factoryTest,LayouHomeService2,LayouHomeService,Session,
     $scope.presentadeuda = layout.texto37;
     $scope.presentadeuda2 = layout.texto38;
 
-    $scope.redirect = function (go,name){
+    var datos=ResumenService.getDatosResumen('123');
+    $scope.celularvalue = datos.numeroprincipal;
+    $scope.prip1value = datos.prip;
+    $scope.miplanvlue = datos.plan;
 
+    var facturacion=ResumenService.getFacturacionResumen('123');
+    $scope.totalapagar = facturacion.total;
+    $scope.vencimientovalue = facturacion.vencimiento;
+    $scope.estadovalue = facturacion.estado;
+    $scope.ciclovalue = facturacion.ciclo;
+
+    var trafico=ResumenService.getMiTraficoResumen('123');
+    $scope.internetvalue = trafico.internet;
+    $scope.smsvalue  = trafico.sms;
+    $scope.vozvalue  = trafico.voz;
+    $scope.pripvalue  = trafico.prip;
+    $scope.periodovalue = trafico.periodo;
+        
+    var pagos=ResumenService.getMisPagosResumen('123');
+    $scope.total2value = pagos.total;
+    $scope.saldoanteriorvalue = pagos.saldoanterior;
+    $scope.saldovalue = pagos.saldo;
+    $scope.periodo2value = pagos.periodo;
+    
+    $scope.redirect = function (go,name){
     	$scope.titulo = (name != "")?name:layout.texto7;
     	$state.go(go);    	
     }
