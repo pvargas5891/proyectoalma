@@ -43,35 +43,36 @@
             </div>
         </div>
     </div>
+   
     <div class="col-md-12" style="text-align: left;">
         <div class="card m-b-20">
             <div class="card-block" >  
                <ul class="list-inline widget-chart">
                           <div class="row">
-                            <div class="col-md-12"><h4 class="font-16">Mis Pagos</h4></div>
+                            <div class="col-md-12"><h4 class="font-16">{{titulo}}</h4></div>
                           </div>                      
                           <div class="row">
                             <div class="col-md-12">
                               <table class="table table-hover m-b-0">
                                   <thead>
                                   <tr style="background-color: #f0f1f4;">
-                                      <th>Folio</th>
-                                      <th>Emisión</th>
-                                      <th>Vencimiento</th>                                                    
-                                      <th>Monto</th>
-                                      <th>Estado</th>
-                                      <th>Factura</th>
+                                      <th>{{folio}}</th>
+                                      <th>{{emision}}</th>
+                                      <th>{{vencimiento}}</th>                                                    
+                                      <th>{{monto}}</th>
+                                      <th>{{estado}}</th>
+                                      <th>{{factura}}</th>
                                   </tr>
 
                                   </thead>
                                   <tbody>
-                                  <tr>
-                                      <td>folio</td>
-                                      <td>emision</td>
-                                      <td>vencimiento</td>
-                                      <td>monto</td>
-                                      <td>estado</td>
-                                      <td><button type="button" class="btn btn-link">Ver</button></td>
+                                  <tr ng-repeat="factura in facturas">
+                                      <td>{{factura.folio}}</td>
+                                      <td>{{factura.emision}}</td>
+                                      <td>{{factura.vencimiento}}</td>
+                                      <td>{{factura.monto}}</td>
+                                      <td>{{factura.estado}}</td>
+                                      <td><button type="button" class="btn btn-link">{{verbtn}}</button></td>
                                   </tr>                                       
 
                                   </tbody>

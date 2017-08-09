@@ -49,19 +49,19 @@
       <!-- Nav tabs -->
 <div class="card m-b-20">
       <div class="card-block">
-          <h4 class="mt-0 header-title">Bolsas</h4>
+          <h4 class="mt-0 header-title">{{bolsas}}</h4>
           <ul class="nav nav-tabs">
               <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0);" ng-click="bolsastab()" data-toggle="tab">Venta de bolsas</a>
+                  <a class="nav-link active" href="javascript:void(0);" ng-click="bolsastab()" data-toggle="tab">{{tab1}}</a>
               </li>
               <li class="nav-item">
-                   <a class="nav-link" href="javascript:void(0);" ng-click="bolsashistoricastab()" role="tab" data-toggle="tab">Bolsas Históricas</a>
+                   <a class="nav-link" href="javascript:void(0);" ng-click="bolsashistoricastab()" role="tab" data-toggle="tab">{{tab2}}</a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link" href="javascript:void(0);"  ng-click="ventaroamingtab()" role="tab" data-toggle="tab">Venta Roaming</a>
+                 <a class="nav-link" href="javascript:void(0);"  ng-click="ventaroamingtab()" role="tab" data-toggle="tab">{{tab3}}</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="javascript:void(0);" ng-click="historicoroamingtab()" role="tab" data-toggle="tab">Historico Roaming</a>
+                  <a class="nav-link" href="javascript:void(0);" ng-click="historicoroamingtab()" role="tab" data-toggle="tab">{{tab4}}</a>
               </li>
           </ul>
           
@@ -125,32 +125,31 @@
        
     </div>
 
-
               <div class="col-md-12" style="text-align: left;">
         <div class="card m-b-20">
             <div class="card-block" >  
                <ul class="list-inline widget-chart">
                           <div class="row">
-                            <div class="col-md-12"><h4 class="font-16">Servicios Complementarios</h4></div>
+                            <div class="col-md-12"><h4 class="font-16">{{complementarios}}</h4></div>
                           </div>                      
                           <div class="row">
                             <div class="col-md-12">
                                <table class="table table-hover m-b-0">
                           <thead>
                           <tr style="background-color: #f0f1f4;">
-                              <th>Servicio</th>
-                              <th>Fecha</th>
-                              <th>Estado</th>                                                    
-                              <th>Accion</th>
+                              <th>{{servicio}}</th>
+                              <th>{{fecha}}</th>
+                              <th>{{estado}}</th>                                                    
+                              <th>{{accion}}</th>
                           </tr>
 
                           </thead>
                           <tbody>
-                          <tr>
-                              <td>fecha</td>
-                              <td>nombre</td>
-                              <td>folio1</td>
-                              <td><button type="button" class="btn btn-info">Habilitar</button></td>
+                          <tr ng-repeat="servicio in servicios">
+                              <td>{{servicio.servicio}}</td>
+                              <td>{{servicio.fecha}}</td>
+                              <td>{{servicio.estado}}</td>
+                              <td><button type="button" class="btn btn-info">{{btnaccion}}</button></td>
                           </tr>                                       
 
                           </tbody>

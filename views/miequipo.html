@@ -43,23 +43,24 @@
             </div>
         </div>
     </div>
+    
     <div class="col-md-12" style="text-align: left;">
         <div class="card m-b-20">
             <div class="card-block" >  
                <ul class="list-inline widget-chart">
                           <div class="row">
-                            <div class="col-md-12"><h4 class="font-16">Tu Plan</h4></div>
+                            <div class="col-md-12"><h4 class="font-16">{{tuplan}}</h4></div>
                           </div>                      
                           <div class="row">
                             <div class="col-md-4" style="text-align: center;">
-                                BAM XL
+                               {{planvalue}}
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                 Velocidad de bajada de 14mpbs<br>
-                                 Velocidad de subida 3Mbps<br>                                 
+                                 {{bajada}} {{bajadavalue}}<br>
+                                 {{subida}} {{subidavalue}}<br>                                 
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                Precio Plan<br><div style="font-size: 30px;">$25.990</div>
+                                {{precio}}<br><div style="font-size: 30px;">{{preciovalue}}</div>
                             </div>
                           </div> 
                         </ul>
@@ -71,15 +72,14 @@
             <div class="card-block" >  
                <ul class="list-inline widget-chart">
                           <div class="row">
-                            <div class="col-md-12"><h4 class="font-16">Modelo</h4></div>
+                            <div class="col-md-12"><h4 class="font-16">{{modelo}}</h4></div>
                           </div>                      
                           <div class="row">
                             <div class="col-md-4" style="text-align: center;">
-                                Características
+                                {{caracteristicas}}
                             </div>
                             <div class="col-md-8" style="text-align: center;">
-                                 Velocidad de bajada de 14mpbs<br>
-                                 Velocidad de subida 3Mbps<br>                                 
+                                {{caracteristicasvalue}}                           
                             </div>
                             
                           </div> 
@@ -92,12 +92,12 @@
             <div class="card-block" >  
                <ul class="list-inline widget-chart">
                           <div class="row">
-                            <div class="col-md-12"><h4 class="font-16">PIN Y PUK</h4></div>
+                            <div class="col-md-12"><h4 class="font-16">{{pinpuk}}</h4></div>
                           </div>                      
                           <div class="row">                            
                             <div class="col-md-8" style="text-align: center;">
-                                 PIN: 1234<br>
-                                 PUK: 1234<br>                                 
+                                 {{pin}}: {{pinvalue}}<br>
+                                 {{puk}}: {{pukvalue}}<br>                                 
                             </div>                            
                           </div> 
                         </ul>

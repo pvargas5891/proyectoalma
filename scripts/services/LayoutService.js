@@ -131,8 +131,13 @@ app.service('LayoutTraficoService', function  (){
             "destino":"Destino",
             "duracion":"Duración",
             "tipo":"Tipo",
-            "explicativo2":"Las llamadas aquí expuestas pueden incluir llamadas a números gratuitos, los cuales no se facturan. La información entregada en esta página, esta sujeta a validación al momento de la facturación. El tiempo de actualización esta con un desfase de 24 horas."
-
+            "explicativo2":"Las llamadas aquí expuestas pueden incluir llamadas a números gratuitos, los cuales no se facturan. La información entregada en esta página, esta sujeta a validación al momento de la facturación. El tiempo de actualización esta con un desfase de 24 horas.",
+             "descargas": [
+                        {"id":"1","nombre":"Descarga por"},
+                        {"id":"1","nombre":"Centro de costos"},
+                        {"id":"1","nombre":"Linea"},
+                        {"id":"1","nombre":"Rut"}
+                    ]
             };
 
 
@@ -141,6 +146,90 @@ app.service('LayoutTraficoService', function  (){
     }
     return this;
 });
+app.service('LayoutFacturacionService', function  (){
+    this.getLayout = function (){
+        var objeto = {
+            "titulo":"Mis Pagos",
+            "folio":"Folio",
+            "emision":"Emisión",
+            "vencimiento":"Vencimiento", 
+            "monto":"Monto",
+            "estado":"Estado",
+            "factura":" Factura",
+            "verbtn":"Ver"
+            };
+
+
+
+        return objeto;
+    }
+    return this;
+});
+app.service('LayoutMisServiciosService', function  (){
+    this.getLayout = function (){
+        var objeto = {
+            "bolsas":"Bolsas",
+            "tab1":"Venta de bolsas",
+            "tab2":"Bolsas Históricas",
+            "tab3":"Venta Roaming",
+            "tab4":"Historico Roaming",
+            "complementarios":"Servicios Complementarios",
+            "servicio":"Servicio",
+            "fecha":"Fecha",
+            "estado":"Estado",
+            "accion":"Accion",
+            "btnaccion":"Habilitar"
+            };
+	
+
+        return objeto;
+    }
+    return this;
+});
+app.service('LayoutMiEquipoService', function  (){
+    this.getLayout = function (){
+        var objeto = {
+            "tuplan":"Tu Plan",
+            "bajada":"Velocidad de bajada de",
+            "subida":"Velocidad de subida de",
+            "precio":"Precio Plan",
+            "modelo":"Modelo",
+            "caracteristicas":"Características",
+            "pinpuk":"PIN Y PUK",
+            "pin":"PIN",
+            "puk":"PUK"
+            };
+	
+
+        return objeto;
+    }
+    return this;
+});
+app.service('LayoutCorrienteService', function  (){
+    this.getLayout = function (){
+        var objeto = {
+            "movimiento":"Movimientos Cuenta Corriente",
+            "saldo1":"El saldo de tu cuenta mensual",
+            "saldo2":"El saldo de tu cuenta por equipos u otros conceptos es",
+            "saldo3":"El saldo total de tu cuenta es",
+            "bajarexcel":"Bajar Excel",
+            "bajarpdf":"Bajar PDF",
+            "tipo":"Tipo",
+            "numero":"Número",
+            "emision":"Fecha Emisión/Pago",
+            "vencimiento":"Fecha Vencimiento",
+            "monto":"Monto"
+            };
+	
+
+        return objeto;
+    }
+    return this;
+});
+
+    
+    
+    
 app.service('Session', function (LayouHomeService) {
     this.create = function (data) {
 
