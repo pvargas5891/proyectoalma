@@ -1,26 +1,23 @@
 'use strict';
-app.controller('loginCtrl', loginCtrl);
+app.controller('recoveryCtrl', recoveryCtrl);
 
-function loginCtrl($rootScope,$scope,LayouHomeService2,LayoutLoginService,AuthSharedService,$state){
+function recoveryCtrl($rootScope,$scope,LayouHomeService2,LayoutRecoveryService,AuthSharedService,$state){
 
 	var layout = LayouHomeService2.getLayout();
 	$scope.logoOficial = layout.logoOficial;
 
-	var layoutLogin = LayoutLoginService.getLayout();
+	var layoutLogin = LayoutRecoveryService.getLayout();
 	
 
 	$scope.title=layoutLogin.title;
-	$scope.usuario=layoutLogin.usuario;
-	$scope.password=layoutLogin.password;
-	$scope.tituloLogin=layoutLogin.tituloLogin;
-	$scope.recuerdame=layoutLogin.recuerdame;
-	$scope.entrar=layoutLogin.entrar;
-	$scope.perdistepassword=layoutLogin.perdistepassword;
-	$scope.crearcuenta=layoutLogin.crearcuenta;
+	$scope.titulorecupera=layoutLogin.titulorecupera;
+	$scope.instrucciones=layoutLogin.instrucciones;
+	$scope.enviar=layoutLogin.enviar;
+	$scope.yalaencontro = layoutLogin.yalaencontro;
 
 	$scope.login = function(){
 
-		   //$state.go('home'); 
+		   $state.go('home'); 
 		
 		/*var data = {
                 "username": $scope.usuario,

@@ -11,10 +11,10 @@ function homeCtrl($scope, factoryTest, LayouHomeService2, LayouHomeService, Resu
     $scope.apunto = false;
     $scope.condeuda = false;
 
-    LayouHomeService.getLayout().$promise.then(function (data) {
+    /*LayouHomeService.getLayout().$promise.then(function (data) {
         console.debug(data);
         //$scope.listadoMenu=data.menues;
-    });
+    });*/
     var layout = LayouHomeService2.getLayout();
     console.debug(layout);
     $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
