@@ -3,7 +3,7 @@ app.constant('USER_ROLES', {
     admin: 'admin',
     user: 'user'
 }).config(function($stateProvider, $urlRouterProvider, USER_ROLES){
-   $urlRouterProvider.otherwise('/login');
+   $urlRouterProvider.otherwise('/home');
         $stateProvider
             .state("home", {
                 url: "/home",

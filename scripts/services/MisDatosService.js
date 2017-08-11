@@ -5,13 +5,13 @@ var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';8
 //var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
 
 app.service('MisDatosService', function  (){
-    this.getDatos = function (rut){
+    this.getDatos = function (numero){
 
         var objeto = {
                 "nombresvalue":"Datos Personales",
                 "apellidosvalue":"Nombres",
                 "rutvalue":"Apellidos",
-                "celularvalue":"Rut",
+                "celularvalue":numero,
                 "emailvalue":"N° Celular",
                 "callevalue":"Calle",
                 "numerovalue":"Número",

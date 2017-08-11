@@ -36,10 +36,19 @@ app.service('Session', function () {
 });
 
 
-app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session, store, jwtHelper) {
+app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session,sessionService, store, jwtHelper) {
     // $http.defaults.useXDomain = true;
     return {
         login: function (userName, password, rememberMe, tipoLogin) {
+
+        sessionService.rut = '15794539-4';
+        sessionService.nombres = 'Pedro';
+        sessionService.apellidos = 'Vera';
+        sessionService.email = 'pvargas.figueroa@gmail.com';
+        sessionService.numeros = ["75687660","567656787"];      
+        sessionService.estado=1;
+        //return;
+        console.debug(sessionService);
             var config = {
                 ignoreAuthModule: 'ignoreAuthModule',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}

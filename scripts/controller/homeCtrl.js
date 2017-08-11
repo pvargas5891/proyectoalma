@@ -1,22 +1,43 @@
 
 app.controller('homeCtrl', homeCtrl);
 
-function homeCtrl($scope, factoryTest, LayouHomeService2, LayouHomeService, ResumenService, Session, $state) {
+function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHomeService, ResumenService, Session, $state) {
 
-    $scope.firstName = factoryTest.devuelveNombre();
-    $scope.lastName = factoryTest.devuelveApellido();
-    $scope.rutCliente = "15794539-4";
-    $scope.emailCliente = "pvargas.figueroa@gmail.com";
-    $scope.sindeuda = true;
-    $scope.apunto = false;
-    $scope.condeuda = false;
+     sessionService.rut = '15794539-4';
+     sessionService.nombres = 'Pedro';
+        sessionService.apellidos = 'Vera';
+        sessionService.email = 'pvargas.figueroa@gmail.com';
+        sessionService.numeros = ["75687660","567656787"];      
+        sessionService.estado=1;
+
+    $scope.firstName = sessionService.nombres;
+    $scope.lastName = sessionService.apellidos;
+    $scope.rutCliente = sessionService.rut;
+    $scope.emailCliente = sessionService.email;        
+    $scope.numeros = sessionService.numeros;
+    $scope.numeroSeleccionado = sessionService.numeros[0];
+    if(sessionService.estado==1){
+        $scope.sindeuda = true;
+        $scope.apunto = false;
+        $scope.condeuda = false;
+    }
+    if(sessionService.estado==2){
+        $scope.sindeuda = false;
+        $scope.apunto = true;
+        $scope.condeuda = false;
+    }
+    if(sessionService.estado==3){
+        $scope.sindeuda = false;
+        $scope.apunto = false;
+        $scope.condeuda = true;
+    }
 
     /*LayouHomeService.getLayout().$promise.then(function (data) {
         console.debug(data);
         //$scope.listadoMenu=data.menues;
     });*/
     var layout = LayouHomeService2.getLayout();
-    console.debug(layout);
+    //console.debug(layout);
     $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
     $scope.logoOficial = layout.logoOficial;
     $scope.listadoMenu = layout.menus;
@@ -59,33 +80,59 @@ function homeCtrl($scope, factoryTest, LayouHomeService2, LayouHomeService, Resu
     $scope.presentadeuda = layout.texto37;
     $scope.presentadeuda2 = layout.texto38;
 
-    var datos = ResumenService.getDatosResumen('123');
-    $scope.celularvalue = datos.numeroprincipal;
-    $scope.prip1value = datos.prip;
-    $scope.miplanvlue = datos.plan;
-
-    var facturacion = ResumenService.getFacturacionResumen('123');
-    $scope.totalapagar = facturacion.total;
-    $scope.vencimientovalue = facturacion.vencimiento;
-    $scope.estadovalue = facturacion.estado;
-    $scope.ciclovalue = facturacion.ciclo;
-
-    var trafico = ResumenService.getMiTraficoResumen('123');
-    $scope.internetvalue = trafico.internet;
-    $scope.smsvalue = trafico.sms;
-    $scope.vozvalue = trafico.voz;
-    $scope.pripvalue = trafico.prip;
-    $scope.periodovalue = trafico.periodo;
-
-    var pagos = ResumenService.getMisPagosResumen('123');
-    $scope.total2value = pagos.total;
-    $scope.saldoanteriorvalue = pagos.saldoanterior;
-    $scope.saldovalue = pagos.saldo;
-    $scope.periodo2value = pagos.periodo;
+    
 
     $scope.redirect = function (go, name) {
         $scope.titulo = (name != "") ? name : layout.texto7;
         $state.go(go);
     }
 
+    $scope.cerrarSessionBtn =function(){
+        changeLocation('login.html',true);
+    }
+    $scope.recargaNumero = function (){
+        cargaNumero($scope.numeroSeleccionado);
+    }
+    var cargaNumero = function(numero){
+        sessionService.numeroActivo=numero;
+        console.debug(sessionService.numeroActivo);
+        var datos = ResumenService.getDatosResumen(numero);
+        $scope.celularvalue = datos.numeroprincipal;
+        $scope.prip1value = datos.prip;
+        $scope.miplanvlue = datos.plan;
+
+        var facturacion = ResumenService.getFacturacionResumen(numero);
+        $scope.totalapagar = facturacion.total;
+        $scope.vencimientovalue = facturacion.vencimiento;
+        $scope.estadovalue = facturacion.estado;
+        $scope.ciclovalue = facturacion.ciclo;
+
+        var trafico = ResumenService.getMiTraficoResumen(numero);
+        $scope.internetvalue = trafico.internet;
+        $scope.smsvalue = trafico.sms;
+        $scope.vozvalue = trafico.voz;
+        $scope.pripvalue = trafico.prip;
+        $scope.periodovalue = trafico.periodo;
+
+        var pagos = ResumenService.getMisPagosResumen(numero);
+        $scope.total2value = pagos.total;
+        $scope.saldoanteriorvalue = pagos.saldoanterior;
+        $scope.saldovalue = pagos.saldo;
+        $scope.periodo2value = pagos.periodo;
+    }
+    var changeLocation = function(url, forceReload) {
+		$scope = $scope || angular.element(document).scope();
+		if(forceReload || $scope.$$phase) {
+			window.location = url;
+		}
+		else {
+			//only use this if you want to replace the history stack
+			//$location.path(url).replace();
+
+			//this this if you want to change the URL and add it to the history stack
+			$location.path(url);
+			$scope.$apply();
+		}
+    };
+    $scope.recargaNumero();
 }

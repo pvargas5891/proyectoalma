@@ -1,7 +1,7 @@
 'use strict';
 app.controller('cCorrienteCtrl', cCorrienteCtrl);
 
-function cCorrienteCtrl($rootScope,$scope,factoryTest,LayoutCorrienteService,CorrienteService,Session){
+function cCorrienteCtrl($rootScope,$scope,factoryTest,LayoutCorrienteService,sessionService,CorrienteService,Session){
 
     var layout = LayoutCorrienteService.getLayout();
     $scope.movimiento = layout.movimiento;
@@ -15,15 +15,22 @@ function cCorrienteCtrl($rootScope,$scope,factoryTest,LayoutCorrienteService,Cor
     $scope.vencimiento = layout.vencimiento;
     $scope.monto = layout.monto;
     $scope.estado = layout.estado;
+    $scope.numeros = sessionService.numeros;
+    $scope.numeroSeleccionado = sessionService.numeros[0];
+    $scope.recargaNumero = function (){
+        cargaNumero($scope.numeroSeleccionado);
+    }
+   
+    var cargaNumero = function(numero){
+		sessionService.numeroActivo=numero;
+        var data = CorrienteService.getDatos(numero);
 
-    var data = CorrienteService.getDatos(1234);
+        $scope.saldo1value = data.saldo1;
+        $scope.saldo2value = data.saldo2;
+        $scope.saldo3value = data.saldo3;
 
-    $scope.saldo1value = data.saldo1;
-    $scope.saldo2value = data.saldo2;
-    $scope.saldo3value = data.saldo3;
-
-    $scope.movimientos = data.movimientos;
-
-        
+        $scope.movimientos = data.movimientos;
+    }
+     $scope.recargaNumero();
 
 }

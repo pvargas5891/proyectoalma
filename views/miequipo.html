@@ -24,8 +24,8 @@
                           <h4 class="font-16">{{centrodecostos}}:</h4>                          
                       </div>
                       <div class="col-md-6">
-                            <select class="form-control">
-                                <option value="0">975687660</option>
+                            <select class="form-control" ng-model="numeroSeleccionado" ng-change="recargaNumero()">
+                                <option value="{{numero}}" ng-repeat="numero in numeros">{{numero}}</option>
                             </select>
                       </div>
                     </div> 

@@ -249,7 +249,10 @@ app.service('LayoutRegistroService', function  (){
             "title":"Alma Telefonía",
             "tituloregistro":"Registro",
             "enviar":"Registrar",
-            "yatienecuenta":"Ya tienes cuenta?"
+            "yatienecuenta":"Ya tienes cuenta?",
+            "email":"Email",
+            "username":"Usuario",
+            "Password":"Password"
             };
 
         return objeto;

@@ -13,26 +13,8 @@ function registroCtrl($rootScope,$scope,LayouHomeService2,LayoutRegistroService,
 	$scope.tituloregistro=layoutLogin.tituloregistro;
 	$scope.enviar=layoutLogin.enviar;
 	$scope.yatienecuenta=layoutLogin.yatienecuenta;
-
-	$scope.login = function(){
-
-		   $state.go('home'); 
-		
-		/*var data = {
-                "username": $scope.usuario,
-                "password": $scope.password,
-                "rememberme": false,
-                "tipoLogin": 1
-            };
-		AuthSharedService.login(data,
-			function (response){
-				console.debug(response);
-			},
-			function (e){
-				console.debug("Error de autentificacion");
-				console.debug(e);
-				//$location.path("/home");
-			}
-		);*/
-	}
+	$scope.email=layoutLogin.email;
+	$scope.username=layoutLogin.username;
+	$scope.password=layoutLogin.password;
+	
 }

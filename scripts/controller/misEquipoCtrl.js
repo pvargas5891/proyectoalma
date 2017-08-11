@@ -1,7 +1,7 @@
 'use strict';
 app.controller('misEquipoCtrl', misEquipoCtrl);
 
-function misEquipoCtrl($rootScope,$scope,factoryTest,LayoutMiEquipoService,MiEquipoService,Session){
+function misEquipoCtrl($rootScope,$scope,factoryTest,LayoutMiEquipoService,MiEquipoService,Session,sessionService){
 
     var layout = LayoutMiEquipoService.getLayout();
     $scope.tuplan=layout.tuplan;
@@ -13,15 +13,23 @@ function misEquipoCtrl($rootScope,$scope,factoryTest,LayoutMiEquipoService,MiEqu
     $scope.pinpuk=layout.pinpuk;
     $scope.pin=layout.pin;
     $scope.puk=layout.puk;    
+    $scope.numeros = sessionService.numeros;
+    $scope.numeroSeleccionado = sessionService.numeros[0];
+    $scope.recargaNumero = function (){
+        cargaNumero($scope.numeroSeleccionado);
+    }
+    
+    var cargaNumero = function(numero){
+		sessionService.numeroActivo=numero;
+        var data = MiEquipoService.getDatos(numero);
 
-    var data = MiEquipoService.getDatos(4342);
-
-    $scope.planvalue=data.planvalue;
-    $scope.bajadavalue=data.bajadavalue;
-    $scope.subidavalue=data.subidavalue;
-    $scope.preciovalue=data.preciovalue;
-    $scope.caracteristicasvalue=data.caracteristicasvalue;
-    $scope.pinvalue=data.pinvalue;
-    $scope.pukvalue=data.pukvalue;
-	
+        $scope.planvalue=data.planvalue;
+        $scope.bajadavalue=data.bajadavalue;
+        $scope.subidavalue=data.subidavalue;
+        $scope.preciovalue=data.preciovalue;
+        $scope.caracteristicasvalue=data.caracteristicasvalue;
+        $scope.pinvalue=data.pinvalue;
+        $scope.pukvalue=data.pukvalue;
+    }
+    $scope.recargaNumero();
 }

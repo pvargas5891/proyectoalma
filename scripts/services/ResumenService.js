@@ -7,7 +7,7 @@ var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';8
 app.service('ResumenService', function  (){
     this.getDatosResumen = function (ccosto){
         var objeto = {
-                "numeroprincipal":"Datos Personales",
+                "numeroprincipal":ccosto,
                 "prip":"Nombres",
                 "plan":"Apellidos"
             };

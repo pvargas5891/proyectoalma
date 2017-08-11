@@ -1,7 +1,7 @@
 'use strict';
 app.controller('miTraficoCtrl', miTraficoCtrl);
 
-function miTraficoCtrl($rootScope,$scope,factoryTest,LayoutTraficoService,MiTraficoService,Session){
+function miTraficoCtrl($rootScope,$scope,factoryTest,LayoutTraficoService,sessionService,MiTraficoService,Session){
 
 			$(function() {
                 $("#knobvoz").knob({
@@ -40,23 +40,31 @@ function miTraficoCtrl($rootScope,$scope,factoryTest,LayoutTraficoService,MiTraf
 			$scope.tipo=layout.tipo;
 			$scope.explicativo2=layout.explicativo2;
 			$scope.descargas=layout.descargas;
-
-			var trafico = MiTraficoService.getTrafico('rut');
-			$scope.fechainiciovalue = trafico.fechainicio;
-			$scope.fechaterminovalue = trafico.fechatermino;
-			$scope.detalles = trafico.detalle;
-			$scope.vozvalue=trafico.voz;
-			$scope.datavalue=trafico.data;
-			$scope.smsvalue=trafico.sms;
-
-
-			$(function() {
+			$scope.numeros = sessionService.numeros;
+			$scope.numeroSeleccionado = sessionService.numeros[0];
+			$scope.recargaNumero = function (){
+				cargaNumero($scope.numeroSeleccionado);
+			}
+			
+			var cargaNumero = function(numero){
+				sessionService.numeroActivo=numero;
+				var trafico = MiTraficoService.getTrafico(numero);
+				$scope.fechainiciovalue = trafico.fechainicio;
+				$scope.fechaterminovalue = trafico.fechatermino;
+				$scope.detalles = trafico.detalle;
+				$scope.vozvalue=trafico.voz;
+				$scope.datavalue=trafico.data;
+				$scope.smsvalue=trafico.sms;
+				$(function() {
                 $("#knobvoz").val($scope.vozvalue)
         		.trigger('change');
 				$("#knobdata").val($scope.datavalue)
         		.trigger('change');
 				$("#knobsms").val($scope.smsvalue)
         		.trigger('change');
-			});
+				});
+			}
 
+			
+			$scope.recargaNumero();
 }
