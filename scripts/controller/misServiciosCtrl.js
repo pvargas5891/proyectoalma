@@ -8,7 +8,7 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 	$scope.historicoroaming=false;
 
 	var servicios=LayoutMisServiciosService.getLayout();
-	$scope.bolsas=servicios.bolsas;
+	$scope.bolsastext=servicios.bolsas;
 	$scope.tab1=servicios.tab1;
 	$scope.tab2=servicios.tab2;
 	$scope.tab3=servicios.tab3;
