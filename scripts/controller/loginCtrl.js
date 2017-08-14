@@ -29,7 +29,7 @@ function loginCtrl($rootScope,$scope,LayouHomeService2,LayoutLoginService,AuthSh
             };
 		AuthSharedService.login(data,
 			function (response){
-				changeLocation('index.html',true);
+				changeLocation('portal.html',true);
 			},
 			function (e){
 				console.debug("Error de autentificacion");
