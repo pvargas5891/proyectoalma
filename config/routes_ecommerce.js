@@ -9,6 +9,22 @@ ecommerce.config(function($stateProvider, $urlRouterProvider){
                 url: "/cart",
                 controller: "cartCtrl",
                 templateUrl: "shop/cart.html"
+            }).state("product", {
+                url: "/product",
+                controller: "productCtrl",
+                templateUrl: "shop/product.html"
+            }).state("shipping", {
+                url: "/shipping",
+                controller: "shippingCtrl",
+                templateUrl: "shop/checkout_shipping.html"
+            }).state("payment", {
+                url: "/payment",
+                controller: "paymentCtrl",
+                templateUrl: "shop/checkout_payment.html"
+            }).state("confirmation", {
+                url: "/confirmation",
+                controller: "confirmationCtrl",
+                templateUrl: "shop/checkout_confirmation.html"
             });
 
             

@@ -1,7 +1,7 @@
 
-ecommerce.controller('catalogCtrl', catalogCtrl);
+ecommerce.controller('cartCtrl', cartCtrl);
 
-function catalogCtrl($scope, $state) {
+function cartCtrl($scope, $state) {
     $scope.redirect = function (go, name) {
         //$scope.titulo = (name != "") ? name : layout.texto7;
         $state.go(go);
