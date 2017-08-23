@@ -8,24 +8,27 @@
   		<div class="box-generic">
 	  		<div class="wrapper">
 	  			<div class="row">
-		  			<div class="col-lg-9 col-md-8 padding-none">
-		  				<a href="javascript:void(0);" ng-click="redirect('product')">
-							<img src="../assets/images/shop/photodune-4524631-long-wavy-hair-s.jpg" alt="photo" class="img-responsive" />
-						</a>
-		  			</div>
-		  			<div class="col-lg-3 col-md-4 padding-none">
-		  				<div class="innerAll inner-2x">
-							<a href="javascript:void(0);" ng-click="redirect(product)" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
-							<h3 class="text-uppercase">Nombre Producto</h3>
-							<span class="text-primary text-medium text-condensed">$ 185.000</span>
-							<div class="clearfix"></div>
-							<div class="separator"></div>
-
-							<p class="innerTB">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.</p>
-
-							<a href="javascript:void(0);" ng-click="redirect('cart')" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar al carro</a>
+					<div ng-repeat="producto in productos">
+						<div class="col-lg-9 col-md-8 padding-none">
+							<a href="javascript:void(0);" ng-click="redirect('product')">
+								<img data-ng-src="{{celular}}" alt="photo" class="img-responsive" />
+							</a>
 						</div>
-		  			</div>
+						<div class="col-lg-3 col-md-4 padding-none">
+							<div class="innerAll inner-2x">
+								<a href="javascript:void(0);" ng-click="redirect(product)" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
+								<h3 class="text-uppercase">{{producto.name}}</h3>
+								<span class="text-primary text-medium text-condensed">{{producto.precio}}</span>
+								<div class="clearfix"></div>
+								<div class="separator"></div>
+
+								<p class="innerTB">{{producto.descripcion}}</p>
+
+								<a href="javascript:void(0);" ng-click="redirect('cart')" class="btn btn-primary"><i class="fa fa-plus"></i> {{addcart}}</a>
+							</div>
+						</div>
+					</div>
+								  
 				</div>
 	  		</div>
 		</div>
@@ -44,21 +47,23 @@
     <div class="row innerTB">
         <div class="col-md-9">	
 
-	<h5 class="text-faded margin-none">Catalogo</h5>
+	<h5 class=" margin-none">{{catalogo}}</h5>
 	<div class="row">
 
-				<div class="col-sm-4 col-xs-12">
+		<div class="col-sm-4 col-xs-12" ng-repeat="producto in productos">
 			<div class="widget widget-pinterest fixed-height" data-animate="bounceIn" data-delay="200">
-								<div class="mark">
-					<span class="caret caret-primary"></span>
-					<span class="text">New</span>  
+				<div  ng-show="{{producto.nuevo}}">
+					<div class="mark">
+						<span class="caret caret-primary"></span>
+						<span class="text">New</span>  
+					</div>
 				</div>
 								<div class="widget-body padding-none">
-					<a href="javascript:void(0);" ng-click="redirect('product')" class="thumb"><img src="../assets/images/fashion/female/1.jpg" alt="" class="img-responsive"></a>
+					<a href="javascript:void(0);" ng-click="redirect('product')" class="thumb"><img data-ng-src="{{celular}}" alt="" class="img-responsive"></a>
 					<div class="description">
 						<a href="javascript:void(0);" ng-click="redirect('cart')" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
-						<h5 class="text-uppercase">Nombre Producto</h5>
-						<span class="text-primary text-medium text-condensed">$ 229.000</span>
+						<h5 class="text-uppercase">{{producto.name}}</h5>
+						<span class="text-primary text-medium text-condensed">{{producto.precio}}</span>
 					</div>
 				</div>
 			</div>
@@ -79,13 +84,12 @@
 
 
 <div class="col-md-3" data-animate="fadeInRight" data-delay="200">
-  	<h5 class="text-faded">Categorias</h5>
+  	<h5 class="">{{categorias}}</h5>
   	<ul class="list-group list-group-front">
-	<li class="list-group-item active"><a href="catalog.html"><i class="fa fa-female"></i> Planes</a></li>
-	<li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-male"></i> Telefonos</a></li>
-	<li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">2</span><i class="fa fa-magic"></i> Accesorios</a></li>
-	<li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">2</span><i class="fa fa-pencil"></i> Cargadores</a></li>
-	</ul>
+	<li ng-repeat="menu in listadoMenu" class="list-group-item {{menu.active}}">
+        <a href="javascript:void(0);" ng-click="redirect(menu.ir,menu.name)" class="waves-effect"><i class="{{menu.icono}}"></i> <span> {{menu.name}} </span> </a>                                
+    </li>
+</ul>
 
 </div>
 

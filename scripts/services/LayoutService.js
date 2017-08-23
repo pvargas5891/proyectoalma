@@ -273,3 +273,18 @@ app.service('LayoutRecoveryService', function  (){
     }
     return this;
 });
+
+app.service('LayoutPortadaService', function  (){
+    this.getLayout = function (){
+        var objeto = {
+            "title":"Alma Telefonía",
+            "titulorecupera":"Recupera Password",
+            "instrucciones":"Entra tu email y te enviaremos las instrucciones!!",
+            "enviar":"Enviar Email",
+            "yalaencontro":"Recordaste tu password?"
+            };
+
+        return objeto;
+    }
+    return this;
+});

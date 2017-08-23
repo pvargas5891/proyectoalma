@@ -16,7 +16,7 @@
 		
 		<div class="col-md-4">
 			<div class="thumbnail">
-				<img src="../assets/images/shop/photodune-4524631-long-wavy-hair-s.jpg" alt="photo" class="img-responsive" />
+				<img data-ng-src="{{imagen}}" alt="photo" class="img-responsive" />
 			</div>
 			<div id="owl-product" class="owl-carousel owl-theme">
 	  	  	
@@ -54,13 +54,12 @@
 		</div>
 
 		<div class="col-md-8">
-			<h1 class="title text-primary">Nombre producto</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, voluptatibus dicta nemo eveniet aliquid esse magnam aperiam cumque distinctio hic beatae quidem velit libero eos vero eum obcaecati ad doloribus eius ea ab laborum atque non sit maiores odio.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, voluptatibus dicta nemo eveniet aliquid esse magnam aperiam cumque distinctio hic beatae quidem velit libero eos vero eum obcaecati ad doloribus eius ea ab laborum atque non sit maiores odio.</p>
+			<h1 class="title text-primary">{{name}}</h1>
+			<p>{{descripcion}}</p>
 			<div class="separator"></div>
 
 			<div class="box-generic padding-none">
-				<h3 class="strong margin-none innerAll border-bottom text-inverse">Precio: $ 500.000</h3>
+				<h3 class="strong margin-none innerAll border-bottom text-inverse">{{precio}}:{{precioval}}</h3>
 				<!--div class="innerAll border-bottom">
 					<label>Choose Option:</label>
 					<select class="selectpicker innerT" data-style="btn-default">
@@ -70,7 +69,7 @@
 					</select>
 				</div-->
 				<div class="innerAll">
-					<a href="javascript:void(0);" ng-click="redirect('cart')" class="btn btn-primary strong"><i class="fa fa-plus"></i> Agregar al carro</a>
+					<a href="javascript:void(0);" ng-click="redirect('cart')" class="btn btn-primary strong"><i class="fa fa-plus"></i> {{addcart}}</a>
 				</div>
 			</div>
 			
