@@ -9,14 +9,14 @@
 
         <div id="content"><div class="page-title">
 	<div class="container">
-		<a href="javascript:void(0);" ng-click="redirect('catalog')" class="btn btn-default btn-sm"><i class="fa fa-arrow-left fa-fw"></i> Volver al catalogo</a>
-		<a href="javascript:void(0);" ng-click="redirect('shipping')" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-check"></i> Ir a pagar</a>
+		<a href="javascript:void(0);" ng-click="redirect('catalog')" class="btn btn-default btn-sm"><i class="fa fa-arrow-left fa-fw"></i> {{volver}}</a>
+		<a href="javascript:void(0);" ng-click="redirect('shipping')" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-check"></i> {{pagar}}</a>
 	</div>
 </div>
 
 <div class="container">
 	<div class="heading-buttons">
-		<h3 class="pull-left">Carrito de compra <i class="fa fa-fw fa-shopping-cart text-faded"></i></h3>
+		<h3 class="pull-left">{{titulocarro}} <i class="fa fa-fw fa-shopping-cart text-faded"></i></h3>
 		
 		<div class="clearfix"></div>
 	</div>
@@ -30,36 +30,36 @@
 		<table class="table table-bordered table-primary table-striped table-vertical-center checkboxs js-table-sortable">
 			<thead>
 				<tr>
-					<th style="width: 1%;" class="uniformjs"><input type="checkbox" /></th>
-					<th style="width: 1%;" class="center">No.</th>
+					<th style="width: 1%;" class="uniformjs"></th>
+					<th style="width: 1%;" class="center">{{numero}}</th>
 					<th></th>
-					<th style="width: 50px;">Cantidad</th>
+					<th style="width: 50px;">{{cantidad}}</th>
 					<th style="width: 50px;"></th>
-					<th style="width: 80px;">Precio</th>
+					<th style="width: 80px;">{{precio}}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<!-- Cart item -->
-				<tr class="selectable">
-					<td class="center uniformjs"><input type="checkbox" /></td>
-					<td class="center">3</td>
+				<tr class="selectable" ng-repeat="producto in carro">
+					<td class="center uniformjs"></td>
+					<td class="center">{{producto.id}}</td>
 					<td class="product">
 						<div class="media">
-							<a href="javascript:void(0);" ng-click="redirect('product')" class="media-object pull-left hidden-xs"><img width="80" height="116" style="width: 80px; height: 116px;" class="thumb" src="../assets/images/fashion/female/3.jpg" width="80" alt=""></a>
+							<a href="javascript:void(0);" ng-click="redirect('product')" class="media-object pull-left hidden-xs"><img width="80" height="116" style="width: 80px; height: 116px;" class="thumb" data-ng-src="{{imagen}}" width="80" alt=""></a>
 							<div class="media-body">
-								<h5 class="text-uppercase"><a href="javascript:void(0);" ng-click="redirect('product')" class="text-primary">Nombre de producto</a></h5>
-								
+								<h5 class="text-uppercase"><a href="javascript:void(0);" ng-click="redirect('product')" class="text-primary">{{producto.name}}</a></h5>
+								<p>{{producto.descripcion}}</p>
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</td>
-					<td class="center"><input type="text" value="1" class="form-control input-block-level" style="margin: 0;width: 50px;" /></td>
+					<td class="center"><input type="text" value="{{producto.cantidad}}" class="form-control input-block-level" style="margin: 0;width: 50px;" /></td>
 					<td class="center">
 						<button class="btn btn-primary btn-circle"><i class="fa fa-times"></i></button>
 					</td>
 					
 					<td class="center">
-						<span class="strong">$ 256.000</span>
+						<span class="strong">{{producto.total}}</span>
 					</td>
 				</tr>
 				<!-- // Cart item END -->
@@ -82,18 +82,14 @@
 				<table class="table table-borderless table-condensed cart_total">
 					<tbody>
 						<tr>
-							<td class="right border-top-none">Subtotal:</td>
+							<td class="right border-top-none">{{subtotal}}:</td>
 							<td class="right border-top-none strong">
-								<span class="text-primary">$ 696.000</span>
+								<span class="text-primary">{{subtotalval}}</span>
 							</td>
-						</tr>
+						</tr>						
 						<tr>
-							<td class="right">Despacho:</td>
-							<td class="right strong">$ 50.000</td>
-						</tr>
-						<tr>
-							<td class="right">Total:</td>
-							<td class="right strong">$ 119.000</td>
+							<td class="right">{{total}}:</td>
+							<td class="right strong">{{totalval}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -102,9 +98,9 @@
 			
 			<div class="col-md-3">
 				<div class="box-generic padding-none text-center">
-					<p class="lead margin-none strong innerAll border-bottom">Total: $ 100.000</p>
+					<p class="lead margin-none strong innerAll border-bottom">{{total}}: {{totalval}}</p>
 					<div class="innerAll">
-						<a href="javascript:void(0);" ng-click="redirect('shipping')" class="btn btn-block btn-primary"><i class="fa fa-fw fa-check"></i> Ir a pagar</a>
+						<a href="javascript:void(0);" ng-click="redirect('shipping')" class="btn btn-block btn-primary"><i class="fa fa-fw fa-check"></i> {{pagar}}</a>
 					</div>
 				</div>
 			</div>

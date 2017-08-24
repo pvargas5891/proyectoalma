@@ -1,7 +1,24 @@
 
 ecommerce.controller('cartCtrl', cartCtrl);
 
-function cartCtrl($scope, $state) {
+function cartCtrl($scope, $state,LayouHomeService,productosService,LayoutImagenTestService) {
+
+        var layout = LayouHomeService.getLayout();
+        $scope.volver=layout.volver;
+        $scope.titulocarro=layout.titulocarro;
+        $scope.numero=layout.numero;
+        $scope.cantidad=layout.cantidad;
+        $scope.precio=layout.precio;
+        $scope.subtotal=layout.subtotal;
+        $scope.despacho=layout.despacho;
+        $scope.total=layout.total;
+        $scope.pagar=layout.pagar;
+        var carro = productosService.getCarro();
+        $scope.carro=carro.productos;
+        $scope.imagen = LayoutImagenTestService.getStandar();
+        $scope.subtotalval = carro.subtotal;
+        $scope.totalval = carro.total;
+
     $scope.redirect = function (go, name) {
         //$scope.titulo = (name != "") ? name : layout.texto7;
         $state.go(go);

@@ -6,6 +6,7 @@ var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
 
 
 ecommerce.service('LayouHomeService', function  (){
+    
     this.getLayout = function (){
         var objeto = {
                 "login":"Login",
@@ -19,14 +20,14 @@ ecommerce.service('LayouHomeService', function  (){
                 "catalogo":"Catalogo",
                 "categorias":"Categorias",
                 "precio":"Precio",
-                "texto12":"Centros de costos y líneas consultadas",
-                "texto13":"Mis Datos",
-                "texto14":"Facturación",
-                "texto15":"Mi Tráfico",
-                "texto16":"Mis Pagos",
-                "texto17":"N° Celular",
-                "texto18":"N° Prip",
-                "texto19":"Mi Plan",
+                "volver":"Volver al catalogo",
+                "titulo":"Carrito de compra",
+                "numero":"No.",
+                "cantidad":"Cantidad",
+                "subtotal":"Subtotal",
+                "despacho":"Despacho",
+                "total":"Total",
+                "pagar":"Ir a pagar",
                 "texto20":"Ciclo",
                 "texto21":"Estado",
                 "texto22":"Vencimiento",
