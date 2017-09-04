@@ -13,7 +13,7 @@
 		<div class="pull-right">
 			
 		</div>
-		<h2 class="margin-none">Pagos <i class="fa fa-fw fa-truck fa-flip-horizontal"></i></h2>
+		<h2 class="margin-none">{{paso2}} <i class="fa fa-fw fa-truck fa-flip-horizontal"></i></h2>
 	</div>
 </div>
 		
@@ -26,39 +26,39 @@
 
 				<!-- Buttons -->
 				<ul class="buttons nav nav-tabs" id="myTab">
-					<li class=" col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" ng-click="redirect('shipping')" class="btn"> 1. Detalle Envío</a></li>
-					<li class=" active col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" ng-click="redirect('payment')" class="btn ">2. Pagos</a></li>
-					<li  class="col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" ng-click="redirect('confirmation')" class="btn ">3. Confirmacion</a></li>
+					<li class=" col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" class="btn"> 1. {{paso1}}</a></li>
+					<li class="active col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" class="btn ">2. {{paso2}}</a></li>
+					<li  class=" col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" class="btn ">3. {{paso3}}</a></li>
 				</ul>
 				<!-- /Buttons -->
 
 			  	<div class="tab-content innerAll inner-2x">
 					<div class="tab-pane active" id="two">
-						<div class="box-generic bg-primary padding-none">
+						<!--div class="box-generic bg-primary padding-none">
 							<div class="innerAll half pull-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-times "></i></a></div>
 							<h4 class="text-white strong margin-none innerAll pull-left"><i class="fa fa-credit-card innerR"></i> XXXX XXXX XXXX XXXX 1209</h4>
 							<div class="clearfix"></div>
-						</div>
-						<div class="box-generic padding-none">
+						</div-->
+						<!--div class="box-generic padding-none">
 							<div class="pull-right btn-group btn-group-sm innerAll half">
 								<a href="#" class="btn btn-default"><i class="fa fa-check "></i> Make Primary</a>
 								<a href="" class="btn btn-default"><i class="fa fa-times"></i></a>
 							</div>
 							<h4 class="strong margin-none innerAll pull-left"><i class="fa fa-credit-card innerR"></i> XXXX XXXX XXXX XXXX 1209</h4>
 							<div class="clearfix"></div>
-						</div>
+						</div-->
 						<div class="box-generic padding-none">
-							<h5 class="strong innerAll border-bottom margin-none bg-gray">Add New Card</h5>
+							<h5 class="strong innerAll border-bottom margin-none bg-gray">Tarjeta de Credito</h5>
 							<div class="innerAll inner-2x">
 								<form action="checkout_confirmation.html">
 								  	<div class="form-group">
-								    	<label for="exampleInputEmail1">Card Number</label>
-								    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Card Number">
+								    	<label for="exampleInputEmail1">Numero Tarjeta</label>
+								    	<input type="email" class="form-control" id="exampleInputEmail1">
 								  	</div>
 								  	<div class="form-group">
 										<div class="row">
 											<div class="col-xs-6">
-									    		<label for="exampleInputPassword1">Expiry Date</label>
+									    		<label for="exampleInputPassword1">Fecha Expiración</label>
 												<div class="row margin-none">
 										  			<div class="col-xs-6 padding-none">
 										     			<select class="form-control selectpicker">
@@ -88,18 +88,16 @@
 										  		</div>
 									  		</div>
 									  		<div class="col-xs-6">
-									    		<label for="exampleInputPassword1">Security Code <i class="fa fa-question-circle"></i></label>
-									  			<input type="password" class="form-control" placeholder="CVV / CVV2">
+									    		<label for="exampleInputPassword1">Codigo Seguridad CVV / CVV2<i class="fa fa-question-circle"></i></label>
+									  			<input type="password" class="form-control" placeholder="">
 									  		</div>
 										</div>
 								  	</div>
 								 	<div class="form-group">
-								    	<label for="exampleInputEmail1">Cardholder Name</label>
-								    	<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name on Card">
+								    	<label for="exampleInputEmail1">Nombre Cliente tarjeta</label>
+								    	<input type="text" class="form-control" id="exampleInputEmail1">
 								  	</div>
-									<div class="text-right">
-								  		<button type="submit" class="btn btn-primary">Make a Payment </button>
-								  	</div>
+									
 								</form>
 							</div>
 						</div>		
@@ -109,15 +107,15 @@
 			</div>
 
 		</div>
-	<div class="col-md-4">
+		<div class="col-md-4">
 			<div class="box-generic padding-none">
-				<h4 class="innerAll border-bottom margin-none">Need Help?</h4>
+				<h4 class="innerAll border-bottom margin-none">{{ayuda}}</h4>
 				<div class="innerAll inner-2x">
 					<div class="lead innerAll text-center">
                         <i class="fa fa-5x text-faded fa-phone"></i>
                         <div class="separator"></div>
-                        <p class="lead strong">Call us! <span class="text-primary">Toll Free</span></p>
-                        1-800-MY-SHOP
+                        <p class="lead strong"><span class="text-primary">{{llamanos}}</span></p>
+                        {{numero}}
                     </div>
 				</div>
 			</div>
@@ -143,18 +141,18 @@
 				<table class="table table-borderless table-condensed cart_total">
 					<tbody>
 						<tr>
-							<td class="right border-top-none">Subtotal:</td>
+							<td class="right border-top-none">{{subtotal}}:</td>
 							<td class="right border-top-none strong">
-								<span class="text-primary">&euro;857.00</span>
+								<span class="text-primary">{{subtotalval}}</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="right">Delivery:</td>
-							<td class="right strong">&euro;5.00</td>
+							<td class="right">{{despacho}}:</td>
+							<td class="right strong">{{despachoval}}</td>
 						</tr>
 						<tr>
-							<td class="right">VAT:</td>
-							<td class="right strong">&euro;119.00</td>
+							<td class="right">{{total}}:</td>
+							<td class="right strong">{{totalval}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -163,13 +161,12 @@
 			
 			<div class="col-md-3">
 				<div class="box-generic padding-none text-center">
-					<p class="lead margin-none strong innerAll border-bottom">Total: &euro;1,195.95</p>
+					<p class="lead margin-none strong innerAll border-bottom">{{total}}: {{totalval}}</p>
 					<div class="innerAll">
-						<a href="cart.html" class="btn btn-block btn-primary"><i class="fa fa-fw fa-edit"></i> Change your order</a>
+						<a href="javascript:void(0);" ng-click="redirect('confirmation')" class="btn btn-block btn-primary"><i class="fa fa-fw fa-edit"></i> {{pagar}}</a>
 					</div>
 				</div>
 			</div>
-			
 		</div>
 		<!-- // Row END -->
 	</div>

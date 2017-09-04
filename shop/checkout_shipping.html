@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		
-		<h2 class="margin-none" style="padding-left: 70px;">Shipping <i class="fa fa-fw fa-truck fa-flip-horizontal"></i></h2>
+		<h2 class="margin-none" style="padding-left: 70px;">{{shipping}} <i class="fa fa-fw fa-truck fa-flip-horizontal"></i></h2>
 	</div>
 </div>
 		
@@ -27,9 +27,9 @@
 
 				<!-- Buttons -->
 				<ul class="buttons nav nav-tabs" id="myTab">
-					<li class="active col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" ng-click="redirect('shipping')" class="btn"> 1. Detalle Envío</a></li>
-					<li class="col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" ng-click="redirect('payment')" class="btn ">2. Pagos</a></li>
-					<li  class="col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" ng-click="redirect('confirmation')" class="btn ">3. Confirmacion</a></li>
+					<li class="active col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" class="btn"> 1. {{paso1}}</a></li>
+					<li class="col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" class="btn ">2. {{paso2}}</a></li>
+					<li  class="col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="javascript:void(0);" class="btn ">3. {{paso3}}</a></li>
 				</ul>
 				<!-- /Buttons -->
 
@@ -38,19 +38,19 @@
 						<div class="innerAll inner-2x">
 							<form action="" class="form-horizontal">
 								<div class="form-group">
-									<label for="inputName" class="col-sm-3 control-label">Nombres</label>
+									<label for="inputName" class="col-sm-3 control-label">{{nombres}}</label>
 									<div class="col-sm-6">
 										<input type="text" class="form-control" id="inputEmail3">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputName" class="col-sm-3 control-label">Apellidos</label>
+									<label for="inputName" class="col-sm-3 control-label">{{apellidos}}</label>
 									<div class="col-sm-6">
 										<input type="text" class="form-control" id="inputEmail3">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputName" class="col-sm-3 control-label">Direccion</label>
+									<label for="inputName" class="col-sm-3 control-label">{{direccion}}</label>
 									<div class="col-sm-6">
 										<input type="text" class="form-control" id="inputEmail3">
 										<div class="separator"></div>
@@ -58,7 +58,7 @@
 									</div>
 								</div>								
 								<div class="form-group">
-									<label for="inputName" class="col-sm-3 control-label">Datos Adicionales</label>
+									<label for="inputName" class="col-sm-3 control-label">{{adicionales}}</label>
 									<div class="col-sm-6">
 										<textarea class="form-control"></textarea>
 									</div>
@@ -98,9 +98,7 @@
 		
 			<!-- Column -->
 			<div class="col-md-6">
-				<div class="box-generic text-center innerAll inner-2x">
 				
-				</div>
 			</div>
 			<!-- Column END -->
 			
@@ -111,41 +109,27 @@
 						<tr>
 							<td class="right border-top-none">{{subtotal}}:</td>
 							<td class="right border-top-none strong">
-								<span class="text-primary">$ 462.000</span>
+								<span class="text-primary">{{subtotalval}}</span>
 							</td>
 						</tr>
 						<tr>
 							<td class="right">{{despacho}}:</td>
-							<td class="right strong">$ 500.000</td>
+							<td class="right strong">{{despachoval}}</td>
 						</tr>
 						<tr>
 							<td class="right">{{total}}:</td>
-							<td class="right strong">$ 119.000</td>
+							<td class="right strong">{{totalval}}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<!-- // Column END -->
-			Shipping
-			Detalle Envío
-			Pagos
-			Confirmación
-			Nombres
-			Apellidos
-			Direccion
-			Datos Adicionales
-			Necesitas Ayuda?
-			Llamanos
-			800-300-300
-			Subtotal
-			Despacho
-			Total
-			Pagar
+			
 			<div class="col-md-3">
 				<div class="box-generic padding-none text-center">
-					<p class="lead margin-none strong innerAll border-bottom">{{total}}: $ 100.195</p>
+					<p class="lead margin-none strong innerAll border-bottom">{{total}}: {{totalval}}</p>
 					<div class="innerAll">
-						<a href="javascript:void(0);" ng-click="redirect('cart')" class="btn btn-block btn-primary"><i class="fa fa-fw fa-edit"></i> {{pagar}}</a>
+						<a href="javascript:void(0);" ng-click="redirect('payment')" class="btn btn-block btn-primary"><i class="fa fa-fw fa-edit"></i> {{pagar}}</a>
 					</div>
 				</div>
 			</div>

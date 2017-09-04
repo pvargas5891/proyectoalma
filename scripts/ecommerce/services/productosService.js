@@ -47,7 +47,8 @@ ecommerce.service('productosService', function  (){
                         {"id":"1","name":"Cellular 3","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active","cantidad":"1","total":"$150.000"},
                         {"id":"1","name":"Cellular 4","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active","cantidad":"1","total":"$150.000"},
                     ],
-                    "subtotal":"$ 500.000",                   
+                    "subtotal":"$ 500.000", 
+                    "despacho":"$ 3.000",
                     "total":"$ 503.500"
             };
 
