@@ -26,22 +26,20 @@ function catalogCtrl($scope, $state, LayouHomeService,LayoutImagenTestService,pr
     $scope.productosDestacados = productos.productosDestacados;
     $scope.productos = productos.productos;
     $scope.celular= LayoutImagenTestService.getStandar();
-    /*$scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;
-    $scope.=layout.;*/
-    $scope.redirect = function (go, name) {
 
+    $scope.redirect = function (go, name) {
+        //productosService.agregaCarro(id,)
         $state.go(go);
     }
-    
+    $scope.redirectdetalle = function (product) {
+        console.debug(product);
+        //productosService.agregaCarro(id,)
+        $state.go('product',{'producto': product.id});
+    }
+    $scope.redirectcart = function (product) {
+        //productosService.agregaCarro(id,)
+        $state.go('cart');
+    }
     var changeLocation = function(url, forceReload) {
 		$scope = $scope || angular.element(document).scope();
 		if(forceReload || $scope.$$phase) {

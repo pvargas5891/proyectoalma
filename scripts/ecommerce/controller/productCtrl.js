@@ -1,8 +1,10 @@
 
 ecommerce.controller('productCtrl', productCtrl);
 
-function productCtrl($scope, $state,productosService,LayoutImagenTestService,LayouHomeService) {
-    var producto = productosService.getProducto();
+function productCtrl($scope, $state,productosService,LayoutImagenTestService,LayouHomeService,$stateParams) {
+    console.debug($stateParams);
+    var index = $stateParams.producto;
+    var producto = productosService.getProducto(index);
     $scope.imagen=LayoutImagenTestService.getStandar();;
     $scope.name=producto.name;
     $scope.descripcion=producto.descripcion;

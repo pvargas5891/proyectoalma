@@ -10,13 +10,13 @@
 	  			<div class="row">
 					<div ng-repeat="producto in productos">
 						<div class="col-lg-9 col-md-8 padding-none">
-							<a href="javascript:void(0);" ng-click="redirect('product')">
+							<a href="javascript:void(0);" ng-click="redirectdetalle(producto)">
 								<img data-ng-src="{{celular}}" alt="photo" class="img-responsive" />
 							</a>
 						</div>
 						<div class="col-lg-3 col-md-4 padding-none">
 							<div class="innerAll inner-2x">
-								<a href="javascript:void(0);" ng-click="redirect(product)" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
+								<a href="javascript:void(0);" ng-click="redirectcart(producto)" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
 								<h3 class="text-uppercase">{{producto.name}}</h3>
 								<span class="text-primary text-medium text-condensed">{{producto.precio}}</span>
 								<div class="clearfix"></div>
@@ -24,7 +24,7 @@
 
 								<p class="innerTB">{{producto.descripcion}}</p>
 
-								<a href="javascript:void(0);" ng-click="redirect('cart')" class="btn btn-primary"><i class="fa fa-plus"></i> {{addcart}}</a>
+								<a href="javascript:void(0);" ng-click="rredirectcart(producto)" class="btn btn-primary"><i class="fa fa-plus"></i> {{addcart}}</a>
 							</div>
 						</div>
 					</div>
@@ -59,9 +59,9 @@
 					</div>
 				</div>
 								<div class="widget-body padding-none">
-					<a href="javascript:void(0);" ng-click="redirect('product')" class="thumb"><img data-ng-src="{{celular}}" alt="" class="img-responsive"></a>
+					<a href="javascript:void(0);" ng-click="redirectdetalle(producto)" class="thumb"><img data-ng-src="{{celular}}" alt="" class="img-responsive"></a>
 					<div class="description">
-						<a href="javascript:void(0);" ng-click="redirect('cart')" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
+						<a href="javascript:void(0);" ng-click="redirectcart(producto)" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
 						<h5 class="text-uppercase">{{producto.name}}</h5>
 						<span class="text-primary text-medium text-condensed">{{producto.precio}}</span>
 					</div>

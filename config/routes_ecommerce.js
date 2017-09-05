@@ -12,7 +12,10 @@ ecommerce.config(function($stateProvider, $urlRouterProvider){
             }).state("product", {
                 url: "/product",
                 controller: "productCtrl",
-                templateUrl: "shop/product.html"
+                templateUrl: "shop/product.html",
+                params: {
+                    'producto': null
+                  }
             }).state("shipping", {
                 url: "/shipping",
                 controller: "shippingCtrl",

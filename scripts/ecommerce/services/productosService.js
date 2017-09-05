@@ -39,6 +39,18 @@ ecommerce.service('productosService', function  (){
 
         return objeto;
     }
+    this.agregaCarro = function (id,usuario){
+        var objeto =             
+                {"id":"1",
+                "name":"Cellular 5",
+                "precio":"$ 150.000",
+                "descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.",
+                "imagen":"active",
+                "nuevo":"true"
+            };
+
+        return objeto;
+    }
     this.getCarro = function (usuario){
         var objeto = {
                  "productos": [
