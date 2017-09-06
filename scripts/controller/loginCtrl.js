@@ -1,22 +1,25 @@
 'use strict';
 app.controller('loginCtrl', loginCtrl);
 
-function loginCtrl($rootScope,$scope,LayouHomeService2,LayoutLoginService,AuthSharedService	,$state){
+function loginCtrl($rootScope,$scope,LayouHomeService2,LayoutLoginService,AuthSharedService2	,$state){
 
 	var layout = LayouHomeService2.getLayout();
 	$scope.logoOficial = layout.logoOficial;
 
-	var layoutLogin = LayoutLoginService.getLayout();
+	var layoutLoginSrc = LayoutLoginService.getLayout();
+	//console.debug(layoutLogin);
+	layoutLoginSrc.$promise.then(function(layoutLogin) {
+		console.log(layoutLogin);
+		$scope.title=layoutLogin.title;
+		$scope.usuario=layoutLogin.usuario;
+		$scope.password=layoutLogin.password;
+		$scope.tituloLogin=layoutLogin.tituloLogin;
+		$scope.recuerdame=layoutLogin.recuerdame;
+		$scope.entrar=layoutLogin.entrar;
+		$scope.perdistepassword=layoutLogin.perdistepassword;
+		$scope.crearcuenta=layoutLogin.crearcuenta;
+	});
 	
-
-	$scope.title=layoutLogin.title;
-	$scope.usuario=layoutLogin.usuario;
-	$scope.password=layoutLogin.password;
-	$scope.tituloLogin=layoutLogin.tituloLogin;
-	$scope.recuerdame=layoutLogin.recuerdame;
-	$scope.entrar=layoutLogin.entrar;
-	$scope.perdistepassword=layoutLogin.perdistepassword;
-	$scope.crearcuenta=layoutLogin.crearcuenta;
 
 	$scope.login = function(){
 
@@ -27,9 +30,9 @@ function loginCtrl($rootScope,$scope,LayouHomeService2,LayoutLoginService,AuthSh
                 "rememberme": false,
                 "tipoLogin": 1
             };
-		AuthSharedService.login(data,
+		AuthSharedService2.login(data,
 			function (response){
-				changeLocation('portal.html',true);
+				//changeLocation('portal.html',true);
 			},
 			function (e){
 				console.debug("Error de autentificacion");

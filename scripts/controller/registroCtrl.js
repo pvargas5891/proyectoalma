@@ -1,7 +1,7 @@
 'use strict';
 app.controller('registroCtrl', registroCtrl);
 
-function registroCtrl($rootScope,$scope,LayouHomeService2,LayoutRegistroService,AuthSharedService,$state){
+function registroCtrl($rootScope,$scope,LayouHomeService2,LayoutRegistroService,$state){
 
 	var layout = LayouHomeService2.getLayout();
 	$scope.logoOficial = layout.logoOficial;

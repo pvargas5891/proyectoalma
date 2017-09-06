@@ -1,6 +1,5 @@
 'use strict';
 
-
 myapp.controller('LoginController', function ($rootScope, $scope, AuthSharedService, md5, store, jwtHelper) {
         $scope.rememberMe = true;
         $scope.tipoLogin = 0;

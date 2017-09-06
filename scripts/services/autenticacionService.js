@@ -1,8 +1,8 @@
 'use strict';
 
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
-//var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+var REST_SERVICE_URI222 = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
 
 app.service('Session', function () {
     this.create = function (data) {
@@ -36,37 +36,44 @@ app.service('Session', function () {
 });
 
 
-app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session,sessionService, store, jwtHelper) {
+app.service('AuthSharedService2', function ($rootScope, $http, $resource, authService, Session,sessionService, store, jwtHelper,md5) {
     // $http.defaults.useXDomain = true;
     return {
         login: function (userName, password, rememberMe, tipoLogin) {
 
-        sessionService.rut = '15794539-4';
+        /*sessionService.rut = '15794539-4';
         sessionService.nombres = 'Pedro';
         sessionService.apellidos = 'Vera';
         sessionService.email = 'pvargas.figueroa@gmail.com';
         sessionService.numeros = ["75687660","567656787"];      
         sessionService.estado=1;
         //return;
-        console.debug(sessionService);
+        console.debug(sessionService);*/
             var config = {
                 ignoreAuthModule: 'ignoreAuthModule',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 // headers: {'Content-Type': 'application/json'}
             };
 
-            // config.headers = config.headers || {};
-            // var encodedString = btoa("bill:abc123");
-            // config.headers.Authorization = 'Basic '+encodedString;
-            store.set('jwt', null);
+            /*var config = {
+                ignoreAuthModule: 'ignoreAuthModule',
+                headers : {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }*/
 
-            $http.post(REST_SERVICE_URI + '/authenticate', $.param({
-                username: userName,
-                password: password,
-                rememberme: rememberMe,
-                tipoLogin: tipoLogin
-            }), config)
-                .success(function (data, status, headers, config, response) {
+            //config.headers = config.headers || {};
+            //var encodedString = btoa("bill:abc123");
+            //config.headers.Authorization = 'Basic '+encodedString;
+            //store.set('jwt', null);
+            store.set('jwt', null);
+            $http.post(REST_SERVICE_URI222 + '/authenticate', $.param({
+                username: '5525627',
+                password: md5.createHash('1234' || ''),
+                rememberme: false,
+                tipoLogin: 0
+            }), config).then(
+                function(data, status, headers, config, response) {
                     console.log('autenticacion OK config');
                     console.log(config);
                     console.log('Cookie END');
@@ -79,14 +86,19 @@ app.service('AuthSharedService', function ($rootScope, $http, $resource, authSer
 
 
                     authService.loginConfirmed(data);
-                })
-                .error(function (data, status, headers, config) {
+                
+                  // success callback
+                }, 
+                function(data, status, headers, config) {
                     console.log('Error post');
                     console.log(data);
                     console.log('dta');
                     $rootScope.authenticationError = true;
                     Session.invalidate();
-                });
+                  // failure callback
+                }
+             );
+              
         },
         getAccount: function () {
             $rootScope.loadingAccount = true;

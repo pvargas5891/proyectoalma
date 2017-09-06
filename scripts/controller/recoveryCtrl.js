@@ -1,7 +1,7 @@
 'use strict';
 app.controller('recoveryCtrl', recoveryCtrl);
 
-function recoveryCtrl($rootScope,$scope,LayouHomeService2,LayoutRecoveryService,AuthSharedService,$state){
+function recoveryCtrl($rootScope,$scope,LayouHomeService2,LayoutRecoveryService,$state){
 
 	var layout = LayouHomeService2.getLayout();
 	$scope.logoOficial = layout.logoOficial;

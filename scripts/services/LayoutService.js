@@ -1,8 +1,8 @@
 'use strict';
 
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
-//var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
 
 
 
@@ -226,9 +226,18 @@ app.service('LayoutCorrienteService', function  (){
     }
     return this;
 });
-app.service('LayoutLoginService', function  (){
+app.service('LayoutLoginService', function  ($resource){
+
+    
+
     this.getLayout = function (){
-        var objeto = {
+
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutLoginService').get({});
+        console.debug("layoutResource");
+        console.debug(layoutResource);
+        return layoutResource;
+
+        /*var objeto = {
             "title":"Alma Telefonía",
             "usuario":"Usuario",
             "password":"Password",
@@ -239,7 +248,7 @@ app.service('LayoutLoginService', function  (){
             "crearcuenta":"Crear una cuenta"
             };
 
-        return objeto;
+        return objeto;*/
     }
     return this;
 });
