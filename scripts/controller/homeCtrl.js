@@ -36,8 +36,9 @@ function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHo
         console.debug(data);
         //$scope.listadoMenu=data.menues;
     });*/
-    var layout = LayouHomeService2.getLayout();
+    var layouthome = LayouHomeService2.getLayout();
     //console.debug(layout);
+    layouthome.$promise.then(function(layout) {
     $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
     $scope.logoOficial = layout.logoOficial;
     $scope.listadoMenu = layout.menus;
@@ -79,7 +80,7 @@ function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHo
     $scope.apuntovencer2 = layout.texto36;
     $scope.presentadeuda = layout.texto37;
     $scope.presentadeuda2 = layout.texto38;
-
+    });
     
 
     $scope.redirect = function (go, name) {

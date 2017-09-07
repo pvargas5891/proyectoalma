@@ -1,8 +1,8 @@
 'use strict';
 
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
-//var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI222 = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
+var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
 
 app.service('Session', function () {
     this.create = function (data) {
@@ -36,7 +36,7 @@ app.service('Session', function () {
 });
 
 
-app.service('AuthSharedService2', function ($rootScope, $http, $resource, authService, Session,sessionService, store, jwtHelper,md5) {
+app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session,sessionService, store, jwtHelper,md5) {
     // $http.defaults.useXDomain = true;
     return {
         login: function (userName, password, rememberMe, tipoLogin) {
@@ -62,42 +62,17 @@ app.service('AuthSharedService2', function ($rootScope, $http, $resource, authSe
                 }
             }*/
 
-            //config.headers = config.headers || {};
+            //config.headers = config.headers || {};5525627
             //var encodedString = btoa("bill:abc123");
             //config.headers.Authorization = 'Basic '+encodedString;
             //store.set('jwt', null);
             store.set('jwt', null);
-            $http.post(REST_SERVICE_URI222 + '/authenticate', $.param({
-                username: '5525627',
-                password: md5.createHash('1234' || ''),
-                rememberme: false,
-                tipoLogin: 0
-            }), config).then(
-                function(data, status, headers, config, response) {
-                    console.log('autenticacion OK config');
-                    console.log(config);
-                    console.log('Cookie END');
-                    console.log(headers);
-                    console.log('head');
-                    console.log(data);
-                    store.set('jwt', data.token);
-                    console.log('obteniendo del store');
-                    console.log(store.get('jwt'));
-
-
-                    authService.loginConfirmed(data);
-                
-                  // success callback
-                }, 
-                function(data, status, headers, config) {
-                    console.log('Error post');
-                    console.log(data);
-                    console.log('dta');
-                    $rootScope.authenticationError = true;
-                    Session.invalidate();
-                  // failure callback
-                }
-             );
+            return $http.post(REST_SERVICE_URI + '/authenticate', $.param({
+                username: userName,
+                password: md5.createHash(password || ''),
+                rememberme: rememberMe,
+                tipoLogin: tipoLogin
+            }), config);
               
         },
         getAccount: function () {

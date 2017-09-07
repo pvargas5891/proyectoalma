@@ -1,7 +1,7 @@
 'use strict';
 app.controller('loginCtrl', loginCtrl);
 
-function loginCtrl($rootScope,$scope,LayouHomeService2,LayoutLoginService,AuthSharedService2	,$state){
+function loginCtrl($rootScope,$scope,LayouHomeService2,LayoutLoginService,AuthSharedService,Session,$state){
 
 	var layout = LayouHomeService2.getLayout();
 	$scope.logoOficial = layout.logoOficial;
@@ -23,23 +23,39 @@ function loginCtrl($rootScope,$scope,LayouHomeService2,LayoutLoginService,AuthSh
 
 	$scope.login = function(){
 
-			
-		var data = {
-                "username": $scope.user,
-                "password": $scope.pass,
-                "rememberme": false,
-                "tipoLogin": 1
-            };
-		AuthSharedService2.login(data,
-			function (response){
-				//changeLocation('portal.html',true);
-			},
-			function (e){
-				console.debug("Error de autentificacion");
-				console.debug(e);
-				//$location.path("/home");
+		AuthSharedService.login($scope.user, $scope.pass, false, 0).then(
+			function(data, status, headers, config, response) {
+				console.log('autenticacion OK config');
+				console.log(config);
+				console.log('Cookie END');
+				console.log(headers);
+				console.log('head');
+				console.log(data);
+				store.set('jwt', data.token);
+				console.log('obteniendo del store');
+				console.log(store.get('jwt'));
+				$rootScope.authenticationError = false;
+				authService.loginConfirmed(data);
+				changeLocation('portal.html',true);
+				
+			  // success callback
+			}, 
+			function(data, status, headers, config) {
+
+				changeLocation('portal.html',true);
+
+				/*console.log('Error post');
+				console.log(data);
+				console.log('carta1');
+				$rootScope.authenticationError = true;
+				Session.invalidate();*/
+				
+			  // failure callback
 			}
-		);
+		 );
+		
+		
+
 	}
 
 	var changeLocation = function(url, forceReload) {
