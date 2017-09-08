@@ -29,9 +29,15 @@ app.service('LayouHomeService2', function  ($resource){
     }
     return this;
 });
-app.service('LayoutDatosService', function  (){
+app.service('LayoutDatosService', function  ($resource){
     this.getLayout = function (){
-        var objeto = {
+
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutDatosService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+
+        /*var objeto = {
                 "titulo1":"Datos Personales",
                 "nombres":"Nombres",
                 "apellidos":"Apellidos",
@@ -54,16 +60,21 @@ app.service('LayoutDatosService', function  (){
                 "folio":"Folio",
                 "archivo":"Archivo",
                 "descargar":"Descargar"
-            };
+            };*/
 
 
         return objeto;
     }
     return this;
 });
-app.service('LayoutTraficoService', function  (){
+app.service('LayoutTraficoService', function  ($resource){
     this.getLayout = function (){
-        var objeto = {
+
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutTraficoService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+       /* var objeto = {
             "titulo1":"Resumen Tráfico",
             "voz":"voz",
             "minutos":"minutos",
@@ -90,7 +101,7 @@ app.service('LayoutTraficoService', function  (){
                         {"id":"1","nombre":"Linea"},
                         {"id":"1","nombre":"Rut"}
                     ]
-            };
+            };*/
 
 
 
@@ -98,9 +109,15 @@ app.service('LayoutTraficoService', function  (){
     }
     return this;
 });
-app.service('LayoutFacturacionService', function  (){
+app.service('LayoutFacturacionService', function  ($resource){
     this.getLayout = function (){
-        var objeto = {
+
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutFacturacionService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+
+        /*var objeto = {
             "titulo":"Mis Pagos",
             "folio":"Folio",
             "emision":"Emisión",
@@ -109,7 +126,7 @@ app.service('LayoutFacturacionService', function  (){
             "estado":"Estado",
             "factura":" Factura",
             "verbtn":"Ver"
-            };
+            };*/
 
 
 
@@ -117,9 +134,14 @@ app.service('LayoutFacturacionService', function  (){
     }
     return this;
 });
-app.service('LayoutMisServiciosService', function  (){
+app.service('LayoutMisServiciosService', function  ($resource){
     this.getLayout = function (){
-        var objeto = {
+
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutMisServiciosService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+        /*var objeto = {
             "bolsas":"Bolsas",
             "tab1":"Venta de bolsas",
             "tab2":"Bolsas Históricas",
@@ -131,16 +153,21 @@ app.service('LayoutMisServiciosService', function  (){
             "estado":"Estado",
             "accion":"Accion",
             "btnaccion":"Habilitar"
-            };
+            };*/
 	
 
         return objeto;
     }
     return this;
 });
-app.service('LayoutMiEquipoService', function  (){
+app.service('LayoutMiEquipoService', function  ($resource){
     this.getLayout = function (){
-        var objeto = {
+
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutMiEquipoService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+        /*var objeto = {
             "tuplan":"Tu Plan",
             "bajada":"Velocidad de bajada de",
             "subida":"Velocidad de subida de",
@@ -150,16 +177,21 @@ app.service('LayoutMiEquipoService', function  (){
             "pinpuk":"PIN Y PUK",
             "pin":"PIN",
             "puk":"PUK"
-            };
+            };*/
 	
 
         return objeto;
     }
     return this;
 });
-app.service('LayoutCorrienteService', function  (){
+app.service('LayoutCorrienteService', function  ($resource){
     this.getLayout = function (){
-        var objeto = {
+
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutCorrienteService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+        /*var objeto = {
             "movimiento":"Movimientos Cuenta Corriente",
             "saldo1":"El saldo de tu cuenta mensual",
             "saldo2":"El saldo de tu cuenta por equipos u otros conceptos es",
@@ -171,7 +203,7 @@ app.service('LayoutCorrienteService', function  (){
             "emision":"Fecha Emisión/Pago",
             "vencimiento":"Fecha Vencimiento",
             "monto":"Monto"
-            };
+            };*/
 	
 
         return objeto;
@@ -206,7 +238,11 @@ app.service('LayoutLoginService', function  ($resource){
 });
 app.service('LayoutRegistroService', function  (){
     this.getLayout = function (){
-       var objeto = {
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutRegistroService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+       /*var objeto = {
             "title":"Alma Telefonía",
             "tituloregistro":"Registro",
             "enviar":"Registrar",
@@ -214,7 +250,7 @@ app.service('LayoutRegistroService', function  (){
             "email":"Email",
             "username":"Usuario",
             "Password":"Password"
-            };
+            };*/
 
         return objeto;
     }
@@ -222,13 +258,17 @@ app.service('LayoutRegistroService', function  (){
 });
 app.service('LayoutRecoveryService', function  (){
     this.getLayout = function (){
-        var objeto = {
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutRecoveryService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+       /* var objeto = {
             "title":"Alma Telefonía",
             "titulorecupera":"Recupera Password",
             "instrucciones":"Entra tu email y te enviaremos las instrucciones!!",
             "enviar":"Enviar Email",
             "yalaencontro":"Recordaste tu password?"
-            };
+            };*/
 
         return objeto;
     }
@@ -237,13 +277,17 @@ app.service('LayoutRecoveryService', function  (){
 
 app.service('LayoutPortadaService', function  (){
     this.getLayout = function (){
-        var objeto = {
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+        /*var objeto = {
             "title":"Alma Telefonía",
             "titulorecupera":"Recupera Password",
             "instrucciones":"Entra tu email y te enviaremos las instrucciones!!",
             "enviar":"Enviar Email",
             "yalaencontro":"Recordaste tu password?"
-            };
+            };*/
 
         return objeto;
     }

@@ -7,21 +7,23 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 	$scope.ventaroaming=false;
 	$scope.historicoroaming=false;
 
-	var servicios=LayoutMisServiciosService.getLayout();
-	$scope.bolsastext=servicios.bolsas;
-	$scope.tab1=servicios.tab1;
-	$scope.tab2=servicios.tab2;
-	$scope.tab3=servicios.tab3;
-	$scope.tab4=servicios.tab4;
+	var layoutservicios=LayoutMisServiciosService.getLayout();
+	layoutservicios.$promise.then(function(servicios) {
+		$scope.bolsastext=servicios.bolsas;
+		$scope.tab1=servicios.tab1;
+		$scope.tab2=servicios.tab2;
+		$scope.tab3=servicios.tab3;
+		$scope.tab4=servicios.tab4;
 
-	$scope.complementarios=servicios.complementarios;
-	$scope.servicio=servicios.servicio;
-	$scope.fecha=servicios.fecha;
-	$scope.estado=servicios.estado;
-	$scope.accion=servicios.accion;
-	$scope.btnaccion=servicios.btnaccion;
-	$scope.numeros = sessionService.numeros;
-	$scope.numeroSeleccionado = sessionService.numeros[0];
+		$scope.complementarios=servicios.complementarios;
+		$scope.servicio=servicios.servicio;
+		$scope.fecha=servicios.fecha;
+		$scope.estado=servicios.estado;
+		$scope.accion=servicios.accion;
+		$scope.btnaccion=servicios.btnaccion;
+		$scope.numeros = sessionService.numeros;
+		$scope.numeroSeleccionado = sessionService.numeros[0];
+	});
 	$scope.recargaNumero = function (){
 		cargaNumero($scope.numeroSeleccionado);
 	}

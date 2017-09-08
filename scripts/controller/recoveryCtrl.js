@@ -8,11 +8,12 @@ function recoveryCtrl($rootScope,$scope,LayouHomeService2,LayoutRecoveryService,
 
 	var layoutLogin = LayoutRecoveryService.getLayout();
 	
-
-	$scope.title=layoutLogin.title;
-	$scope.titulorecupera=layoutLogin.titulorecupera;
-	$scope.instrucciones=layoutLogin.instrucciones;
-	$scope.enviar=layoutLogin.enviar;
-	$scope.yalaencontro = layoutLogin.yalaencontro;
+	layoutLogin.$promise.then(function(layout) {
+		$scope.title=layoutLogin.title;
+		$scope.titulorecupera=layoutLogin.titulorecupera;
+		$scope.instrucciones=layoutLogin.instrucciones;
+		$scope.enviar=layoutLogin.enviar;
+		$scope.yalaencontro = layoutLogin.yalaencontro;
+	});
 
 }

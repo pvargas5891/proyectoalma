@@ -3,18 +3,20 @@ app.controller('misEquipoCtrl', misEquipoCtrl);
 
 function misEquipoCtrl($rootScope,$scope,factoryTest,LayoutMiEquipoService,MiEquipoService,Session,sessionService){
 
-    var layout = LayoutMiEquipoService.getLayout();
-    $scope.tuplan=layout.tuplan;
-    $scope.bajada=layout.bajada;
-    $scope.subida=layout.subida;
-    $scope.precio=layout.precio;
-    $scope.modelo=layout.modelo;
-    $scope.caracteristicas=layout.caracteristicas;
-    $scope.pinpuk=layout.pinpuk;
-    $scope.pin=layout.pin;
-    $scope.puk=layout.puk;    
-    $scope.numeros = sessionService.numeros;
-    $scope.numeroSeleccionado = sessionService.numeros[0];
+    var layoutequipo = LayoutMiEquipoService.getLayout();
+    layoutequipo.$promise.then(function(layout) {
+        $scope.tuplan=layout.tuplan;
+        $scope.bajada=layout.bajada;
+        $scope.subida=layout.subida;
+        $scope.precio=layout.precio;
+        $scope.modelo=layout.modelo;
+        $scope.caracteristicas=layout.caracteristicas;
+        $scope.pinpuk=layout.pinpuk;
+        $scope.pin=layout.pin;
+        $scope.puk=layout.puk;    
+        $scope.numeros = sessionService.numeros;
+        $scope.numeroSeleccionado = sessionService.numeros[0];
+    });
     $scope.recargaNumero = function (){
         cargaNumero($scope.numeroSeleccionado);
     }

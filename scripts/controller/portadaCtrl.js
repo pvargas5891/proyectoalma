@@ -7,12 +7,13 @@ function portadaCtrl($scope, LayouHomeService2,sessionService, LayouHomeService,
         console.debug(data);
         //$scope.listadoMenu=data.menues;
     });   */
-    var layout = LayouHomeService2.getLayout();
+    var layouthome = LayouHomeService2.getLayout();
     //console.debug(layout);
-    $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
-    $scope.logoOficial = layout.logoOficial;
-    $scope.listadoMenu = layout.menus;
-    
+    layouthome.$promise.then(function(layout) {
+        $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
+        $scope.logoOficial = layout.logoOficial;
+        $scope.listadoMenu = layout.menus;
+    });
     $scope.redirect = function (go, name) {
         $scope.titulo = (name != "") ? name : layout.texto7;
         $state.go(go);
