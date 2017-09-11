@@ -1,50 +1,21 @@
 'use strict';
 
-app.service('ResumenService', function  (){
-    this.getDatosResumen = function (ccosto){
-        var objeto = {
+app.service('ResumenService', function  ($resource){
+    this.getDatosResumen = function (numero){
+        /*var objeto = {
                 "numeroprincipal":ccosto,
                 "prip":"Nombres",
                 "plan":"Apellidos"
             };
 
 
-        return objeto;
+        return objeto;*/
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/ClienteResumenService/'+numero).get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
     }
-     this.getFacturacionResumen = function (ccosto){
-        var objeto = {
-                "ciclo":"Datos Personales",
-                "estado":"Nombres",
-                "vencimiento":"Apellidos",
-                "total":"Apellidos"
-            };
-
-
-        return objeto;
-    }
-    this.getMiTraficoResumen = function (ccosto){
-        var objeto = {
-                "periodo":"Datos Personales",
-                "prip":"Nombres",
-                "voz":"Apellidos",
-                "sms":"Apellidos",
-                "internet":"Apellidos"
-            };
-
-
-        return objeto;
-    }
-    this.getMisPagosResumen = function (ccosto){
-        var objeto = {
-                "periodo":"Datos Personales",
-                "saldo":"Nombres",
-                "saldoanterior":"Apellidos",
-                "total":"Apellidos"
-            };
-
-
-        return objeto;
-    }
+   
     return this;
 });
 

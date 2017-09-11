@@ -17,8 +17,8 @@ function cCorrienteCtrl($rootScope,$scope,factoryTest,LayoutCorrienteService,ses
         $scope.vencimiento = layout.vencimiento;
         $scope.monto = layout.monto;
         $scope.estado = layout.estado;
-        $scope.numeros = sessionService.numeros;
-        $scope.numeroSeleccionado = sessionService.numeros[0];
+        $scope.numeros = [$cookieStore.get('numeros')];
+        $scope.numeroSeleccionado = $cookieStore.get('numeros');
 
     });
     $scope.recargaNumero = function (){
@@ -26,14 +26,15 @@ function cCorrienteCtrl($rootScope,$scope,factoryTest,LayoutCorrienteService,ses
     }
    
     var cargaNumero = function(numero){
-		sessionService.numeroActivo=numero;
-        var data = CorrienteService.getDatos(numero);
+		//sessionService.numeroActivo=numero;
+        var datos = CorrienteService.getDatos(numero);
+        datos.$promise.then(function(data) {
+            $scope.saldo1value = data.saldo1;
+            $scope.saldo2value = data.saldo2;
+            $scope.saldo3value = data.saldo3;
 
-        $scope.saldo1value = data.saldo1;
-        $scope.saldo2value = data.saldo2;
-        $scope.saldo3value = data.saldo3;
-
-        $scope.movimientos = data.movimientos;
+            $scope.movimientos = data.movimientos;
+        });    
     }
      $scope.recargaNumero();
 

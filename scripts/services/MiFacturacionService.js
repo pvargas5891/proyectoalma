@@ -1,9 +1,14 @@
 'use strict';
-
-app.service('MiFacturacionService', function  (){
-    this.getDatos = function (rut){
-
-        var objeto = {                
+//var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
+var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
+app.service('MiFacturacionService', function  ($resource){
+    this.getDatos = function (numero){
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/MiFacturacionService/'+numero).get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+        /*var objeto = {                
                 "facturas": [
                         {"id":"1","folio":"Mis Datos","emision":"mdi mdi-account-box","vencimiento":"misdatos","monto":"misdatos","estado":"misdatos","factura":"misdatos"},
                         {"id":"2","folio":"Mi Trafico","emision":"mdi mdi-traffic-light","vencimiento":"mitrafico","monto":"misdatos","estado":"misdatos","factura":"misdatos"},
@@ -15,7 +20,7 @@ app.service('MiFacturacionService', function  (){
             };
 
 
-        return objeto;
+        return objeto;*/
     }
     return this;
 });

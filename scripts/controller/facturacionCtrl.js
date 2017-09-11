@@ -1,9 +1,9 @@
 'use strict';
 app.controller('facturacionCtrl', facturacionCtrl);
 
-function facturacionCtrl($rootScope,$scope,factoryTest,LayoutFacturacionService,sessionService,MiFacturacionService,Session){
+function facturacionCtrl($rootScope,$scope,factoryTest,LayoutFacturacionService,sessionService,MiFacturacionService,Session,$cookieStore){
      
-    var layoutdatos=LayoutFacturacionService.getLayout("6463j");
+    var layoutdatos=LayoutFacturacionService.getLayout();
 
     layoutdatos.$promise.then(function(factura) {
 
@@ -15,18 +15,23 @@ function facturacionCtrl($rootScope,$scope,factoryTest,LayoutFacturacionService,
         $scope.estado=factura.estado;
         $scope.factura=factura.factura;
         $scope.verbtn=factura.verbtn;
-        $scope.numeros = sessionService.numeros;
-        $scope.numeroSeleccionado = sessionService.numeros[0];
+        $scope.numeros = [$cookieStore.get('numeros')];
+        $scope.numeroSeleccionado = $cookieStore.get('numeros');
         
     });
+
     $scope.recargaNumero = function (){
         cargaNumero($scope.numeroSeleccionado);
     }
     
     var cargaNumero = function(numero){
-        sessionService.numeroActivo=numero;
+        //sessionService.numeroActivo=numero;
+        
         var data = MiFacturacionService.getDatos(numero);
-        $scope.facturas=data.facturas;
+        data.$promise.then(function(facturacion) { 
+            
+            $scope.facturas=facturacion.facturas;
+        }); 
     }
     $scope.recargaNumero();
 }

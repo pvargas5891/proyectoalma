@@ -1,9 +1,12 @@
 'use strict';
 
-app.service('CorrienteService', function  (){
-    this.getDatos = function (rut){
-        
-        var objeto = {
+app.service('CorrienteService', function  ($resource){
+    this.getDatos = function (numero){
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/CorrienteService/'+numero).get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+       /* var objeto = {
                 "saldo1":"$0",
                 "saldo2":"$29.992",
                 "saldo3":"$29.992",
@@ -16,7 +19,7 @@ app.service('CorrienteService', function  (){
             };
 
 
-        return objeto;
+        return objeto;*/
     }
     return this;
 });

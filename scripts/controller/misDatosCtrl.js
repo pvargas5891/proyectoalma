@@ -1,7 +1,7 @@
 'use strict';
 app.controller('misDatosCtrl', misDatosCtrl);
 
-function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeService,LayoutDatosService,Session,MisDatosService){
+function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeService,LayoutDatosService,Session,MisDatosService,$cookieStore){
 
 	var layoutdatos = LayoutDatosService.getLayout();
     //console.debug(layout);
@@ -30,27 +30,30 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 		$scope.descargar=layout.descargar;
 	});
 
-	$scope.numeros = sessionService.numeros;
-	$scope.numeroSeleccionado = sessionService.numeros[0];
+	$scope.numeros = [$cookieStore.get('numeros')];
+    $scope.numeroSeleccionado = $cookieStore.get('numeros');
 	$scope.recargaNumero = function (){
 		cargaNumero($scope.numeroSeleccionado);
 	}
 
 	var cargaNumero = function(numero){
-		sessionService.numeroActivo=numero;
-		var datos=MisDatosService.getDatos(sessionService.numeroActivo);
-		$scope.nombresvalue = datos.nombresvalue;
-		$scope.apellidosvalue = datos.apellidosvalue;
-		$scope.rutvalue = datos.rutvalue;
-		$scope.celularvalue = datos.celularvalue;
-		$scope.emailvalue= datos.emailvalue;
+		//sessionService.numeroActivo=numero;
+		
+		var layoutdatos=MisDatosService.getDatos($cookieStore.get('numeroActivo'));
+		layoutdatos.$promise.then(function(datos) {
+			$scope.nombresvalue = datos.nombresvalue;
+			$scope.apellidosvalue = datos.apellidosvalue;
+			$scope.rutvalue = datos.rutvalue;
+			$scope.celularvalue = datos.celularvalue;
+			$scope.emailvalue= datos.emailvalue;
 
-		$scope.callevalue=datos.callevalue;
-		$scope.numerovalue=datos.numerovalue;
-		$scope.regionvalue=datos.regionvalue;
-		$scope.comunavalue=datos.comunavalue;
+			$scope.callevalue=datos.callevalue;
+			$scope.numerovalue=datos.numerovalue;
+			$scope.regionvalue=datos.regionvalue;
+			$scope.comunavalue=datos.comunavalue;
 
-		$scope.contratosactivos=datos.contratos;
+			$scope.contratosactivos=datos.contratos;
+		});	
 	}
 	$scope.recargaNumero();
 }		

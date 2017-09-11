@@ -920,8 +920,8 @@ b {
 .btn-outline-info.active, .btn-outline-info:active,
 .show > .btn-outline-info.dropdown-toggle, .btn-outline-info:hover, .btn-info.active, .btn-info:active,
 .show > .btn-info.dropdown-toggle {
-  background-color: #3aacba;
-  border: 1px solid #3aacba; }
+  background-color: #3aacba !important;
+  border: 1px solid #3aacba;}
 
 .btn-warning {
   background-color: #eca14f;

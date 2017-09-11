@@ -1,9 +1,14 @@
 'use strict';
-
-app.service('MiEquipoService', function  (){
-    this.getDatos = function (rut){
-
-        var objeto = {
+//var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
+var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
+app.service('MiEquipoService', function  ($resource){
+    this.getDatos = function (numero){
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/getDatosMiEquipo/'+numero).get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+       /* var objeto = {
                 "planvalue":"BAM XL",
                 "bajadavalue":"15 Mps",
                 "subidavalue":"3 Mps",
@@ -14,7 +19,7 @@ app.service('MiEquipoService', function  (){
             };
 
 
-        return objeto;
+        return objeto;*/
     }
     return this;
 });

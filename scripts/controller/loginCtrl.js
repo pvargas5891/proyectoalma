@@ -1,11 +1,12 @@
 'use strict';
 app.controller('loginCtrl', loginCtrl);
 
-function loginCtrl($rootScope,$scope,LayouHomeService2,authService,store,LayoutLoginService,AuthSharedService,Session,sessionService,$state){
+function loginCtrl($rootScope,$scope,LayouHomeService2,authService,store,LayoutLoginService,AuthSharedService,Session,sessionService,$state,$cookieStore){
 
 	var layout = LayouHomeService2.getLayout();
 	$scope.logoOficial = layout.logoOficial;
-
+	$scope.user=5525627;
+	//$scope.pass=1234;
 	var layoutLoginSrc = LayoutLoginService.getLayout();
 	//console.debug(layoutLogin);
 	layoutLoginSrc.$promise.then(function(layoutLogin) {
@@ -25,23 +26,21 @@ function loginCtrl($rootScope,$scope,LayouHomeService2,authService,store,LayoutL
 
 		AuthSharedService.login($scope.user, $scope.pass, false, 0).then(
 			function(data, status, headers, config, response) {
-				console.log('autenticacion OK config');
-				console.log(data.config);
-				console.log('Cookie END');
+				//console.log('autenticacion OK config');
+				//console.log(data.config);
+				//console.log('Cookie END');
 				
-				console.log(data);
-
-				sessionService.rut = data.data.login;
-				sessionService.nombres = data.data.nombre;
-				sessionService.apellidos = data.data.apellido;
-				sessionService.email = data.data.correo;
-				sessionService.numeros = [data.data.telefono];      
-				sessionService.estado=1;
-
-				console.log(data.data.token);
+				//console.log(data);
+				$cookieStore.put('nombres',data.data.nombre);
+				$cookieStore.put('rut',data.data.login);
+				$cookieStore.put('apellidos',data.data.apellido);
+				$cookieStore.put('email',data.data.correo);
+				$cookieStore.put('numeros',60003059);
+				$cookieStore.put('estado',1);
+	
 				store.set('jwt', data.data.token);
-				console.log('obteniendo del store');
-				console.log(store.get('jwt'));
+				//console.log('obteniendo del store');
+				//console.log(store.get('jwt'));
 				$rootScope.authenticationError = false;
 				authService.loginConfirmed(data);
 				changeLocation('portal.html',true);

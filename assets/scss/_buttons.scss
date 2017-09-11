@@ -33,8 +33,8 @@
 .open > .dropdown-toggle.btn-primary,.btn-outline-primary.active, .btn-outline-primary:active,
 .show>.btn-outline-primary.dropdown-toggle,.btn-outline-primary:hover,.btn-primary.active,
 .btn-primary:active, .show>.btn-primary.dropdown-toggle  {
-  background-color: darken($primary, 5%);
-  border: 1px solid darken($primary, 5%);
+  background-color: darken($primary, 15%);
+  border: 1px solid darken($primary, 25%);
 }
 .btn-primary.focus, .btn-primary:focus,.btn-outline-primary.focus, .btn-outline-primary:focus {
   -webkit-box-shadow: 0 0 0 2px rgba($primary,.3);
@@ -63,7 +63,7 @@
 .btn-outline-info.active, .btn-outline-info:active,
 .show>.btn-outline-info.dropdown-toggle,.btn-outline-info:hover,.btn-info.active, .btn-info:active,
 .show>.btn-info.dropdown-toggle{
-  background-color: darken($info, 5%);
+  background-color: darken($info, 5%) !important;
   border: 1px solid darken($info, 5%);
 }
 

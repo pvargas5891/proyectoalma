@@ -96,12 +96,12 @@ app.constant('REST_SERVICE_URI',{
             $rootScope.$on('event:auth-loginRequired', function (event, data) {
                 if ($rootScope.loadingAccount && data.status !== 401) {
                     $rootScope.requestedUrl = $location.path()
-                    $location.path('/login');
+                    $location.path('login.html');
                 } else {
                     Session.invalidate();
                     $rootScope.authenticated = false;
                     $rootScope.loadingAccount = false;
-                    $location.path('/login');
+                    $location.path('login.html');
                 }
             });
         

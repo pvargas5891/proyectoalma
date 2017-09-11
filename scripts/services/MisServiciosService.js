@@ -1,9 +1,14 @@
 'use strict';
-
-app.service('MisServiciosService', function  (){
-    this.getDatos = function (rut){
-
-        var objeto = {                
+//var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
+var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
+app.service('MisServiciosService', function  ($resource){
+    this.getDatos = function (numero){
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/MisServiciosService/'+numero).get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+        /*var objeto = {                
                 "servicios": [
                         {"id":"1","servicio":"Mis Datos","fecha":"mdi mdi-account-box","estado":"misdatos"},
                         {"id":"2","servicio":"Mis Datos","fecha":"mdi mdi-account-box","estado":"misdatos"},
@@ -14,7 +19,7 @@ app.service('MisServiciosService', function  (){
             };
 
 
-        return objeto;
+        return objeto;*/
     }
     return this;
 });

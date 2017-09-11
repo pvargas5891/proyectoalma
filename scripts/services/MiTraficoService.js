@@ -1,9 +1,12 @@
 'use strict';
 
-app.service('MiTraficoService', function  (){
-    this.getTrafico = function (rut){
-
-        var objeto = {
+app.service('MiTraficoService', function  ($resource){
+    this.getTrafico = function (numero){
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/MiTraficoService/'+numero).get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+        /*var objeto = {
                 "voz":"55",
                 "data":"54",
                 "sms":"100",
@@ -28,7 +31,7 @@ app.service('MiTraficoService', function  (){
             };
 
 
-        return objeto;
+        return objeto;*/
     }
     return this;
 });

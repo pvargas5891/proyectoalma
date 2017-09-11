@@ -1,7 +1,7 @@
 'use strict';
 app.controller('misServiciosCtrl', misServiciosCtrl);
 
-function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosService,sessionService,Session,MisServiciosService){
+function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosService,sessionService,Session,MisServiciosService,$cookieStore){
 	$scope.bolsas=true;
 	$scope.bolsashistoricas=false;
 	$scope.ventaroaming=false;
@@ -9,6 +9,7 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 
 	var layoutservicios=LayoutMisServiciosService.getLayout();
 	layoutservicios.$promise.then(function(servicios) {
+		console.debug(servicios);
 		$scope.bolsastext=servicios.bolsas;
 		$scope.tab1=servicios.tab1;
 		$scope.tab2=servicios.tab2;
@@ -21,17 +22,21 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 		$scope.estado=servicios.estado;
 		$scope.accion=servicios.accion;
 		$scope.btnaccion=servicios.btnaccion;
-		$scope.numeros = sessionService.numeros;
-		$scope.numeroSeleccionado = sessionService.numeros[0];
+		$scope.numeros = [$cookieStore.get('numeros')];
+		$scope.numeroSeleccionado = $cookieStore.get('numeros');
 	});
 	$scope.recargaNumero = function (){
 		cargaNumero($scope.numeroSeleccionado);
 	}
 	
     var cargaNumero = function(numero){
-		sessionService.numeroActivo=numero;
-		var data = MisServiciosService.getDatos(43534);
-		$scope.servicios = data.servicios;
+		//sessionService.numeroActivo=numero;
+		var data = MisServiciosService.getDatos(numero);
+		data.$promise.then(function(result) { 
+			console.debug("result");
+			console.debug(result);
+			$scope.servicios = result.servicios;
+		});
 	}
 	$scope.bolsastab=function(){
 		$scope.bolsas=true;

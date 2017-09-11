@@ -1,32 +1,33 @@
 
 app.controller('homeCtrl', homeCtrl);
 
-function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHomeService, ResumenService, Session, $state) {
+function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHomeService, ResumenService, Session, $state,$cookieStore) {
 
-     sessionService.rut = '15794539-4';
+     /*sessionService.rut = '15794539-4';
      sessionService.nombres = 'Pedro';
         sessionService.apellidos = 'Vera';
         sessionService.email = 'pvargas.figueroa@gmail.com';
         sessionService.numeros = ["75687660","567656787"];      
-        sessionService.estado=1;
-
-    $scope.firstName = sessionService.nombres;
-    $scope.lastName = sessionService.apellidos;
-    $scope.rutCliente = sessionService.rut;
-    $scope.emailCliente = sessionService.email;        
-    $scope.numeros = sessionService.numeros;
-    $scope.numeroSeleccionado = sessionService.numeros[0];
-    if(sessionService.estado==1){
+        sessionService.estado=1;*/
+    console.debug();
+    $scope.firstName = $cookieStore.get('nombres');
+    $scope.lastName = $cookieStore.get('apellidos');
+    $scope.rutCliente = $cookieStore.get('rut');
+    $scope.emailCliente = $cookieStore.get('email');        
+    $scope.numeros = [$cookieStore.get('numeros')];
+    $scope.numeroSeleccionado = $cookieStore.get('numeros');
+    var estado = $cookieStore.get('estado');
+    if(estado==1){
         $scope.sindeuda = true;
         $scope.apunto = false;
         $scope.condeuda = false;
     }
-    if(sessionService.estado==2){
+    if(estado==2){
         $scope.sindeuda = false;
         $scope.apunto = true;
         $scope.condeuda = false;
     }
-    if(sessionService.estado==3){
+    if(estado==3){
         $scope.sindeuda = false;
         $scope.apunto = false;
         $scope.condeuda = true;
@@ -84,7 +85,7 @@ function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHo
     
 
     $scope.redirect = function (go, name) {
-        $scope.titulo = (name != "") ? name : layout.texto7;
+        $scope.titulo = (name != "") ? name : $scope.titulo;
         $state.go(go);
     }
 
@@ -95,31 +96,53 @@ function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHo
         cargaNumero($scope.numeroSeleccionado);
     }
     var cargaNumero = function(numero){
-        sessionService.numeroActivo=numero;
-        console.debug(sessionService.numeroActivo);
-        var datos = ResumenService.getDatosResumen(numero);
-        $scope.celularvalue = datos.numeroprincipal;
-        $scope.prip1value = datos.prip;
-        $scope.miplanvlue = datos.plan;
+        //sessionService.numeroActivo=numero;
+        $cookieStore.put('numeroActivo',numero);
+        //console.debug(sessionService.numeroActivo);
+    
+        var result = ResumenService.getDatosResumen(numero);
+        result.$promise.then(function(result) {
 
-        var facturacion = ResumenService.getFacturacionResumen(numero);
-        $scope.totalapagar = facturacion.total;
-        $scope.vencimientovalue = facturacion.vencimiento;
-        $scope.estadovalue = facturacion.estado;
-        $scope.ciclovalue = facturacion.ciclo;
+            console.debug(result);
+            var datos = result.datos;
+            $scope.celularvalue =datos.numeroprincipal;
+            $scope.prip1value = datos.nombre;
+            $scope.miplanvlue = datos.plan;
 
-        var trafico = ResumenService.getMiTraficoResumen(numero);
-        $scope.internetvalue = trafico.internet;
-        $scope.smsvalue = trafico.sms;
-        $scope.vozvalue = trafico.voz;
-        $scope.pripvalue = trafico.prip;
-        $scope.periodovalue = trafico.periodo;
+            var factura=result.facturacion;
+            $scope.totalapagarvalue = factura.total;
+            $scope.vencimientovalue = factura.vencimiento;
+            $scope.estadovalue = factura.estado;
+            $scope.ciclovalue = factura.ciclo;
 
-        var pagos = ResumenService.getMisPagosResumen(numero);
-        $scope.total2value = pagos.total;
-        $scope.saldoanteriorvalue = pagos.saldoanterior;
-        $scope.saldovalue = pagos.saldo;
-        $scope.periodo2value = pagos.periodo;
+            var trafico = result.trafico;
+            $scope.internetvalue = trafico.internet;
+            $scope.smsvalue = trafico.sms;
+            $scope.vozvalue = trafico.voz;
+            $scope.pripvalue = trafico.prip;
+            $scope.periodovalue = trafico.periodo;
+
+            var pagos=result.pagos;
+            $scope.total2value = pagos.total;
+            $scope.saldoanteriorvalue = pagos.saldoanterior;
+            $scope.saldovalue = pagos.saldo;
+            $scope.periodo2value = pagos.periodo;
+        });    
+        /*var result = ResumenService.getFacturacionResumen(numero);
+        result.$promise.then(function(facturacion) {
+            console.debug(facturacion);
+            
+
+        });
+        var result = ResumenService.getMiTraficoResumen(numero);
+        result.$promise.then(function(trafico) {
+            console.debug(trafico);
+            
+        });
+        var result = ResumenService.getMisPagosResumen(numero);
+        result.$promise.then(function(pagos) {
+           
+        });*/    
     }
     var changeLocation = function(url, forceReload) {
 		$scope = $scope || angular.element(document).scope();

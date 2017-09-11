@@ -1,10 +1,16 @@
 'use strict';
 
+//var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
+var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
 
-app.service('MisDatosService', function  (){
+app.service('MisDatosService', function  ($resource){
     this.getDatos = function (numero){
-
-        var objeto = {
+        var layoutResource = $resource(REST_SERVICE_URI + '/public/MisDatosService/'+numero).get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+        /*var objeto = {
                 "nombresvalue":"Datos Personales",
                 "apellidosvalue":"Nombres",
                 "rutvalue":"Apellidos",
@@ -22,7 +28,7 @@ app.service('MisDatosService', function  (){
                         {"id":"5","fecha":"Mi Equipo","nombre":"mdi mdi-cellphone-iphone","folio":"miequipo"},
                         {"id":"6","fecha":"Cuenta Corriente","nombre":"mdi mdi-account-card-details","folio":"ccorriente"}
                     ]
-            };
+            };*/
 
 
         return objeto;
