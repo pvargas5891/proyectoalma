@@ -137,23 +137,40 @@ app.service('LayoutFacturacionService', function  ($resource){
 app.service('LayoutMisServiciosService', function  ($resource){
     this.getLayout = function (){
 
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutMisServiciosService').get({});
+        //var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutMisServiciosService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
-        return layoutResource;
-        /*var objeto = {
+        //return layoutResource;
+        var objeto = {
             "bolsas":"Bolsas",
-            "tab1":"Venta de bolsas",
-            "tab2":"Bolsas Históricas",
-            "tab3":"Venta Roaming",
-            "tab4":"Historico Roaming",
-            "complementarios":"Servicios Complementarios",
-            "servicio":"Servicio",
-            "fecha":"Fecha",
-            "estado":"Estado",
-            "accion":"Accion",
-            "btnaccion":"Habilitar"
-            };*/
+            "recargas":"Recargas",
+            "tab1":"Para Hablar y navegar",
+            "tab2":"Para Hablar",
+            "tab3":"Bolsa de mensajes",
+            "comprar":"Comprar",
+            "seleccione":"Seleccione el monto a recargar",
+            "bolsas1": [
+                        {"id":"1","internet":"Internet","internatvalor":"200MB","minutos":"Minutos","minutosvalor":"25","vigencia":"Vigencia","vigenciavalor":"7 días","valor":"Valor","valorvalor":"15000"},
+                        {"id":"2","internet":"Internet","internatvalor":"300MB","minutos":"Minutos","minutosvalor":"30","vigencia":"Vigencia","vigenciavalor":"8 días","valor":"Valor","valorvalor":"20000"},
+                        {"id":"3","internet":"Internet","internatvalor":"400MB","minutos":"Minutos","minutosvalor":"35","vigencia":"Vigencia","vigenciavalor":"9 días","valor":"Valor","valorvalor":"25000"},
+                        {"id":"4","internet":"Internet","internatvalor":"500MB","minutos":"Minutos","minutosvalor":"40","vigencia":"Vigencia","vigenciavalor":"10 días","valor":"Valor","valorvalor":"30000"}                       
+                    ],
+            "bolsas2": [
+                        {"id":"1","internet":"Internet","internatvalor":"200MB","minutos":"Minutos","minutosvalor":"25","vigencia":"Vigencia","vigenciavalor":"7 días","valor":"Valor","valorvalor":"15000"},
+                        {"id":"2","internet":"Internet","internatvalor":"300MB","minutos":"Minutos","minutosvalor":"30","vigencia":"Vigencia","vigenciavalor":"8 días","valor":"Valor","valorvalor":"20000"}
+                                             
+                    ],
+            "bolsas3": [
+                        {"id":"1","internet":"Internet","internatvalor":"200MB","minutos":"Minutos","minutosvalor":"25","vigencia":"Vigencia","vigenciavalor":"7 días","valor":"Valor","valorvalor":"15000"}
+                                          ],                
+            "montorecargas":  [
+                  {"id":"1","monto":"$1.000"},
+                  {"id":"2","monto":"$2.000"},
+                  {"id":"3","monto":"$4.000"},
+                  {"id":"4","monto":"$5.000"},
+                  {"id":"5","monto":"$10.000"}
+                 ]       
+            };
 	
 
         return objeto;

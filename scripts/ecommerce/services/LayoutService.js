@@ -43,7 +43,7 @@ ecommerce.service('LayouHomeService', function  (){
                 "agradecimiento":"Gracias por tu compra!",
                 "tituloconfirmacion":"Confirmación de compra",
                 "recibirasunemail":"En los proximos minutos recibirás un email como comprobante de tu compra",
-                 "menus": [
+                 "categorias": [
                         {"name":"Planes","icono":"fa fa-female","ir":"planes","active":"active"},
                         {"name":"Telefonos","icono":"fa fa-male","ir":"telefonos","active":""},
                         {"name":"Accesorios","icono":"fa fa-male","ir":"accesorios","active":""},
