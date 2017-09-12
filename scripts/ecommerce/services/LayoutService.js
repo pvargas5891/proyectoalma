@@ -17,7 +17,8 @@ ecommerce.service('LayouHomeService', function  (){
                 "recuperar":"Recuperar Password",
                 "copyright":"Copyright © 2017 ALMA. Todos los derechos reservados.",
                 "addcart":"Agregar al carro",
-                "titulo":"ALma Cel",
+                "categorialabel":"Categorías",
+                "titulogeneral":"ALma Cel",
                 "catalogo":"Catalogo",
                 "categorias":"Categorias",
                 "precio":"Precio",
@@ -43,7 +44,13 @@ ecommerce.service('LayouHomeService', function  (){
                 "agradecimiento":"Gracias por tu compra!",
                 "tituloconfirmacion":"Confirmación de compra",
                 "recibirasunemail":"En los proximos minutos recibirás un email como comprobante de tu compra",
-                 "categorias": [
+                "categorias": [
+                    {"name":"Planes","icono":"fa fa-female","ir":"planes","active":"active"},
+                    {"name":"Telefonos","icono":"fa fa-male","ir":"telefonos","active":""},
+                    {"name":"Accesorios","icono":"fa fa-male","ir":"accesorios","active":""},
+                    {"name":"Cargadores","icono":"fa fa-male","ir":"cargadores","active":""}
+                ],
+                 "listadoMenu": [
                         {"name":"Planes","icono":"fa fa-female","ir":"planes","active":"active"},
                         {"name":"Telefonos","icono":"fa fa-male","ir":"telefonos","active":""},
                         {"name":"Accesorios","icono":"fa fa-male","ir":"accesorios","active":""},

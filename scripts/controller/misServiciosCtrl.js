@@ -7,32 +7,6 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 	$scope.ventaroaming=false;
 	$scope.historicoroaming=false;
 
-	/*
-	
-	var objeto = {
-            "bolsas":"Bolsas",
-            "recargas":"Recargas",
-            "tab1":"Para Hblar y navegar",
-            "tab2":"Para Hablar",
-            "tab3":"Bolsa de mensajes",
-            "comprar":"Comprar",
-            "seleccione":"Seleccione el monto a recargar",
-            "bolsasvalue": [
-                        {"id":"1","internet":"Internet","internatvalor":"200MB","minutos":"Minutos","minutosvalor":"25","vigencia":"Vigencia","vigenciavalor":"7 días","valor":"Valor","valorvalor":"15000"},
-                        {"id":"2","internet":"Internet","internatvalor":"300MB","minutos":"Minutos","minutosvalor":"30","vigencia":"Vigencia","vigenciavalor":"8 días","valor":"Valor","valorvalor":"20000"},
-                        {"id":"3","internet":"Internet","internatvalor":"400MB","minutos":"Minutos","minutosvalor":"35","vigencia":"Vigencia","vigenciavalor":"9 días","valor":"Valor","valorvalor":"25000"},
-                        {"id":"4","internet":"Internet","internatvalor":"500MB","minutos":"Minutos","minutosvalor":"40","vigencia":"Vigencia","vigenciavalor":"10 días","valor":"Valor","valorvalor":"30000"}                       
-                    ],
-            "montorecargas":  [
-                  {"id":"1","monto":"$1.000"},
-                  {"id":"2","monto":"$2.000"},
-                  {"id":"3","monto":"$4.000"},
-                  {"id":"4","monto":"$5.000"},
-                  {"id":"5","monto":"$10.000"}
-                 ]       
-            };
-	
-	*/
 	var servicios=LayoutMisServiciosService.getLayout();
 	//layoutservicios.$promise.then(function(servicios) {
 		//console.debug(servicios);
@@ -93,6 +67,18 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 		$scope.bolsashistoricas=false;
 		$scope.ventaroaming=false;
 		$scope.historicoroaming=true;
+	}
+	$scope.comprarbolsa=function(seleccion,bolsa){
+		console.debug("seleccion");
+		console.debug(seleccion);
+		console.debug("bolsa");
+		console.debug(bolsa);
+		MisServiciosService.setDatosbolsa(seleccion,bolsa,$cookieStore.get('numeros'));
+	}
+	$scope.recargaaccion=function(seleccion){
+		console.debug("seleccion");
+		console.debug(seleccion);
+		MisServiciosService.setDatosrecarga(seleccion,bolsa,$cookieStore.get('numeros'));
 	}
 	$scope.recargaNumero();
 }

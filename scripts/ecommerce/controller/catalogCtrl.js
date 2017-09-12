@@ -7,20 +7,22 @@ function catalogCtrl($scope, $state, LayouHomeService,LayoutImagenTestService,pr
         //$scope.listadoMenu=data.menues;
     });   */
     var layout = LayouHomeService.getLayout();
-    //console.debug(layout);
+    console.debug("layout");
+    console.debug(layout);
     $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
     $scope.logoOficial = layout.logoOficial;
-    $scope.listadoMenu = layout.menus;
+    $scope.listadoMenu = layout.listadoMenu;
     $scope.login=layout.login;
     $scope.email=layout.email;
     $scope.password=layout.password;
     $scope.entrar=layout.entrar;
     $scope.recuperar=layout.recuperar;
     $scope.copyright=layout.copyright;
-    $scope.titulo=layout.titulo;
+    $scope.titulo=layout.titulogeneral;
     $scope.addcart=layout.addcart;
     $scope.catalogo=layout.catalogo;
     $scope.categorias=layout.categorias;
+    $scope.categorialabel=layout.categorialabel;
 
     var productos = productosService.getProductos();
     $scope.productosDestacados = productos.productosDestacados;
@@ -40,7 +42,7 @@ function catalogCtrl($scope, $state, LayouHomeService,LayoutImagenTestService,pr
         //productosService.agregaCarro(id,)
         $state.go('cart');
     }
-    var changeLocation = function(url, forceReload) {
+    /*var changeLocation = function(url, forceReload) {
 		$scope = $scope || angular.element(document).scope();
 		if(forceReload || $scope.$$phase) {
 			window.location = url;
@@ -53,5 +55,5 @@ function catalogCtrl($scope, $state, LayouHomeService,LayoutImagenTestService,pr
 			$location.path(url);
 			$scope.$apply();
 		}
-    };
+    };*/
 }

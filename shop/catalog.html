@@ -45,6 +45,15 @@
 
 <div class="container">
     <div class="row innerTB">
+			<div class="col-md-3" data-animate="fadeInRight" data-delay="200">
+					<h5 class="">{{categorialabel}}</h5>
+					<ul class="list-group list-group-front">
+				  <li ng-repeat="menu in categorias" class="list-group-item {{menu.active}}">
+					  <a href="javascript:void(0);" ng-click="redirect(menu.ir,menu.name)" class="waves-effect"><i class="{{menu.icono}}"></i> <span> {{menu.name}} </span> </a>                                
+				  </li>
+			  </ul>
+			  
+			  </div>
         <div class="col-md-9">	
 
 	<h5 class=" margin-none">{{catalogo}}</h5>
@@ -83,15 +92,7 @@
 </div>
 
 
-<div class="col-md-3" data-animate="fadeInRight" data-delay="200">
-  	<h5 class="">{{categorias}}</h5>
-  	<ul class="list-group list-group-front">
-	<li ng-repeat="menu in listadoMenu" class="list-group-item {{menu.active}}">
-        <a href="javascript:void(0);" ng-click="redirect(menu.ir,menu.name)" class="waves-effect"><i class="{{menu.icono}}"></i> <span> {{menu.name}} </span> </a>                                
-    </li>
-</ul>
 
-</div>
 
 
 
