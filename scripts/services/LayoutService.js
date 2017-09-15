@@ -1,7 +1,7 @@
 'use strict';
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
 var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
-//var REST_SERVICE_URI = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
 
 
 app.service('LayouHomeService', function ($rootScope, $log, $resource, $http, store, jwtHelper) {
@@ -36,7 +36,15 @@ app.service('LayoutDatosService', function  ($resource){
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
-
+        
+          var objeto =  {
+                "seleccion":"Selecciona tipo de pago",
+                "numerocuenta":"Numero cuenta",
+                "banco": "Banco",
+                "numerotarjeta":"Numero Tarjeta",
+                "Nombre Tarjeta":"nombre tarjeta"
+            }
+        
         /*var objeto = {
                 "titulo1":"Datos Personales",
                 "nombres":"Nombres",
@@ -144,9 +152,9 @@ app.service('LayoutMisServiciosService', function  ($resource){
         var objeto = {
             "bolsas":"Bolsas",
             "recargas":"Recargas",
-            "tab1":"Para Hablar y navegar",
-            "tab2":"Para Hablar",
-            "tab3":"Bolsa de mensajes",
+            "menu1":"Para Hablar y navegar",
+            "menu2":"Para Hablar",
+            "menu3":"Bolsa de mensajes",
             "comprar":"Comprar",
             "seleccione":"Seleccione el monto a recargar",
             "bolsas1": [

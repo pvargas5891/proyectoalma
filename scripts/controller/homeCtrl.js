@@ -22,7 +22,7 @@ function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHo
         $scope.apunto = false;
         $scope.condeuda = false;
     }
-    if(estado==2){
+   if(estado==2){
         $scope.sindeuda = false;
         $scope.apunto = true;
         $scope.condeuda = false;
