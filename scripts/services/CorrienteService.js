@@ -1,8 +1,8 @@
 'use strict';
 
-app.service('CorrienteService', function  ($resource){
+app.service('CorrienteService', function  ($resource,REST_SERVICE_URI){
     this.getDatos = function (numero){
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/CorrienteService/'+numero).get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/CorrienteService/'+numero).get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;

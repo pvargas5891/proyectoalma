@@ -1,12 +1,12 @@
 'use strict';
 
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
 //var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
 
-app.service('MisDatosService', function  ($resource){
+app.service('MisDatosService', function  ($resource,REST_SERVICE_URI){
     this.getDatos = function (numero){
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/MisDatosService/'+numero).get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/MisDatosService/'+numero).get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;

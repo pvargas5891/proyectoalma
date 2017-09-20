@@ -1,9 +1,7 @@
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
 //var REST_SERVICE_URI = 'http://192.168.0.190:8080/SmeroSecureRESTApi';
-app.constant('REST_SERVICE_URI',{
-    service: 'http://190.82.85.187:8080/SmeroSecureRESTApi'
-}).constant('USER_ROLES', {
+app.constant('USER_ROLES', {
     all: '*',
     admin: 'admin',
     user: 'user'

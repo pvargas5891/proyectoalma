@@ -1,7 +1,7 @@
 'use strict';
 app.controller('misDatosCtrl', misDatosCtrl);
 
-function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeService,LayoutDatosService,Session,MisDatosService,$cookieStore){
+function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeService,LayoutDatosService,Session,MisDatosService,LayoutBancosService,$cookieStore){
 
 	var layoutdatos = LayoutDatosService.getLayout();
     //console.debug(layout);
@@ -28,6 +28,19 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 		$scope.folio=layout.folio;
 		$scope.archivo=layout.archivo;
 		$scope.descargar=layout.descargar;
+	});
+
+	var layoutdatos = LayoutBancosService.getBancos();
+	layoutdatos.$promise.then(function(layout) {
+		console.debug(layout);
+	});
+	var layoutdatos = LayoutBancosService.getBancoTipoTarjetas();
+	layoutdatos.$promise.then(function(layout) {
+		console.debug(layout);
+	});
+	var layoutdatos = LayoutBancosService.seleccionPagoService();
+	layoutdatos.$promise.then(function(layout) {
+		console.debug(layout);
 	});
 
 	$scope.numeros = [$cookieStore.get('numeros')];

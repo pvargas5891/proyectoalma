@@ -1,17 +1,17 @@
 'use strict';
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
 //var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
 
 
-app.service('LayouHomeService', function ($rootScope, $log, $resource, $http, store, jwtHelper) {
+app.service('LayouHomeService', function ($rootScope, $log, $resource, $http, store, jwtHelper,REST_SERVICE_URI) {
 
     //$http.defaults.headers.common.token  = store.get('jwt');
 
     return {
         getLayout: function () {
 
-            var layoutResource = $resource(REST_SERVICE_URI + '/public/layout').get({});
+            var layoutResource = $resource(REST_SERVICE_URI.service + '/public/layout').get({});
             
             return layoutResource;
 
@@ -19,31 +19,49 @@ app.service('LayouHomeService', function ($rootScope, $log, $resource, $http, st
     }
 
 });
-app.service('LayouHomeService2', function  ($resource){
+app.service('LayouHomeService2', function  ($resource,REST_SERVICE_URI){
     this.getLayout = function (){
 
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayouHomeService2').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayouHomeService2').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
     }
     return this;
 });
-app.service('LayoutDatosService', function  ($resource){
-    this.getLayout = function (){
 
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutDatosService').get({});
+app.service('LayoutBancosService', function  ($resource,REST_SERVICE_URI){
+    this.getBancos = function (){
+
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/BancosService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
-        
-          var objeto =  {
-                "seleccion":"Selecciona tipo de pago",
-                "numerocuenta":"Numero cuenta",
-                "banco": "Banco",
-                "numerotarjeta":"Numero Tarjeta",
-                "Nombre Tarjeta":"nombre tarjeta"
-            }
+    }
+    this.getBancoTipoTarjetas = function (){
+
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/BancoTipoTarjetasService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+    }
+     this.seleccionPagoService = function (){
+
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceSeleccionPagoService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+    }
+    return this;
+});
+app.service('LayoutDatosService', function  ($resource,REST_SERVICE_URI){
+    this.getLayout = function (){
+
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutDatosService').get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+
         
         /*var objeto = {
                 "titulo1":"Datos Personales",
@@ -75,10 +93,10 @@ app.service('LayoutDatosService', function  ($resource){
     }
     return this;
 });
-app.service('LayoutTraficoService', function  ($resource){
+app.service('LayoutTraficoService', function  ($resource,REST_SERVICE_URI){
     this.getLayout = function (){
 
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutTraficoService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutTraficoService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
@@ -117,10 +135,10 @@ app.service('LayoutTraficoService', function  ($resource){
     }
     return this;
 });
-app.service('LayoutFacturacionService', function  ($resource){
+app.service('LayoutFacturacionService', function  ($resource,REST_SERVICE_URI){
     this.getLayout = function (){
 
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutFacturacionService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutFacturacionService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
@@ -142,13 +160,13 @@ app.service('LayoutFacturacionService', function  ($resource){
     }
     return this;
 });
-app.service('LayoutMisServiciosService', function  ($resource){
+app.service('LayoutMisServiciosService', function  ($resource,REST_SERVICE_URI){
     this.getLayout = function (){
 
-        //var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutMisServiciosService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceBolsasYRecargasService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
-        //return layoutResource;
+        return layoutResource;
         var objeto = {
             "bolsas":"Bolsas",
             "recargas":"Recargas",
@@ -185,10 +203,10 @@ app.service('LayoutMisServiciosService', function  ($resource){
     }
     return this;
 });
-app.service('LayoutMiEquipoService', function  ($resource){
+app.service('LayoutMiEquipoService', function  ($resource,REST_SERVICE_URI){
     this.getLayout = function (){
 
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutMiEquipoService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutMiEquipoService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
@@ -209,10 +227,10 @@ app.service('LayoutMiEquipoService', function  ($resource){
     }
     return this;
 });
-app.service('LayoutCorrienteService', function  ($resource){
+app.service('LayoutCorrienteService', function  ($resource,REST_SERVICE_URI){
     this.getLayout = function (){
 
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutCorrienteService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutCorrienteService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
@@ -235,13 +253,13 @@ app.service('LayoutCorrienteService', function  ($resource){
     }
     return this;
 });
-app.service('LayoutLoginService', function  ($resource){
+app.service('LayoutLoginService', function  ($resource,REST_SERVICE_URI){
 
     
 
     this.getLayout = function (){
 
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutLoginService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutLoginService').get({});
         console.debug("layoutResource");
         console.debug(layoutResource);
         return layoutResource;
@@ -261,9 +279,9 @@ app.service('LayoutLoginService', function  ($resource){
     }
     return this;
 });
-app.service('LayoutRegistroService', function  (){
+app.service('LayoutRegistroService', function  (REST_SERVICE_URI){
     this.getLayout = function (){
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutRegistroService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutRegistroService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
@@ -281,9 +299,9 @@ app.service('LayoutRegistroService', function  (){
     }
     return this;
 });
-app.service('LayoutRecoveryService', function  (){
+app.service('LayoutRecoveryService', function  (REST_SERVICE_URI){
     this.getLayout = function (){
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutRecoveryService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutRecoveryService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;
@@ -300,9 +318,9 @@ app.service('LayoutRecoveryService', function  (){
     return this;
 });
 
-app.service('LayoutPortadaService', function  (){
+app.service('LayoutPortadaService', function  (REST_SERVICE_URI){
     this.getLayout = function (){
-        var layoutResource = $resource(REST_SERVICE_URI + '/public/LayoutService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
         return layoutResource;

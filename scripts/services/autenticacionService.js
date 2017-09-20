@@ -2,7 +2,7 @@
 
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
 //var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
+//var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
 
 app.service('Session', function () {
     this.create = function (data) {
@@ -36,7 +36,7 @@ app.service('Session', function () {
 });
 
 
-app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session,sessionService, store, jwtHelper,md5) {
+app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session,sessionService, store, jwtHelper,md5,REST_SERVICE_URI) {
     // $http.defaults.useXDomain = true;
     return {
         login: function (userName, password, rememberMe, tipoLogin) {
@@ -67,7 +67,7 @@ app.service('AuthSharedService', function ($rootScope, $http, $resource, authSer
             //config.headers.Authorization = 'Basic '+encodedString;
             //store.set('jwt', null);
             store.set('jwt', null);
-            return $http.post(REST_SERVICE_URI + '/authenticate', $.param({
+            return $http.post(REST_SERVICE_URI.service + '/authenticate', $.param({
                 username: userName,
                 password: md5.createHash(password || ''),
                 rememberme: rememberMe,
@@ -81,7 +81,7 @@ app.service('AuthSharedService', function ($rootScope, $http, $resource, authSer
             console.log(store.get('jwt'));
             var config = {
                 method: 'GET',
-                url: REST_SERVICE_URI + '/security/account',
+                url: REST_SERVICE_URI.service + '/security/account',
                 headers: {'token': ''+ store.get('jwt')}
             };
 
@@ -114,14 +114,14 @@ app.service('AuthSharedService', function ($rootScope, $http, $resource, authSer
             $rootScope.authenticationError = false;
             $rootScope.authenticated = false;
             $rootScope.account = null;
-            $http.get(REST_SERVICE_URI + '/logout');
+            $http.get(REST_SERVICE_URI.service + '/logout');
             Session.invalidate();
             authService.loginCancelled();
         }
     };
 });
 
-app.service('HomeService', function ($rootScope, $log, $resource, store, jwtHelper, $http) {
+app.service('HomeService', function ($rootScope, $log, $resource, store, jwtHelper, $http,REST_SERVICE_URI) {
 
     $http.defaults.headers.common.token = store.get('jwt');
 
@@ -136,14 +136,14 @@ app.service('HomeService', function ($rootScope, $log, $resource, store, jwtHelp
 });
 
 
-app.service('UsersService', function ($rootScope, $log, $resource, $http, store, jwtHelper) {
+app.service('UsersService', function ($rootScope, $log, $resource, $http, store, jwtHelper,REST_SERVICE_URI) {
 
     $http.defaults.headers.common.token = store.get('jwt');
 
     return {
         getAll: function () {
 
-            var userResource = $resource( REST_SERVICE_URI + '/users', {
+            var userResource = $resource( REST_SERVICE_URI.service + '/users', {
                 query: {method: 'GET' , params: {}, isArray: true}
             });
 
@@ -163,7 +163,7 @@ app.service('UsersService', function ($rootScope, $log, $resource, $http, store,
 });
 
 
-app.service('TokensService', function ($rootScope, $log, $resource, store, jwtHelper, $http) {
+app.service('TokensService', function ($rootScope, $log, $resource, store, jwtHelper, $http,REST_SERVICE_URI) {
 
     $http.defaults.headers.common.token = store.get('jwt');
 
@@ -174,7 +174,7 @@ app.service('TokensService', function ($rootScope, $log, $resource, store, jwtHe
             //     headers: {'token': ''+ store.get('jwt')}
             // });
             // return tokensResource.query();
-            var tokensResource = $resource( REST_SERVICE_URI + '/security/tokens', {}, {
+            var tokensResource = $resource( REST_SERVICE_URI.service + '/security/tokens', {}, {
                 get: {
                     method: 'GET'}
             });

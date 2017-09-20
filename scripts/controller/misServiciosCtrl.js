@@ -7,20 +7,20 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 	$scope.ventaroaming=false;
 	$scope.historicoroaming=false;
 
-	var servicios=LayoutMisServiciosService.getLayout();
-	//layoutservicios.$promise.then(function(servicios) {
-		//console.debug(servicios);
+	var layoutservicios=LayoutMisServiciosService.getLayout();
+	layoutservicios.$promise.then(function(servicios) {
+		console.debug(servicios);
 		$scope.bolsastext=servicios.bolsas;
 		$scope.recargastext=servicios.recargas;
-		$scope.tab1=servicios.tab1;
-		$scope.tab2=servicios.tab2;
-		$scope.tab3=servicios.tab3;
+		$scope.menu1=servicios.menu1;
+		$scope.menu2=servicios.menu2;
+		$scope.menu3=servicios.menu3;
 		$scope.comprar = servicios.comprar;
 		$scope.seleccione = servicios.seleccione;
 		$scope.bolsas1=servicios.bolsas1;
 		$scope.bolsas2=servicios.bolsas2;
 		$scope.bolsas3=servicios.bolsas3;
-		$scope.montorecargas = servicios.montorecargas;
+		$scope.montorecargas = servicios.montoRecargas;
 		//$scope.complementarios=servicios.complementarios;
 		//$scope.servicio=servicios.servicio;
 		//$scope.fecha=servicios.fecha;
@@ -30,7 +30,7 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 
 		$scope.numeros = [$cookieStore.get('numeros')];
 		$scope.numeroSeleccionado = $cookieStore.get('numeros');
-	//});
+	});
 	$scope.recargaNumero = function (){
 		cargaNumero($scope.numeroSeleccionado);
 	}
