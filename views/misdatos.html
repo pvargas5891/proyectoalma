@@ -70,7 +70,7 @@
                   </div> 
                   <div class="row">
                     <div class="col-md-2">{{email}}:</div>
-                    <div class="col-md-5"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="emailvalue" placeholder="Email"></div>
+                    <div class="col-md-5"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="emailvalue"></div>
                     <div class="col-md-5"><button type="button" class="btn btn-info">{{guardar}}</button></div>
                   </div> 
                 </ul>
@@ -111,11 +111,103 @@
                  <hr> 
                  <ul class="list-inline widget-chart">
                   <div class="row">
-                    <div class="col-md-12"><h4 class="font-16">{{clave}}</h4></div>
+                    <div class="col-md-12"><h4 class="font-16">{{seleccion}}</h4></div>
                   </div>           
                   <div class="row">
-                    <div class="col-md-7">{{enviarclave}}</div>                    
-                    <div class="col-md-5"><button type="button" class="btn btn-info">{{cambiarclave}}</button></div>
+                        <div class="col-md-12">
+      <!-- Nav tabs -->
+<div class="card m-b-20">
+      <div class="card-block">          
+          <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <div class="radio">
+                  <label><input class="form-control" type="radio" name="tipo" ng-click="cargobancotab()">{{cargobancotext}}</label>
+                </div>
+                
+                  <!--< class="nav-link active" href="javascript:void(0);"  data-toggle="tab"></a-->
+              </li>
+              <li class="nav-item">
+                <div class="radio">
+                  <label><input class="form-control" type="radio" name="tipo" ng-click="cargotarjetatab()">{{cargotarjetatext}}</label>
+                </div>
+                  
+                   <!--a class="nav-link" href="javascript:void(0);"  role="tab" data-toggle="tab"></a-->
+              </li>
+             
+              
+          </ul>
+          
+           <!-- Tab panes -->
+                                            <div>
+                                                <div class="tab-pane p-3" ng-show="cargobanco">
+                                                    <ul class="list-inline widget-chart">                                                      
+                                                      <div class="row">
+                                                          <div class="col-md-2">{{numeroCuenta}}:</div>
+                                                          <div class="col-md-3"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="numeroCuentaValue"></div>
+                                                        </div>
+                                                         <div class="row">
+                                                           <div class="col-md-12">&nbsp;</div>
+                                                         </div>  
+                                                        <div class="row">
+                                                          <div class="col-md-2">{{banco}}:</div>
+                                                          <div class="col-md-6">
+                                                         <select class="form-control ng-pristine ng-valid ng-not-empty ng-touched" ng-model="bancoValue">
+                                                            <option ng-repeat="banco in listadoBancos" class="ng-binding ng-scope" value="banco.codigoBanco">{{banco.nombreBanco}}</option>
+                                                        </select>
+                                                          </div>
+                                                        </div>
+                                                        <div class="row">
+                                                           <div class="col-md-12">&nbsp;</div>
+                                                         </div>                                                         
+                                                    </ul>
+                                                   
+                                                </div>
+                                                <div class="tab-pane p-3" ng-show="cargotarjeta" role="tabpanel">                                                    
+
+                                                      <ul class="list-inline widget-chart">                                                      
+                                                        <div class="row">
+                                                          <div class="col-md-2">{{numeroCuenta}}:</div>
+                                                          <div class="col-md-3"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="numeroCuentaTarjetaValue"></div>
+                                                        </div>
+                                                         <div class="row">
+                                                           <div class="col-md-12">&nbsp;</div>
+                                                         </div>  
+                                                        <div class="row">
+                                                          <div class="col-md-2">{{numeroTarjeta}}:</div>
+                                                          <div class="col-md-3"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="numeroTarjetaValue"></div>
+                                                        </div>
+                                                        <div class="row">
+                                                           <div class="col-md-12">&nbsp;</div>
+                                                         </div> 
+                                                        <div class="row">
+                                                          <div class="col-md-2">{{nombreTarjeta}}:</div>
+                                                          <div class="col-md-3"><input type="email" class="form-control" id="exampleInputEmail1" ng-model="nombreTarjetaValue"></div>
+                                                        </div>
+                                                         <div class="row">
+                                                           <div class="col-md-12">&nbsp;</div>
+                                                         </div> 
+                                                        <div class="row">
+                                                          <div class="col-md-2">{{tipoTarjeta}}:</div>
+                                                          <div class="col-md-6"> <select class="form-control ng-pristine ng-valid ng-not-empty ng-touched" ng-model="tipoTarjetaValue">
+                                                            <option ng-repeat="tarjeta in listadoTipoTarjetas" class="ng-binding ng-scope" value="tarjeta.codigoTipoTarjeta">{{tarjeta.nombreTipoTarjeta}}</option>
+                                                        </select></div>
+                                                        </div>
+                                                       
+                                                        <div class="row">
+                                                           <div class="col-md-12">&nbsp;</div>
+                                                         </div>                                                         
+                                                    </ul>
+
+                                                </div>                                               
+                                               <div class="row">
+                                                <div class="col-md-12"><button type="button" class="btn btn-info" ng-click="guardadatosbanco()" >{{guardar}}</button></div>                                                          
+                                              </div>
+                                            </div>
+
+      </div>
+  </div>
+       
+    </div>
                   </div>
                 </ul>
                  <hr>                

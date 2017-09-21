@@ -4,6 +4,8 @@ app.controller('misDatosCtrl', misDatosCtrl);
 function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeService,LayoutDatosService,Session,MisDatosService,LayoutBancosService,$cookieStore){
 
 	var layoutdatos = LayoutDatosService.getLayout();
+	$scope.cargobanco=true;
+	$scope.cargotarjeta=false;
     //console.debug(layout);
 	layoutdatos.$promise.then(function(layout) {
 		$scope.titulo1=layout.titulo1;
@@ -30,17 +32,33 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 		$scope.descargar=layout.descargar;
 	});
 
-	var layoutdatos = LayoutBancosService.getBancos();
-	layoutdatos.$promise.then(function(layout) {
-		console.debug(layout);
+	LayoutBancosService.getBancos(function(response) {                                     
+		//console.debug(response.data);
+		$scope.listadoBancos=response.data;
+	},
+	function(e) {
+			
 	});
-	var layoutdatos = LayoutBancosService.getBancoTipoTarjetas();
-	layoutdatos.$promise.then(function(layout) {
-		console.debug(layout);
+	
+
+	LayoutBancosService.getBancoTipoTarjetas(function(response) {                                     
+		//console.debug(response.data);
+		$scope.listadoTipoTarjetas=response.data;
+	},
+	function(e) {
+			
 	});
+
 	var layoutdatos = LayoutBancosService.seleccionPagoService();
 	layoutdatos.$promise.then(function(layout) {
-		console.debug(layout);
+		$scope.seleccion=layout.seleccion;
+		$scope.banco=layout.banco;
+		$scope.nombreTarjeta=layout.nombreTarjeta;
+		$scope.numeroCuenta=layout.numeroCuenta;
+		$scope.numeroTarjeta=layout.numeroTarjeta;
+		$scope.cargobancotext="Cargo Bancario";
+		$scope.cargotarjetatext="Cargo Tarjeta De Credito";
+		$scope.tipoTarjeta="Tipo Tarjeta";
 	});
 
 	$scope.numeros = [$cookieStore.get('numeros')];
@@ -48,6 +66,27 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 	$scope.recargaNumero = function (){
 		cargaNumero($scope.numeroSeleccionado);
 	}
+
+	$scope.guardadatosbanco = function(){
+		
+		       
+		var data = {
+			numLinea: $cookieStore.get('numeros'),
+			numeroCtaCorriente: $scope.numeroCuentaValue,
+			codigoBanco: $scope.bancoValue,
+			codigoTipoTarjeta: $scope.tipoTarjetaValue,
+			numeroTarjeta: $scope.numeroTarjetaValue,
+			nombreTarjeta: $scope.nombreTarjetaValue
+		}
+		MisDatosService.setBancosSeleccion(data,				
+				function(response) {                                     
+                    
+                },
+                function(e) {
+                     
+                });
+	}
+
 
 	var cargaNumero = function(numero){
 		//sessionService.numeroActivo=numero;
@@ -68,5 +107,15 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 			$scope.contratosactivos=datos.contratos;
 		});	
 	}
+
+	$scope.cargobancotab=function(){
+		$scope.cargobanco=true;
+		$scope.cargotarjeta=false;
+	}
+	$scope.cargotarjetatab=function(){
+		$scope.cargobanco=false;
+		$scope.cargotarjeta=true;
+	}
+
 	$scope.recargaNumero();
 }		

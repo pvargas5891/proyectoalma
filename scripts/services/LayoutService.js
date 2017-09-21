@@ -30,20 +30,37 @@ app.service('LayouHomeService2', function  ($resource,REST_SERVICE_URI){
     return this;
 });
 
-app.service('LayoutBancosService', function  ($resource,REST_SERVICE_URI){
-    this.getBancos = function (){
+app.service('LayoutBancosService', function  ($resource,REST_SERVICE_URI,$http){
+    this.getBancos = function (successCallback, errorCallback){
 
-        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/BancosService').get({});
+        //var layoutResource = $resource().get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
-        return layoutResource;
+        //return layoutResource;
+
+        var req = {
+                method: 'GET',
+                url: REST_SERVICE_URI.service + '/public/BancosService',
+                headers: {
+                    'Content-Type': "application/x-www-form-urlencoded"
+                }
+            };
+        return $http(req).then(successCallback, errorCallback);
     }
-    this.getBancoTipoTarjetas = function (){
+    this.getBancoTipoTarjetas = function (successCallback, errorCallback){
 
-        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/BancoTipoTarjetasService').get({});
+        //var layoutResource = $resource(REST_SERVICE_URI.service + '/public/BancoTipoTarjetasService').get({});
         //console.debug("layoutResource");
         //console.debug(layoutResource);
-        return layoutResource;
+        //return layoutResource;
+         var req = {
+                method: 'GET',
+                url: REST_SERVICE_URI.service + '/public/BancoTipoTarjetasService',
+                headers: {
+                    'Content-Type': "application/x-www-form-urlencoded"
+                }
+            };
+        return $http(req).then(successCallback, errorCallback);
     }
      this.seleccionPagoService = function (){
 

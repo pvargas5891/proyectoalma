@@ -33,6 +33,21 @@ app.service('MisDatosService', function  ($resource,REST_SERVICE_URI){
 
         return objeto;
     }
+     this.setBancosSeleccion = function (data,successCallback,errorCallback){
+
+
+        var req = {
+                method: 'POST',
+                url: REST_SERVICE_URI.service + '/public/DatosBancariosService',
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                data: data
+            };
+        return $http(req).then(successCallback, errorCallback);
+
+    }
+   
     return this;
 });
 
