@@ -98,6 +98,8 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 		
 		var layoutdatos=MisDatosService.getDatos($cookieStore.get('numeroActivo'));
 		layoutdatos.$promise.then(function(datos) {
+			console.debug("datos");
+			console.debug(datos);
 			$scope.nombresvalue = datos.nombresvalue;
 			$scope.apellidosvalue = datos.apellidosvalue;
 			$scope.rutvalue = datos.rutvalue;
@@ -108,7 +110,12 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 			$scope.numerovalue=datos.numerovalue;
 			$scope.regionvalue=datos.regionvalue;
 			$scope.comunavalue=datos.comunavalue;
-
+			$scope.bancoValue=datos.nombreBanco;
+			$scope.numeroCuentaValue=datos.numerovalue;
+			$scope.tipoTarjetaValue=datos.nombreTipoTarjeta;
+			$scope.numeroTarjetaValue=datos.numeroTarjeta;
+			$scope.nombreTarjetaValue=datos.nombresvalue;
+			
 			$scope.contratosactivos=datos.contratos;
 		});	
 	}
