@@ -59,6 +59,7 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 		$scope.cargobancotext="Cargo Bancario";
 		$scope.cargotarjetatext="Cargo Tarjeta De Credito";
 		$scope.tipoTarjeta="Tipo Tarjeta";
+
 	});
 
 	$scope.numeros = [$cookieStore.get('numeros')];
@@ -69,18 +70,22 @@ function misDatosCtrl($rootScope,$scope,factoryTest,sessionService,LayouHomeServ
 
 	$scope.guardadatosbanco = function(){
 		
-		       
+		$scope.cargobanco=true;
+		$scope.cargotarjeta=false;     
+
 		var data = {
 			numLinea: $cookieStore.get('numeros'),
 			numeroCtaCorriente: $scope.numeroCuentaValue,
 			codigoBanco: $scope.bancoValue,
 			codigoTipoTarjeta: $scope.tipoTarjetaValue,
 			numeroTarjeta: $scope.numeroTarjetaValue,
-			nombreTarjeta: $scope.nombreTarjetaValue
+			nombreTarjeta: $scope.nombreTarjetaValue,
+			tipopago: ($scope.cargobanco)?true:false
 		}
 		MisDatosService.setBancosSeleccion(data,				
 				function(response) {                                     
-                    
+					console.debug(response);
+					alert(response.data.descRetorno);
                 },
                 function(e) {
                      
