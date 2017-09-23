@@ -6,9 +6,10 @@ function catalogCtrl($scope, $state, LayouHomeService,LayoutImagenTestService,pr
         console.debug(data);
         //$scope.listadoMenu=data.menues;
     });   */
-    var layout = LayouHomeService.getLayout();
-    console.debug("layout");
-    console.debug(layout);
+    var layoutcatalogo = LayouHomeService.getLayout();
+    console.debug("layoutcatalogo");
+    console.debug(layoutcatalogo);
+    layoutcatalogo.$promise.then(function(layout) {
     $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
     $scope.logoOficial = layout.logoOficial;
     $scope.listadoMenu = layout.listadoMenu;
@@ -23,11 +24,15 @@ function catalogCtrl($scope, $state, LayouHomeService,LayoutImagenTestService,pr
     $scope.catalogo=layout.catalogo;
     $scope.categorias=layout.categorias;
     $scope.categorialabel=layout.categorialabel;
+    });
+    var productoslistado = productosService.getProductos();
+    productoslistado.$promise.then(function(productos) {
+        
+        $scope.productosDestacados = productos.productosDestacados;
+        $scope.productos = productos.productos;
 
-    var productos = productosService.getProductos();
-    $scope.productosDestacados = productos.productosDestacados;
-    $scope.productos = productos.productos;
-    $scope.celular= LayoutImagenTestService.getStandar();
+    });    
+        $scope.celular= LayoutImagenTestService.getStandar();
 
     $scope.redirect = function (go, name) {
         //productosService.agregaCarro(id,)

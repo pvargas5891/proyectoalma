@@ -3,16 +3,19 @@ ecommerce.controller('cartCtrl', cartCtrl);
 
 function cartCtrl($scope, $state,LayouHomeService,productosService,LayoutImagenTestService) {
 
-        var layout = LayouHomeService.getLayout();
-        $scope.volver=layout.volver;
-        $scope.titulocarro=layout.titulocarro;
-        $scope.numero=layout.numero;
-        $scope.cantidad=layout.cantidad;
-        $scope.precio=layout.precio;
-        $scope.subtotal=layout.subtotal;
-        $scope.despacho=layout.despacho;
-        $scope.total=layout.total;
-        $scope.pagar=layout.pagar;
+        var layoutcart = LayouHomeService.getLayout();
+        layoutcart.$promise.then(function(layout) {
+            $scope.volver=layout.volver;
+            $scope.titulocarro=layout.titulocarro;
+            $scope.numero=layout.numero;
+            $scope.cantidad=layout.cantidad;
+            $scope.precio=layout.precio;
+            $scope.subtotal=layout.subtotal;
+            $scope.despacho=layout.despacho;
+            $scope.total=layout.total;
+            $scope.pagar=layout.pagar;
+        });
+
         var carro = productosService.getCarro();
         $scope.carro=carro.productos;
         $scope.imagen = LayoutImagenTestService.getStandar();

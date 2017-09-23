@@ -1,12 +1,14 @@
 'use strict';
 
-//var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
-//var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
 
-ecommerce.service('productosService', function  (){
+ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource){
     this.getProductos = function (categoria){
-        var objeto = {
+
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductosYDestacadosService').get({});
+            
+        return layoutResource;
+
+        /*var objeto = {
                  "productosDestacados": [
                         {"id":"1","name":"Cellular 1","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active"},
                         {"id":"1","name":"Cellular 2","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active"},
@@ -25,7 +27,7 @@ ecommerce.service('productosService', function  (){
             };
 
 
-        return objeto;
+        return objeto;*/
     }
     this.getProducto = function (id){
         var objeto =             
@@ -39,7 +41,7 @@ ecommerce.service('productosService', function  (){
 
         return objeto;
     }
-    this.agregaCarro = function (id,usuario){
+    this.agregaCarro = function (id){
         var objeto =             
                 {"id":"1",
                 "name":"Cellular 5",
@@ -51,7 +53,7 @@ ecommerce.service('productosService', function  (){
 
         return objeto;
     }
-    this.getCarro = function (usuario){
+    this.getCarro = function (){
         var objeto = {
                  "productos": [
                         {"id":"1","name":"Cellular 1","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active","cantidad":"1","total":"$150.000"},

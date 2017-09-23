@@ -1,15 +1,13 @@
 'use strict';
 
-//var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';
-var REST_SERVICE_URI = 'http://190.82.85.187:8080/SmeroSecureRESTApi';
-//var REST_SERVICE_URI = 'http://192.168.0.97:8080/SmeroSecureRESTApi';
-
-
-ecommerce.service('LayouHomeService', function  (){
+ecommerce.service('LayouHomeService', function  (REST_SERVICE_URI,$resource ){
 
     this.getLayout = function (){
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceLayoutService').get({});
+            
+        return layoutResource;
 
-        var objeto = {
+        /*var objeto = {
                 "login":"Login",
                 "email":"Email",
                 "password":"Password",
@@ -58,7 +56,7 @@ ecommerce.service('LayouHomeService', function  (){
                     ],
                        "logoOficial": "imagenbase64"
              };
-        return objeto;
+        return objeto;*/
     }
     return this;
 });
