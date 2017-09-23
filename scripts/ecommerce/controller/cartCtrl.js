@@ -17,7 +17,7 @@ function cartCtrl($scope, $state,LayouHomeService,productosService,LayoutImagenT
         });
 
         var carro = productosService.getCarro();
-        $scope.carro=carro.productos;
+        $scope.carro=carro.productos[0];
 
         $scope.imagen = LayoutImagenTestService.getStandar();
         $scope.subtotalval = carro.subtotal;

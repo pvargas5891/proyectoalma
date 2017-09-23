@@ -100,32 +100,35 @@ ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource,$coo
             var productos=productosCarrito[x];
             var producto=this.getProducto(productos[0]);
             producto.$promise.then(function(data) {
-                var productosCarroVisualtmp = new Array();
-                productosCarroVisualtmp.push(productos[0]);
+                //var productosCarroVisualtmp = new Array();
+                var productosCarroVisualtmp={
+                    "id":productos[0],
+                    "name":data.name,
+                    "precio":data.precio,
+                    "descripcion":data.descripcion,
+                    "imagen":data.imagen,
+                    "cantidad":productos[1],
+                    "total":data.precio*productos[1],
+                }
+                /*productosCarroVisualtmp.push(productos[0]);
                 productosCarroVisualtmp.push(data.precio);
                 productosCarroVisualtmp.push(data.descripcion);
                 productosCarroVisualtmp.push(data.imagen);
-                productosCarroVisualtmp.push(productos[1]);
+                productosCarroVisualtmp.push(productos[1]);*/
                 productosCarroVisual.push(productosCarroVisualtmp);
             });    
             
         }
-        console.debug(productosCarroVisual);
+        
         var objeto = {
                  "productos": [
-                        {"id":"1"
-                        ,"name":"Cellular 1",
-                        "precio":"$ 150.000",
-                        "descripcion":"gsgssg",
-                        "imagen":"active",
-                        "cantidad":"1",
-                        "total":"$150.000"}
+                     productosCarroVisual
                     ],
                     "subtotal":"$ 500.000", 
                     "despacho":"$ 3.000",
                     "total":"$ 503.500"
             };
-
+console.debug(objeto);
 
         return objeto;
     }
