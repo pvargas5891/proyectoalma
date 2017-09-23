@@ -1,7 +1,7 @@
 
 ecommerce.controller('cartCtrl', cartCtrl);
 
-function cartCtrl($scope, $state,LayouHomeService,productosService,LayoutImagenTestService) {
+function cartCtrl($scope, $state,LayouHomeService,productosService,LayoutImagenTestService,$cookieStore) {
 
         var layoutcart = LayouHomeService.getLayout();
         layoutcart.$promise.then(function(layout) {
@@ -18,6 +18,7 @@ function cartCtrl($scope, $state,LayouHomeService,productosService,LayoutImagenT
 
         var carro = productosService.getCarro();
         $scope.carro=carro.productos;
+
         $scope.imagen = LayoutImagenTestService.getStandar();
         $scope.subtotalval = carro.subtotal;
         $scope.totalval = carro.total;
@@ -25,5 +26,10 @@ function cartCtrl($scope, $state,LayouHomeService,productosService,LayoutImagenT
     $scope.redirect = function (go, name) {
         //$scope.titulo = (name != "") ? name : layout.texto7;
         $state.go(go);
+    }
+    $scope.vaciarCarro = function (){
+        var productosCarrito = new Array();
+        $cookieStore.put('carrito',productosCarrito);  
+        $scope.redirect('catalog');
     }
 }

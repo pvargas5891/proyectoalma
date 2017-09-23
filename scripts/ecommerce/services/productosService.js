@@ -1,7 +1,7 @@
 'use strict';
 
 
-ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource){
+ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource,$cookieStore){
     this.getProductos = function (categoria){
 
         var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductosYDestacadosService').get({});
@@ -30,7 +30,12 @@ ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource){
         return objeto;*/
     }
     this.getProducto = function (id){
-        var objeto =             
+
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductoService/'+id).get({});
+            
+        return layoutResource;
+
+       /* var objeto =             
                 {"id":"1",
                 "name":"Cellular 5",
                 "precio":"$ 150.000",
@@ -39,10 +44,42 @@ ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource){
                 "nuevo":"true"
             };
 
-        return objeto;
+        return objeto;*/
     }
     this.agregaCarro = function (id){
-        var objeto =             
+
+        var productosCarrito=$cookieStore.get("carrito");
+        var productosCantidad = new Array();
+        if(productosCarrito.length==0){
+            productosCantidad.push(id);
+            productosCantidad.push(1);
+            productosCarrito.push(productosCantidad);
+            $cookieStore.put("carrito",productosCarrito);
+            return;
+        }
+        var contieneElemento=0;
+        var nuevocarrito=new Array();
+        for (var x=0;x< productosCarrito.length;x++){
+            var productos=productosCarrito[x];
+            if(productos[0]==id){
+                productos[1]=productos[1]+1;
+                contieneElemento=1;
+            }
+            nuevocarrito.push(productos);
+        }
+        if(contieneElemento==0){
+            productosCantidad.push(id);
+            productosCantidad.push(1);
+            nuevocarrito.push(productosCantidad);
+        }
+        //productosCarrito.push(id);
+
+        $cookieStore.put("carrito",nuevocarrito);
+        //console.debug("$cookieStore carrito 2");
+
+        //var productosCarrito=$cookieStore.get("carrito");
+        //console.debug(productosCarrito);
+        /*var objeto =             
                 {"id":"1",
                 "name":"Cellular 5",
                 "precio":"$ 150.000",
@@ -51,15 +88,38 @@ ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource){
                 "nuevo":"true"
             };
 
-        return objeto;
+        return objeto;*/
+        return;
     }
     this.getCarro = function (){
+        var productosCarroVisual= new Array();
+
+        var productosCarrito=$cookieStore.get("carrito");
+        console.debug(productosCarrito);
+        for (var x=0;x< productosCarrito.length;x++){
+            var productos=productosCarrito[x];
+            var producto=this.getProducto(productos[0]);
+            producto.$promise.then(function(data) {
+                var productosCarroVisualtmp = new Array();
+                productosCarroVisualtmp.push(productos[0]);
+                productosCarroVisualtmp.push(data.precio);
+                productosCarroVisualtmp.push(data.descripcion);
+                productosCarroVisualtmp.push(data.imagen);
+                productosCarroVisualtmp.push(productos[1]);
+                productosCarroVisual.push(productosCarroVisualtmp);
+            });    
+            
+        }
+        console.debug(productosCarroVisual);
         var objeto = {
                  "productos": [
-                        {"id":"1","name":"Cellular 1","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active","cantidad":"1","total":"$150.000"},
-                        {"id":"1","name":"Cellular 2","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active","cantidad":"1","total":"$150.000"},
-                        {"id":"1","name":"Cellular 3","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active","cantidad":"1","total":"$150.000"},
-                        {"id":"1","name":"Cellular 4","precio":"$ 150.000","descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.","imagen":"active","cantidad":"1","total":"$150.000"},
+                        {"id":"1"
+                        ,"name":"Cellular 1",
+                        "precio":"$ 150.000",
+                        "descripcion":"gsgssg",
+                        "imagen":"active",
+                        "cantidad":"1",
+                        "total":"$150.000"}
                     ],
                     "subtotal":"$ 500.000", 
                     "despacho":"$ 3.000",

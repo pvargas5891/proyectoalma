@@ -1,7 +1,7 @@
 
 ecommerce.controller('catalogCtrl', catalogCtrl);
 
-function catalogCtrl($scope, $state, LayouHomeService,LayoutImagenTestService,productosService) {
+function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenTestService,productosService) {
    /*LayouHomeService.getLayout().$promise.then(function (data) {
         console.debug(data);
         //$scope.listadoMenu=data.menues;
@@ -34,6 +34,13 @@ function catalogCtrl($scope, $state, LayouHomeService,LayoutImagenTestService,pr
     });    
         $scope.celular= LayoutImagenTestService.getStandar();
 
+    var productosCarrito=$cookieStore.get("carrito");
+   if(productosCarrito.length==0){    
+        var productosCarrito = new Array();
+        $cookieStore.put('carrito',productosCarrito);    
+    }
+    console.debug("carrito de catalog");
+    console.debug(productosCarrito);
     $scope.redirect = function (go, name) {
         //productosService.agregaCarro(id,)
         $state.go(go);
