@@ -9,13 +9,17 @@ function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHo
         sessionService.email = 'pvargas.figueroa@gmail.com';
         sessionService.numeros = ["75687660","567656787"];      
         sessionService.estado=1;*/
-    console.debug();
+   
     $scope.firstName = $cookieStore.get('nombres');
     $scope.lastName = $cookieStore.get('apellidos');
     $scope.rutCliente = $cookieStore.get('rut');
     $scope.emailCliente = $cookieStore.get('email');        
-    $scope.numeros = [$cookieStore.get('numeros')];
-    $scope.numeroSeleccionado = $cookieStore.get('numeros');
+    var numerosTmp = [$cookieStore.get('numeros')];
+    $scope.numeros = numerosTmp[0];
+    
+    $scope.numeroSeleccionado =  $scope.numeros[0].numero;
+    console.debug($scope.numeroSeleccionado);
+    $scope.textoPagado=$cookieStore.get('textoPagado');
     var estado = $cookieStore.get('estado');
     if(estado==1){
         $scope.sindeuda = true;
@@ -103,7 +107,7 @@ function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHo
         var result = ResumenService.getDatosResumen(numero);
         result.$promise.then(function(result) {
 
-            console.debug(result);
+            //console.debug(result);
             var datos = result.datos;
             $scope.celularvalue =datos.numeroprincipal;
             $scope.prip1value = datos.nombre;

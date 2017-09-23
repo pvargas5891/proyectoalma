@@ -24,18 +24,18 @@
                       </div>
                       <div class="col-md-6">
                             <select class="form-control" ng-model="numeroSeleccionado" ng-change="recargaNumero()">
-                                <option value="{{numero}}" ng-repeat="numero in numeros">{{numero}}</option>
+                                <option ng-repeat="listado in numeros">{{listado.numero}}</option>
                             </select>
                       </div>
                     </div> 
                  <div class="alert alert-success" ng-show="sindeuda" role="alert" style="margin-top: 10px;">
-                        <strong>{{sindeudatext}}</strong>
+                        <strong>{{textoPagado}}</strong>
                   </div> 
                   <div class="alert alert-warning" ng-show="apunto" role="alert">
-                      <strong>{{apuntovencer}}!</strong> {{apuntovencer2}}
+                    <strong>{{textoPagado}}</strong>
                   </div>
                   <div class="alert alert-danger" ng-show="condeuda" role="alert">
-                      <strong>{{presentadeuda}}</strong> {{presentadeuda2}}
+                    <strong>{{textoPagado}}</strong>
                   </div>     
                 </ul>
 

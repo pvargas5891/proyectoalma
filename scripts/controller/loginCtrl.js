@@ -30,12 +30,15 @@ function loginCtrl($rootScope,$scope,LayouHomeService2,authService,store,LayoutL
 				//console.log(data.config);
 				//console.log('Cookie END');
 				
-				//console.log(data);
+				console.log("data login");
+				console.log(data);
 				$cookieStore.put('nombres',data.data.nombre);
 				$cookieStore.put('rut',data.data.login);
 				$cookieStore.put('apellidos',data.data.apellido);
 				$cookieStore.put('email',data.data.correo);
-				$cookieStore.put('numeros',60003059);
+				$cookieStore.put('numeros',data.data.celulares);
+				$cookieStore.put('telefono',data.data.telefono);
+				$cookieStore.put('textoPagado',data.data.textoPagado);
 				$cookieStore.put('estado',1);
 	
 				store.set('jwt', data.data.token);
