@@ -35,6 +35,10 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         $scope.celular= LayoutImagenTestService.getStandar();
 
     var productosCarrito=$cookieStore.get("carrito");
+    if(productosCarrito === undefined){
+        var productosCarrito = new Array();
+        $cookieStore.put('carrito',productosCarrito);
+    }
    if(productosCarrito.length==0){    
         var productosCarrito = new Array();
         $cookieStore.put('carrito',productosCarrito);    
