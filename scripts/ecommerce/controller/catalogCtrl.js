@@ -9,8 +9,10 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
     var layoutcatalogo = LayouHomeService.getLayout();
 
     layoutcatalogo.$promise.then(function(layout) {
-    $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
+        //console.debug(layout);
+        $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
         $scope.logoOficial = layout.logoOficial;
+        //console.debug(layout.listadoMenu);
         $scope.listadoMenu = layout.listadoMenu;
         $scope.login=layout.login;
         $scope.email=layout.email;
@@ -21,7 +23,7 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         $scope.titulo=layout.titulogeneral;
         $scope.addcart=layout.addcart;
         $scope.catalogo=layout.catalogo;
-        $scope.categorias=layout.categorias;
+        $scope.categorias=layout.listadoCategorias;
         $scope.categorialabel=layout.categorialabel;
     });
     var productoslistado = productosService.getProductos();
