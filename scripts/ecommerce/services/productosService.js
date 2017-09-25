@@ -1,7 +1,7 @@
 'use strict';
 
 
-ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource,$cookieStore){
+ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$resource,$cookieStore){
     this.getProductos = function (categoria){
 
         var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductosYDestacadosService').get({});
@@ -46,12 +46,13 @@ ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource,$coo
 
         return objeto;*/
     }
-    this.agregaCarro = function (id){
-
+    
+    this.agregaCarro = function (producto){
+        
         var productosCarrito=$cookieStore.get("carrito");
         var productosCantidad = new Array();
         if(productosCarrito.length==0){
-            productosCantidad.push(id);
+            productosCantidad.push(producto);
             productosCantidad.push(1);
             productosCarrito.push(productosCantidad);
             $cookieStore.put("carrito",productosCarrito);
@@ -61,77 +62,57 @@ ecommerce.service('productosService', function  (REST_SERVICE_URI,$resource,$coo
         var nuevocarrito=new Array();
         for (var x=0;x< productosCarrito.length;x++){
             var productos=productosCarrito[x];
-            if(productos[0]==id){
+            if(productos[0].id==producto.id){
                 productos[1]=productos[1]+1;
                 contieneElemento=1;
             }
             nuevocarrito.push(productos);
         }
         if(contieneElemento==0){
-            productosCantidad.push(id);
+            productosCantidad.push(producto.id);
             productosCantidad.push(1);
             nuevocarrito.push(productosCantidad);
         }
-        //productosCarrito.push(id);
 
         $cookieStore.put("carrito",nuevocarrito);
-        //console.debug("$cookieStore carrito 2");
-
-        //var productosCarrito=$cookieStore.get("carrito");
-        //console.debug(productosCarrito);
-        /*var objeto =             
-                {"id":"1",
-                "name":"Cellular 5",
-                "precio":"$ 150.000",
-                "descripcion":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.",
-                "imagen":"active",
-                "nuevo":"true"
-            };
-
-        return objeto;*/
+       
         return;
     }
+
     this.getCarro = function (){
-        var productosCarroVisual= new Array();
-
+        var productosCarroVisual= [];
+        var objectretornado ="";
         var productosCarrito=$cookieStore.get("carrito");
-        console.debug(productosCarrito);
+        var totalfinal=0;
         for (var x=0;x< productosCarrito.length;x++){
-            var productos=productosCarrito[x];
-            var producto=this.getProducto(productos[0]);
-            producto.$promise.then(function(data) {
-                //var productosCarroVisualtmp = new Array();
-                var productosCarroVisualtmp={
-                    "id":productos[0],
-                    "name":data.name,
-                    "precio":data.precio,
-                    "descripcion":data.descripcion,
-                    "imagen":data.imagen,
-                    "cantidad":productos[1],
-                    "total":data.precio*productos[1],
-                }
-                /*productosCarroVisualtmp.push(productos[0]);
-                productosCarroVisualtmp.push(data.precio);
-                productosCarroVisualtmp.push(data.descripcion);
-                productosCarroVisualtmp.push(data.imagen);
-                productosCarroVisualtmp.push(productos[1]);*/
-                productosCarroVisual.push(productosCarroVisualtmp);
-            });    
-            
-        }
-        
-        var objeto = {
-                 "productos": [
-                     productosCarroVisual
-                    ],
-                    "subtotal":"$ 500.000", 
-                    "despacho":"$ 3.000",
-                    "total":"$ 503.500"
-            };
-console.debug(objeto);
 
-        return objeto;
+            var productos=productosCarrito[x];   
+            console.debug(productos);             
+            var total=productos[0].precio;
+            total=total.replace("$","");
+            total=total.replace(".","");
+            total=total.trim();
+            
+            var productosCarroVisualtmp={
+                "id":productos[0].id,
+                "name":productos[0].name,
+                "precio":productos[0].precio,
+                "descripcion":productos[0].descripcion,
+                "imagen":productos[0].imagen,
+                "cantidad":productos[1],
+                "total":total*productos[1]
+            }
+
+            totalfinal=parseInt(totalfinal)+parseInt(total*productos[1]);
+                
+            productosCarroVisual.push(productosCarroVisualtmp);
+    
+
+        }
+        return productosCarroVisual;
     }
+
+
     return this;
 });
 

@@ -36,7 +36,7 @@ app.service('Session', function () {
 });
 
 
-app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session,sessionService, store, jwtHelper,md5,REST_SERVICE_URI) {
+app.service('AuthSharedService', function ($rootScope, $http, $resource, authService, Session, store, jwtHelper,md5,REST_SERVICE_URI) {
     // $http.defaults.useXDomain = true;
     return {
         login: function (userName, password, rememberMe, tipoLogin) {

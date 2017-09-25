@@ -21,10 +21,13 @@ function confirmationCtrl($scope, $state,LayouHomeService,productosService) {
         $scope.pagar=layout.pagar;
     });
     
-    var carro = productosService.getCarro();
-    $scope.subtotalval = carro.subtotal;
-    $scope.despachoval = carro.despacho;
-    $scope.totalval = carro.total;
+    $scope.carro = productosService.getCarro();
+        var totalfinal=0;
+        for(var producto in $scope.carro){
+            totalfinal+=$scope.carro[producto].total;
+        }
+        $scope.subtotalval = totalfinal;
+        $scope.totalval = totalfinal;
     $scope.redirect = function (go, name) {
         //$scope.titulo = (name != "") ? name : layout.texto7;
         $state.go(go);

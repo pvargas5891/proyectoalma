@@ -1,7 +1,7 @@
 'use strict';
 app.controller('loginCtrl', loginCtrl);
 
-function loginCtrl($rootScope,$scope,LayouHomeService2,authService,store,LayoutLoginService,AuthSharedService,Session,sessionService,$state,$cookieStore){
+function loginCtrl($rootScope,$scope,LayouHomeService2,authService,store,LayoutLoginService,AuthSharedService,Session,$state,$cookieStore){
 
 	var layout = LayouHomeService2.getLayout();
 	$scope.logoOficial = layout.logoOficial;

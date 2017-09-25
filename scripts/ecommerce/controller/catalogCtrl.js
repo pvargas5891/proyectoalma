@@ -7,23 +7,22 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         //$scope.listadoMenu=data.menues;
     });   */
     var layoutcatalogo = LayouHomeService.getLayout();
-    console.debug("layoutcatalogo");
-    console.debug(layoutcatalogo);
+
     layoutcatalogo.$promise.then(function(layout) {
     $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
-    $scope.logoOficial = layout.logoOficial;
-    $scope.listadoMenu = layout.listadoMenu;
-    $scope.login=layout.login;
-    $scope.email=layout.email;
-    $scope.password=layout.password;
-    $scope.entrar=layout.entrar;
-    $scope.recuperar=layout.recuperar;
-    $scope.copyright=layout.copyright;
-    $scope.titulo=layout.titulogeneral;
-    $scope.addcart=layout.addcart;
-    $scope.catalogo=layout.catalogo;
-    $scope.categorias=layout.categorias;
-    $scope.categorialabel=layout.categorialabel;
+        $scope.logoOficial = layout.logoOficial;
+        $scope.listadoMenu = layout.listadoMenu;
+        $scope.login=layout.login;
+        $scope.email=layout.email;
+        $scope.password=layout.password;
+        $scope.entrar=layout.entrar;
+        $scope.recuperar=layout.recuperar;
+        $scope.copyright=layout.copyright;
+        $scope.titulo=layout.titulogeneral;
+        $scope.addcart=layout.addcart;
+        $scope.catalogo=layout.catalogo;
+        $scope.categorias=layout.categorias;
+        $scope.categorialabel=layout.categorialabel;
     });
     var productoslistado = productosService.getProductos();
     productoslistado.$promise.then(function(productos) {
@@ -43,8 +42,7 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         var productosCarrito = new Array();
         $cookieStore.put('carrito',productosCarrito);    
     }
-    console.debug("carrito de catalog");
-    console.debug(productosCarrito);
+
     $scope.redirect = function (go, name) {
         //productosService.agregaCarro(id,)
         $state.go(go);
@@ -58,18 +56,5 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         //productosService.agregaCarro(id,)
         $state.go('cart');
     }
-    /*var changeLocation = function(url, forceReload) {
-		$scope = $scope || angular.element(document).scope();
-		if(forceReload || $scope.$$phase) {
-			window.location = url;
-		}
-		else {
-			//only use this if you want to replace the history stack
-			//$location.path(url).replace();
-
-			//this this if you want to change the URL and add it to the history stack
-			$location.path(url);
-			$scope.$apply();
-		}
-    };*/
+  
 }

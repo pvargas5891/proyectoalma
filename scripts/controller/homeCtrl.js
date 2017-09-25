@@ -1,7 +1,7 @@
 
 app.controller('homeCtrl', homeCtrl);
 
-function homeCtrl($scope, factoryTest, LayouHomeService2,sessionService, LayouHomeService, ResumenService, Session, $state,$cookieStore) {
+function homeCtrl($scope, factoryTest, LayouHomeService2, LayouHomeService, ResumenService, Session, $state,$cookieStore) {
 
      /*sessionService.rut = '15794539-4';
      sessionService.nombres = 'Pedro';

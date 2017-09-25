@@ -9,7 +9,7 @@ function misServiciosCtrl($rootScope,$scope,factoryTest,LayoutMisServiciosServic
 
 	var layoutservicios=LayoutMisServiciosService.getLayout();
 	layoutservicios.$promise.then(function(servicios) {
-		console.debug(servicios);
+
 		$scope.bolsastext=servicios.bolsas;
 		$scope.recargastext=servicios.recargas;
 		$scope.menu1=servicios.menu1;

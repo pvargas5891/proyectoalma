@@ -34,7 +34,9 @@
 					<th style="width: 1%;" class="uniformjs"></th>
 					<th style="width: 1%;" class="center">{{numero}}</th>
 					<th></th>
+					<th style="width: 50px;"></th>
 					<th style="width: 50px;">{{cantidad}}</th>
+					<th style="width: 50px;"></th>
 					<th style="width: 50px;"></th>
 					<th style="width: 80px;">{{precio}}</th>
 				</tr>
@@ -54,13 +56,22 @@
 							</div>
 						</div>
 					</td>
-					<td class="center"><input type="text" value="{{producto.cantidad}}" class="form-control input-block-level" style="margin: 0;width: 50px;" /></td>
 					<td class="center">
-						<button class="btn btn-primary btn-circle"><i class="fa fa-times"></i></button>
+						<button class="btn btn-secondary btn-circle" ng-click="menos(producto.id)"><i class="fa fa-minus"></i></button>
+					</td>
+					<td class="center">
+						<input type="text" value="{{producto.cantidad}}" class="form-control input-block-level" style="margin: 0;width: 50px;" disabled/>
+						
+					</td>
+					<td class="center">
+						<button class="btn btn-secondary btn-circle" ng-click="mas(producto.id)"><i class="fa fa-plus"></i></button>
+					</td>
+					<td class="center">
+						<button class="btn btn-primary btn-circle" ng-click="eliminarDelCarro(producto.id)"><i class="fa fa-times"></i></button>
 					</td>
 					
 					<td class="center">
-						<span class="strong">{{producto.total}}</span>
+						<span class="strong">$ {{producto.total}}</span>
 					</td>
 				</tr>
 				<!-- // Cart item END -->
@@ -83,14 +94,14 @@
 				<table class="table table-borderless table-condensed cart_total">
 					<tbody>
 						<tr>
-							<td class="right border-top-none">{{subtotal}}:</td>
+							<td class="right border-top-none">$ {{subtotal}}:</td>
 							<td class="right border-top-none strong">
-								<span class="text-primary">{{subtotalval}}</span>
+								<span class="text-primary">$ {{subtotalval}}</span>
 							</td>
 						</tr>						
 						<tr>
-							<td class="right">{{total}}:</td>
-							<td class="right strong">{{totalval}}</td>
+							<td class="right">$ {{total}}:</td>
+							<td class="right strong">$ {{totalval}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -99,7 +110,7 @@
 			
 			<div class="col-md-3">
 				<div class="box-generic padding-none text-center">
-					<p class="lead margin-none strong innerAll border-bottom">{{total}}: {{totalval}}</p>
+					<p class="lead margin-none strong innerAll border-bottom">{{total}}: $ {{totalval}}</p>
 					<div class="innerAll">
 						<a href="javascript:void(0);" ng-click="redirect('shipping')" class="btn btn-block btn-primary"><i class="fa fa-fw fa-check"></i> {{pagar}}</a>
 					</div>

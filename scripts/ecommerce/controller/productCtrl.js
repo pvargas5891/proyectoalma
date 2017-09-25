@@ -4,7 +4,7 @@ ecommerce.controller('productCtrl', productCtrl);
 function productCtrl($scope, $state,productosService,LayoutImagenTestService,LayouHomeService,$stateParams) {
     //console.debug($stateParams);
     var index = $stateParams.producto;
-   console.debug(index);
+    var productosCarroVisualtmp = "";
    if(!index){
        $scope.redirect('catalog');
        return;
@@ -15,6 +15,13 @@ function productCtrl($scope, $state,productosService,LayoutImagenTestService,Lay
         $scope.name=producto.name;
         $scope.descripcion=producto.descripcion;
         $scope.precioval = producto.precio;
+        productosCarroVisualtmp={
+            "id":index,
+            "name":producto.name,
+            "precio":producto.precio,
+            "descripcion":producto.descripcion,
+            "imagen":producto.imagen
+        }
     });
     var layoutserv = LayouHomeService.getLayout();
     layoutserv.$promise.then(function(layout) {
@@ -23,7 +30,7 @@ function productCtrl($scope, $state,productosService,LayoutImagenTestService,Lay
     });     
 
     $scope.agregaCarro = function (){
-        productosService.agregaCarro(index);
+        productosService.agregaCarro(productosCarroVisualtmp);
        $scope.redirect('cart');
     }
 
