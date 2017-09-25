@@ -274,8 +274,7 @@ app.service('LayoutLoginService', function  ($resource,REST_SERVICE_URI){
     this.getLayout = function (){
 
         var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutLoginService').get({});
-        console.debug("layoutResource");
-        console.debug(layoutResource);
+
         return layoutResource;
 
         /*var objeto = {
@@ -293,7 +292,7 @@ app.service('LayoutLoginService', function  ($resource,REST_SERVICE_URI){
     }
     return this;
 });
-app.service('LayoutRegistroService', function  (REST_SERVICE_URI,$resource){
+app.service('LayoutRegistroService', function  (REST_SERVICE_URI,$resource,$http){
     this.getLayout = function (){
         var layoutResource = $resource(REST_SERVICE_URI.service + '/public/LayoutRegistroService').get({});
         //console.debug("layoutResource");
@@ -311,6 +310,28 @@ app.service('LayoutRegistroService', function  (REST_SERVICE_URI,$resource){
 
         return objeto;
     }
+    this.getLineasMaestras= function(codigo,tipo){
+         var layoutResource = $resource(REST_SERVICE_URI.service + '/public/registra/'+codigo+'/'+tipo).get({});
+        //console.debug("layoutResource");
+        //console.debug(layoutResource);
+        return layoutResource;
+    }
+
+    this.setRegistroCliente = function (data,successCallback,errorCallback){
+
+
+        var req = {
+                method: 'POST',
+                url: REST_SERVICE_URI.service + '/public/registra',
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                data: data
+            };
+        return $http(req).then(successCallback, errorCallback);
+
+    }
+
     return this;
 });
 app.service('LayoutRecoveryService', function  (REST_SERVICE_URI,$resource){

@@ -18,7 +18,7 @@ function homeCtrl($scope, factoryTest, LayouHomeService2, LayouHomeService, Resu
     $scope.numeros = numerosTmp[0];
     
     $scope.numeroSeleccionado =  $scope.numeros[0].numero;
-    console.debug($scope.numeroSeleccionado);
+
     $scope.textoPagado=$cookieStore.get('textoPagado');
     var estado = $cookieStore.get('estado');
     if(estado==1){

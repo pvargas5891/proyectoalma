@@ -35,22 +35,109 @@
 
                     <div class="p-3">
                         <form class="form-horizontal m-t-20" action="index.html">
+                            <div class="form-group row">                              
+                            
+                                <label class="radio-inline">
+                                    <input type="radio" name="options" id="option1" ng-model="tipo" value="0"> Numero de celular
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="options" id="option3" ng-model="tipo" value="1"> Codigo Cliente
+                                </label>
 
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12 text-center">                                    
+                                    <input class="form-control" type="text" ng-model="codigobusqueda"><br>
+                                    <button class="btn btn-primary" type="button" ng-click="registrar1()">Registrar</button>
+                                </div>
+                            </div> 
+                          <div ng-show="mostrarDatos">  
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="email" required="" placeholder="{{email}}">
+                                    <table class="table">
+                                                <thead>
+                                                <tr>                                                    
+                                                    <th>Tipo de Linea</th>
+                                                    <th>Numero de celular</th>
+                                                    <th>Indique Linea Maestra</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr ng-repeat="celular in celulares">
+                                                    <td>{{celular.tipo}}</td>
+                                                    <td>{{celular.numero}}</td>
+                                                    <td><input type="radio" name="numerocheck" ng-model="numeromaestra" value="{{celular.numero}}"/></td>
+                                                </tr>                                                
+                                                </tbody>
+                                            </table>
+                                </div>    
+                            </div>   
+                             <div class="form-group row">
+                                <div class="col-12">
+                                    Codigo de Cliente Esmero<br>
+                                    <input class="form-control" type="text" ng-model="codigoclienteesmero">
+                                </div>
+                            </div> 
+                            
+                             <div class="form-group row">
+                                <div class="col-12">
+                                    Numero de identificación<br>
+                                    <input class="form-control" type="text" ng-model="numeroidentificacion">
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" placeholder="{{username}}">
+                                    Nombres<br>
+                                    <input class="form-control" type="text" ng-model="nombres">
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" required="" placeholder="{{password}}">
+                                    Apellidos<br>
+                                    <input class="form-control" type="text" ng-model="apellidos">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    {{emailtext}}<br>
+                                    <input class="form-control" type="email" ng-model="email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    Comuna<br>
+                                    <select class="custom-select" ng-model="comuna">
+                                                        <option selected="">Open this select menu</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    Region<br>
+                                    <select class="custom-select" ng-model="region">
+                                                        <option selected="">Open this select menu</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    Telefono Fijo<br>
+                                    <input class="form-control" type="text" ng-model="telefonofijo">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    Fecha de nacimiento<br>
+                                    <input class="form-control" type="date" ng-model="fechanacimiento" value="2011-08-19" id="example-date-input">
                                 </div>
                             </div>
 
@@ -66,10 +153,10 @@
 
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12">
-                                    <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{enviar}}</button>
+                                    <button class="btn btn-primary btn-block waves-effect waves-light" type="button" ng-click="registrarFinal()">{{enviar}}</button>
                                 </div>
                             </div>
-
+                          </div>
                             <div class="form-group m-t-10 mb-0 row">
                                 <div class="col-12 m-t-20 text-center">
                                     <a href="login.html" class="text-muted">{{yatienecuenta}}</a>
