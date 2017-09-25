@@ -65,7 +65,7 @@
                                                 <tr ng-repeat="celular in celulares">
                                                     <td>{{celular.tipo}}</td>
                                                     <td>{{celular.numero}}</td>
-                                                    <td><input type="radio" name="numerocheck" ng-model="numeromaestra" value="{{celular.numero}}"/></td>
+                                                    <td><input type="radio" name="numerocheck" ng-model="numeromaestra" ng-click="valoractualmaestra(celular.numero)" value="{{celular.numero}}"/></td>
                                                 </tr>                                                
                                                 </tbody>
                                             </table>

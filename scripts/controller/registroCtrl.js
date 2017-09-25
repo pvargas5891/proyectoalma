@@ -40,6 +40,11 @@ function registroCtrl($rootScope,$scope,LayouHomeService2,LayoutRegistroService,
 			$scope.telefonofijo=data.telefono;
 		});
 	}
+	$scope.valorultimomaestra=0;
+	$scope.valoractualmaestra=function(data){
+		//console.debug(data);
+		$scope.valorultimomaestra=data;
+	}
 	$scope.registrarFinal=function(){
 		/*$scope.numeromaestra;
 		$scope.codigoclienteesmero;
@@ -55,7 +60,7 @@ function registroCtrl($rootScope,$scope,LayouHomeService2,LayoutRegistroService,
 		var data = {
 			paramUsuario: $scope.codigoclienteesmero,
 			tipoUsuario: $scope.tipo,
-			numMaestro: $scope.numeromaestra,
+			numMaestro: $scope.valorultimomaestra,
 			codCliente: $scope.codigoclienteesmero,
 			numIdent: $scope.numeroidentificacion,
 			nombre: $scope.nombres,
@@ -68,11 +73,27 @@ function registroCtrl($rootScope,$scope,LayouHomeService2,LayoutRegistroService,
 				function(response) {          
 					console.debug("response");                           
 					console.debug(response);
+					alert("Se ha registrado correctamente!");
+					changeLocation('login.html',true);
                 },
                 function(e) {
 					 console.debug("response e");
 					 console.debug(e);
+					 alert(e.data); 
                 });
 	}
+	var changeLocation = function(url, forceReload) {
+		$scope = $scope || angular.element(document).scope();
+		if(forceReload || $scope.$$phase) {
+			window.location = url;
+		}
+		else {
+			//only use this if you want to replace the history stack
+			//$location.path(url).replace();
 
+			//this this if you want to change the URL and add it to the history stack
+			$location.path(url);
+			$scope.$apply();
+		}
+    };
 }
