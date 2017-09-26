@@ -17,6 +17,11 @@ function cartCtrl($scope, $state,LayouHomeService,productosService,LayoutImagenT
         });
 
         $scope.carro = productosService.getCarro();
+        //console.debug($scope.carro);192.168.3.117
+
+        if($scope.carro.length==0){
+            $state.go('catalog');
+        }
         var totalfinal=0;
         for(var producto in $scope.carro){
             totalfinal+=$scope.carro[producto].total;

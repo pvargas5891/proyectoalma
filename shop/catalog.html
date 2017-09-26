@@ -11,7 +11,7 @@
 					<div ng-repeat="producto in productos">
 						<div class="col-lg-9 col-md-8 padding-none">
 							<a href="javascript:void(0);" ng-click="redirectdetalle(producto)">
-								<img data-ng-src="{{celular}}" alt="photo" class="img-responsive" />
+								<img data-ng-src="{{producto.imagen}}" alt="photo" class="img-responsive" />
 							</a>
 						</div>
 						<div class="col-lg-3 col-md-4 padding-none">
@@ -68,7 +68,7 @@
 					</div>
 				</div>
 								<div class="widget-body padding-none">
-					<a href="javascript:void(0);" ng-click="redirectdetalle(producto)" class="thumb"><img data-ng-src="{{celular}}" alt="" class="img-responsive"></a>
+					<a href="javascript:void(0);" ng-click="redirectdetalle(producto)" class="thumb"><img data-ng-src="{{producto.imagen}}" alt="" class="img-responsive"></a>
 					<div class="description">
 						<a href="javascript:void(0);" ng-click="redirectdetalle(producto)" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
 						<h5 class="text-uppercase">{{producto.name}}</h5>

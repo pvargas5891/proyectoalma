@@ -35,35 +35,63 @@
 
 			  	<div class="tab-content innerAll inner-2x">
 					<div class="tab-pane active" id="one">
-						<div class="innerAll inner-2x">
+						<div class="innerAll inner-2x">							
 							<form action="" class="form-horizontal">
-								<div class="form-group">
-									<label for="inputName" class="col-sm-3 control-label">{{nombres}}</label>
-									<div class="col-sm-6">
-										<input type="text" class="form-control" id="inputEmail3">
-									</div>
+								<div class="col-md-12">
+										<div class="col-md-6">
+											<input type="radio" style="width: 22px;" name="options" ng-click="versiescliente()" class="form-control" id="option1" ng-model="escliente" value="0"> Eres cliente
+										</div>
+										<div class="col-md-6">
+											<input type="radio" name="options" style="width: 22px;" class="form-control" ng-click="versiescliente()" id="option3" ng-model="escliente" value="1"> No eres cliente
+										</div>
 								</div>
-								<div class="form-group">
-									<label for="inputName" class="col-sm-3 control-label">{{apellidos}}</label>
-									<div class="col-sm-6">
-										<input type="text" class="form-control" id="inputEmail3">
+								<div ng-show="sicliente">
+									<div class="form-group">
+										<label for="inputName" class="col-sm-3 control-label">Usuario</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="inputEmail3" ng-model="usuariologin">
+										</div>
 									</div>
+									<div class="form-group">
+										<label for="inputName" class="col-sm-3 control-label">Password</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="inputEmail3" ng-model="passwordlogin">
+										</div>
+									</div>
+								</div>	
+								<div ng-show="nocliente">
+									<div class="form-group">
+										<label for="inputName" class="col-sm-3 control-label">{{nombres}}</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="inputEmail3" ng-model="nombresvalue">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputName" class="col-sm-3 control-label">{{apellidos}}</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="inputEmail3" ng-model="apellidosvalue">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputName" class="col-sm-3 control-label">{{direccion}}</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="inputEmail3" ng-model="direccionvalue">
+										</div>
+									</div>	
+									<div class="form-group">
+										<label for="inputName" class="col-sm-3 control-label">Telefono</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="inputEmail3" ng-model="telefonovalue">
+										</div>
+									</div>
+															
+									<div class="form-group">
+										<label for="inputName" class="col-sm-3 control-label">{{adicionales}}</label>
+										<div class="col-sm-6">
+											<textarea class="form-control" ng-model="adicionalesvalue"></textarea>
+										</div>
+									</div>								
 								</div>
-								<div class="form-group">
-									<label for="inputName" class="col-sm-3 control-label">{{direccion}}</label>
-									<div class="col-sm-6">
-										<input type="text" class="form-control" id="inputEmail3">
-										<div class="separator"></div>
-										<input type="text" class="form-control" id="inputEmail3">
-									</div>
-								</div>								
-								<div class="form-group">
-									<label for="inputName" class="col-sm-3 control-label">{{adicionales}}</label>
-									<div class="col-sm-6">
-										<textarea class="form-control"></textarea>
-									</div>
-								</div>								
-								
 							</form>
 						</div>
 					</div>
@@ -129,7 +157,7 @@
 				<div class="box-generic padding-none text-center">
 					<p class="lead margin-none strong innerAll border-bottom">{{total}}: {{totalval}}</p>
 					<div class="innerAll">
-						<a href="javascript:void(0);" ng-click="redirect('payment')" class="btn btn-block btn-primary"><i class="fa fa-fw fa-edit"></i> {{pagar}}</a>
+						<a href="javascript:void(0);" ng-click="generarpago()" class="btn btn-block btn-primary"><i class="fa fa-fw fa-edit"></i> {{pagar}}</a>
 					</div>
 				</div>
 			</div>

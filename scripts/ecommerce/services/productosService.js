@@ -1,10 +1,10 @@
 'use strict';
 
 
-ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$resource,$cookieStore){
+ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$resource,$cookieStore,md5){
     this.getProductos = function (categoria){
 
-        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductosYDestacadosService').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductosYDestacadosService/zona/categoria/16/1').get({});
             
         return layoutResource;
 
@@ -69,7 +69,7 @@ ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$reso
             nuevocarrito.push(productos);
         }
         if(contieneElemento==0){
-            productosCantidad.push(producto.id);
+            productosCantidad.push(producto);
             productosCantidad.push(1);
             nuevocarrito.push(productosCantidad);
         }
@@ -83,16 +83,19 @@ ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$reso
         var productosCarroVisual= [];
         var objectretornado ="";
         var productosCarrito=$cookieStore.get("carrito");
+        console.debug(productosCarrito);
         var totalfinal=0;
         for (var x=0;x< productosCarrito.length;x++){
 
             var productos=productosCarrito[x];   
             console.debug(productos);             
             var total=productos[0].precio;
-            total=total.replace("$","");
-            total=total.replace(".","");
-            total=total.trim();
-            
+            console.debug(total);
+            if (typeof total === 'string') {
+                total=total.replace("$","");
+                total=total.replace(".","");
+                total=total.trim();
+            }
             var productosCarroVisualtmp={
                 "id":productos[0].id,
                 "name":productos[0].name,
@@ -112,7 +115,19 @@ ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$reso
         return productosCarroVisual;
     }
 
+    this.autenticacionEscliente = function(userName, password){
+        var config = {
+                ignoreAuthModule: 'ignoreAuthModule',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}                
+            };
 
+            return $http.post(REST_SERVICE_URI.service + '/authenticate', $.param({
+                username: userName,
+                password: md5.createHash(password || ''),
+                rememberme: false,
+                tipoLogin: 0
+            }), config);
+    }
     return this;
 });
 

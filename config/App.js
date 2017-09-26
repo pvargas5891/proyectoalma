@@ -13,7 +13,7 @@ var app = angular.module('Alma',
 	]);
 
 	app.constant('REST_SERVICE_URI',{
-    service: 'http://190.82.85.187:8080/SmeroSecureRESTApi'
+    service: 'http://192.168.3.117:8080/SmeroSecureRESTApi'
 });
 
 //var REST_SERVICE_URI = 'http://127.0.0.1:8080/SmeroSecureRESTApi';

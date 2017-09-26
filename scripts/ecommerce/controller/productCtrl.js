@@ -11,7 +11,7 @@ function productCtrl($scope, $state,productosService,LayoutImagenTestService,Lay
    }
     var productotab = productosService.getProducto(index);
     productotab.$promise.then(function(producto) {
-        $scope.imagen=LayoutImagenTestService.getStandar();
+        $scope.imagen=producto.imagen;
         $scope.name=producto.name;
         $scope.descripcion=producto.descripcion;
         $scope.precioval = producto.precio;
@@ -19,8 +19,7 @@ function productCtrl($scope, $state,productosService,LayoutImagenTestService,Lay
             "id":index,
             "name":producto.name,
             "precio":producto.precio,
-            "descripcion":producto.descripcion,
-            "imagen":producto.imagen
+            "descripcion":producto.descripcion
         }
     });
     var layoutserv = LayouHomeService.getLayout();
@@ -30,6 +29,7 @@ function productCtrl($scope, $state,productosService,LayoutImagenTestService,Lay
     });     
 
     $scope.agregaCarro = function (){
+        console.debug(productosCarroVisualtmp);
         productosService.agregaCarro(productosCarroVisualtmp);
        $scope.redirect('cart');
     }
