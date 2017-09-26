@@ -31,7 +31,14 @@ function confirmationCtrl($scope, $state,LayouHomeService,productosService, $coo
 
    
     var despacho= $cookieStore.get('despacho');
-    productosService.generarDespacho(despacho); 
+    productosService.generarDespacho(despacho,				
+				function(response) {                                     
+					console.debug(response);
+					//alert(response.data.descRetorno);
+                },
+                function(e) {
+                     
+                });
     $scope.redirect = function (go, name) {
         //$scope.titulo = (name != "") ? name : layout.texto7;
         $state.go(go);

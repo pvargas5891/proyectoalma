@@ -13,7 +13,7 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
         $scope.logoOficial = layout.logoOficial;
         //console.debug(layout.listadoMenu);
-        $scope.listadoMenu = layout.listadoMenu;
+        $scope.listadoMenu = layout.listadoCategoria;
         $scope.login=layout.login;
         $scope.email=layout.email;
         $scope.password=layout.password;
@@ -23,7 +23,7 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         $scope.titulo=layout.titulogeneral;
         $scope.addcart=layout.addcart;
         $scope.catalogo=layout.catalogo;
-        $scope.categorias=layout.listadoMenu;
+        $scope.categorias=layout.listadoCategoria;
         $scope.categorialabel=layout.categorialabel;
     });
     var productoslistado = productosService.getProductos(1,1);

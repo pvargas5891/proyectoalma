@@ -128,8 +128,17 @@ ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$reso
                 tipoLogin: 0
             }), config);
     }
-    this.generarDespacho=function(despacho){
+    this.generarDespacho=function(despacho,successCallback, errorCallback){
         console.debug(despacho);
+        var req = {
+                method: 'POST',
+                url: REST_SERVICE_URI.service + '/public/DatosBancariosService',
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                data: despacho
+            };
+        return $http(req).then(successCallback, errorCallback);
     }    
     return this;
 });
