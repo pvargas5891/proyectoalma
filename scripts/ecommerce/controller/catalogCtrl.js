@@ -28,7 +28,12 @@ function catalogCtrl($scope,$stateParams, $state,$cookieStore, LayouHomeService,
     });
     if($stateParams.cat === undefined)
         $stateParams.cat = 1;
-    var productoslistado = productosService.getProductos($stateParams.cat,1);
+
+    var zonaGeo=$cookieStore.get('zonaGeo');
+    if(zonaGeo === undefined){
+        zonaGeo=1;
+    }    
+    var productoslistado = productosService.getProductos($stateParams.cat,zonaGeo);
     productoslistado.$promise.then(function(productos) {
         
         $scope.productosDestacados = productos.productosDestacados;
