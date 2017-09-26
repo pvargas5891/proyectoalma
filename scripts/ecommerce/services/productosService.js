@@ -2,9 +2,9 @@
 
 
 ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$resource,$cookieStore,md5){
-    this.getProductos = function (categoria){
+    this.getProductos = function (categoria,zona){
 
-        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductosYDestacadosService/zona/categoria/16/1').get({});
+        var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductosYDestacadosService/zona/categoria/'+zona+'/'+categoria).get({});
             
         return layoutResource;
 
@@ -128,6 +128,9 @@ ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$reso
                 tipoLogin: 0
             }), config);
     }
+    this.generarDespacho=function(despacho){
+        console.debug(despacho);
+    }    
     return this;
 });
 

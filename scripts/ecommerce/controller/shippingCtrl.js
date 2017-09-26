@@ -47,39 +47,53 @@ function shippingCtrl($scope, $state,LayouHomeService,productosService,$cookieSt
     $scope.generarpago= function (){
         $cookieStore.put('despacho',"");
         var datosDespacho="";
+        var carro = productosService.getCarro();
+                //console.debug(carro);
+        var carroFinal = [];
+        for(var x in carro){
+            console.debug(carro[x]);
+            var enviar={
+                "productoId":carro[x].id,
+                "cantidad":carro[x].cantidad
+            }
+            carroFinal.push(enviar);
+        }
         if($scope.escliente==1){
             datosDespacho={
                 "escliente":false,
+                "codigocliente":"",
                 "nombresvalue":$scope.nombresvalue,
                 "apellidosvalue":$scope.apellidosvalue,
                 "direccionvalue":$scope.direccionvalue,
                 "telefonovalue":$scope.telefonovalue,
-                "adicionalesvalue":$scope.adicionalesvalue
+                "adicionalesvalue":$scope.adicionalesvalue,
+                "carro":carroFinal
             }
              $cookieStore.put('despacho',datosDespacho);
              $scope.redirect('payment');
         }else{
-            //$scope.usuariologin
-            //$scope.passwordlogin
+
             productosService.autenticacionEscliente($scope.usuariologin,$scope.passwordlogin).then(
 			function(data, status, headers, config, response) {
-				//console.log('autenticacion OK config');
-				//console.log(data.config);
-				//console.log('Cookie END');
-				
-				//console.log("data login");
-                //console.log(data);	
+					
                 if(data.login==""){
                     alert("No se ha podido encontrar tus datos, intenta nuevamente");
                     return;
-                }			
+                }	
+                
 				var datosDespacho={
                     "escliente":true,
-                    "codigocliente":data.login
+                    "codigocliente":data.login,
+                     "nombresvalue":"",
+                    "apellidosvalue":"",
+                    "direccionvalue":"",
+                    "telefonovalue":"",
+                    "adicionalesvalue":"",
+                    "carro":carroFinal
                 }
                 $cookieStore.put('despacho',datosDespacho);
                 $scope.redirect('payment');
-			  // success callback
+
 			}, 
 			function(data, status, headers, config) {
                 alert("No se ha podido encontrar tus datos, intenta nuevamente");

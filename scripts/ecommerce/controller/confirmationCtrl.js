@@ -1,7 +1,7 @@
 
 ecommerce.controller('confirmationCtrl', confirmationCtrl);
 
-function confirmationCtrl($scope, $state,LayouHomeService,productosService) {
+function confirmationCtrl($scope, $state,LayouHomeService,productosService, $cookieStore) {
     
     var confirmacionlayout = LayouHomeService.getLayout();
     confirmacionlayout.$promise.then(function(layout) {
@@ -28,6 +28,10 @@ function confirmationCtrl($scope, $state,LayouHomeService,productosService) {
         }
         $scope.subtotalval = totalfinal;
         $scope.totalval = totalfinal;
+
+   
+    var despacho= $cookieStore.get('despacho');
+    productosService.generarDespacho(despacho); 
     $scope.redirect = function (go, name) {
         //$scope.titulo = (name != "") ? name : layout.texto7;
         $state.go(go);
