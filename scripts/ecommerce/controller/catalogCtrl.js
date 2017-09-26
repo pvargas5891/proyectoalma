@@ -1,7 +1,7 @@
 
 ecommerce.controller('catalogCtrl', catalogCtrl);
 
-function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenTestService,productosService) {
+function catalogCtrl($scope,$stateParams, $state,$cookieStore, LayouHomeService,LayoutImagenTestService,productosService) {
    /*LayouHomeService.getLayout().$promise.then(function (data) {
         console.debug(data);
         //$scope.listadoMenu=data.menues;
@@ -13,7 +13,7 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         $scope.sucursalonlineImagen = layout.imagenSucursalOnline;
         $scope.logoOficial = layout.logoOficial;
         //console.debug(layout.listadoMenu);
-        $scope.listadoMenu = layout.listadoCategoria;
+        $scope.listadoMenu = layout.listadoCategorias;
         $scope.login=layout.login;
         $scope.email=layout.email;
         $scope.password=layout.password;
@@ -23,10 +23,12 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         $scope.titulo=layout.titulogeneral;
         $scope.addcart=layout.addcart;
         $scope.catalogo=layout.catalogo;
-        $scope.categorias=layout.listadoCategoria;
+        $scope.categorias=layout.listadoCategorias;
         $scope.categorialabel=layout.categorialabel;
     });
-    var productoslistado = productosService.getProductos(1,1);
+    if($stateParams.cat === undefined)
+        $stateParams.cat = 1;
+    var productoslistado = productosService.getProductos($stateParams.cat,1);
     productoslistado.$promise.then(function(productos) {
         
         $scope.productosDestacados = productos.productosDestacados;
@@ -44,18 +46,12 @@ function catalogCtrl($scope, $state,$cookieStore, LayouHomeService,LayoutImagenT
         var productosCarrito = new Array();
         $cookieStore.put('carrito',productosCarrito);    
     }
+    $scope.checkValue1 = function(id) {
+        return $stateParams.cat === id;
+    }
 
-    $scope.redirect = function (categoria) {
-        //productosService.agregaCarro(id,)
-        console.debug(categoria);
-        var productoslistado = productosService.getProductos(categoria.id,1);
-        productoslistado.$promise.then(function(productos) {
-        
-            $scope.productosDestacados = productos.productosDestacados;
-            $scope.productos = productos.productos;
-
-        }); 
-       // $state.go(go);
+    $scope.redirect = function (categoria) {  
+        $state.go('catalog',{'cat': categoria.id});
     }
     $scope.redirectdetalle = function (product) {
         console.debug(product);

@@ -3,7 +3,7 @@
 
 ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$resource,$cookieStore,md5){
     this.getProductos = function (categoria,zona){
-
+        
         var layoutResource = $resource(REST_SERVICE_URI.service + '/public/EcommerceProductosYDestacadosService/zona/categoria/'+zona+'/'+categoria).get({});
             
         return layoutResource;

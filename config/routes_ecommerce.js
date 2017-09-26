@@ -4,7 +4,10 @@ ecommerce.config(function($stateProvider, $urlRouterProvider){
             .state("catalog", {
                 url: "/catalog",
                 controller: "catalogCtrl",
-                templateUrl: "shop/catalog.html"
+                templateUrl: "shop/catalog.html",
+                 params: {
+                    'cat': 1
+                  }
             }).state("cart", {
                 url: "/cart",
                 controller: "cartCtrl",

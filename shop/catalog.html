@@ -48,7 +48,7 @@
 			<div class="col-md-3" data-animate="fadeInRight" data-delay="200">
 					<h5 class="">{{categorialabel}}</h5>
 					<ul class="list-group list-group-front">
-				  <li ng-repeat="menu in categorias" class="list-group-item {{menu.active}}">
+				  <li ng-repeat="menu in categorias" class="list-group-item" ng-class="{active: checkValue1(menu.id)}">
 					  <a href="javascript:void(0);" ng-click="redirect(menu)" class="waves-effect"><i class="{{menu.icono}}"></i> <span> {{menu.name}} </span> </a>                                
 				  </li>
 			  </ul>
