@@ -83,14 +83,14 @@ ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$reso
         var productosCarroVisual= [];
         var objectretornado ="";
         var productosCarrito=$cookieStore.get("carrito");
-        console.debug(productosCarrito);
+        //console.debug(productosCarrito);
         var totalfinal=0;
         for (var x=0;x< productosCarrito.length;x++){
 
             var productos=productosCarrito[x];   
-            console.debug(productos);             
+            //console.debug(productos);             
             var total=productos[0].precio;
-            console.debug(total);
+            //console.debug(total);
             if (typeof total === 'string') {
                 total=total.replace("$","");
                 total=total.replace(".","");
@@ -132,7 +132,7 @@ ecommerce.service('productosService', function  ($http,$q,REST_SERVICE_URI,$reso
         console.debug(despacho);
         var req = {
                 method: 'POST',
-                url: REST_SERVICE_URI.service + '/public/DatosBancariosService',
+                url: REST_SERVICE_URI.service + '/public/EcommerceProductoService/compra',
                 headers: {
                     'Content-Type': "application/json"
                 },

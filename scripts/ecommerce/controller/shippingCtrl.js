@@ -80,10 +80,10 @@ function shippingCtrl($scope, $state,LayouHomeService,productosService,$cookieSt
                     alert("No se ha podido encontrar tus datos, intenta nuevamente");
                     return;
                 }	
-                
+                //console.debug(data.login);
 				var datosDespacho={
                     "escliente":true,
-                    "codigocliente":data.login,
+                    "codigocliente":$scope.usuariologin,
                      "nombresvalue":"",
                     "apellidosvalue":"",
                     "direccionvalue":"",

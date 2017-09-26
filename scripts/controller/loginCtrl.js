@@ -5,7 +5,7 @@ function loginCtrl($rootScope,$scope,LayouHomeService2,authService,store,LayoutL
 
 	var layout = LayouHomeService2.getLayout();
 	$scope.logoOficial = layout.logoOficial;
-	$scope.user=5525627;
+	//$scope.user=5525627;
 	//$scope.pass=1234;
 	var layoutLoginSrc = LayoutLoginService.getLayout();
 	//console.debug(layoutLogin);

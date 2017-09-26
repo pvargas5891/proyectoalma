@@ -34,7 +34,9 @@ function confirmationCtrl($scope, $state,LayouHomeService,productosService, $coo
     productosService.generarDespacho(despacho,				
 				function(response) {                                     
 					console.debug(response);
-					//alert(response.data.descRetorno);
+                    //alert(response.data.descRetorno);
+                    var productosCarrito = new Array();
+                    $cookieStore.put('carrito',productosCarrito);  
                 },
                 function(e) {
                      
