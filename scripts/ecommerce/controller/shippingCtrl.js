@@ -67,14 +67,18 @@ function shippingCtrl($scope, $state,LayouHomeService,productosService,$cookieSt
 				//console.log(data.config);
 				//console.log('Cookie END');
 				
-				console.log("data login");
-				console.log(data);				
+				//console.log("data login");
+                //console.log(data);	
+                if(data.login==""){
+                    alert("No se ha podido encontrar tus datos, intenta nuevamente");
+                    return;
+                }			
 				var datosDespacho={
                     "escliente":true,
-                    "codigocliente":1
+                    "codigocliente":data.login
                 }
                 $cookieStore.put('despacho',datosDespacho);
-                //$scope.redirect('payment');
+                $scope.redirect('payment');
 			  // success callback
 			}, 
 			function(data, status, headers, config) {
