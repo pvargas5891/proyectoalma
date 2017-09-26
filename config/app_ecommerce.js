@@ -13,8 +13,8 @@ var ecommerce = angular.module('ecommerce',
 	]);
 
 ecommerce.constant('REST_SERVICE_URI',{
-    service: 'http://192.168.3.117:8080/SmeroSecureRESTApi'
-    //service: 'http://190.82.85.187:8080/SmeroSecureRESTApi'
+    //service: 'http://192.168.3.117:8080/SmeroSecureRESTApi'
+    service: 'http://190.82.85.187:8080/SmeroSecureRESTApi'
     //service: 'http://192.168.0.97:8080/SmeroSecureRESTApi'
 });
 
